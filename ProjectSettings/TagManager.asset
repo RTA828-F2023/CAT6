@@ -8,6 +8,7 @@ TagManager:
   - DeathPit
   - PowerUp
   - Interactable
+  - Enemy
   layers:
   - Default
   - TransparentFX
