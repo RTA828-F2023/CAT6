@@ -13,15 +13,17 @@ public class Enemy : MonoBehaviour  {
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        Launch();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
-    private void FixedUpdate() {
-        body.velocity = new Vector2(-speed, -speed);
+    private void Launch() {
+        float x = 1;
+        float y = 1;
+        body.velocity = new Vector2(speed * x, speed * y);
     }
 }
