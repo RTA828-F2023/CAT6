@@ -8,6 +8,8 @@ TagManager:
   - DeathPit
   - PowerUp
   - Interactable
+  - Enemy
+  - EnemyProjectile
   layers:
   - Default
   - TransparentFX
@@ -15,7 +17,7 @@ TagManager:
   - PostProcessing
   - Water
   - UI
-  - 
+  - Enemies
   - 
   - 
   - 
