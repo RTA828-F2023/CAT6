@@ -208,4 +208,18 @@ public class Player : MonoBehaviour
         // TODO: Check if all players are dead -> game over
         GameController.Instance.StartCoroutine(GameController.Instance.CheckPlayerCount());
     }
+
+    private void OnCollisionEnter2D(Collision2D other) 
+    {
+        //If collides with an Enemy
+        if (other.collider.CompareTag("Enemy") || other.collider.CompareTag("EnemyProjectile"))
+        {
+            _currentHealth--;
+            UpdateHealthDisplay();
+
+            if (_currentHealth > 0) Reset();
+            else Die();
+        }
+    }
+
 }
