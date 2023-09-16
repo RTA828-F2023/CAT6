@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class ShootingEnemy : MonoBehaviour
 {
+    [Header("Intelligence")]
+    [SerializeField] private bool seeThroughWalls = false;
+
+    [Header("Shooting Stats")]
+    [SerializeField] private int fireRate = 1;
+    [SerializeField] private float fireDelay = 0.25f;
     [SerializeField] private float fireRecoveryTime;
     [SerializeField] private float fireForce;
-    [SerializeField] private EnemyProjectile projectilePrefab;
+    public EnemyProjectile projectilePrefab;
 
     private GameObject _closestPlayer;
     private bool _canFire = true;
@@ -31,16 +37,31 @@ public class ShootingEnemy : MonoBehaviour
     private void Fire()
     {
         if (!_canFire) return;
-
-        FindClosestPlayerWithTag();
-        Vector2 directionToClosestPlayer = (_closestPlayer.transform.position - transform.position).normalized;
-
-        var projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-        projectile.Init(directionToClosestPlayer, fireForce);
+      
+        StartCoroutine(SequentialFireWithDelay(fireDelay));
 
         // Down time before player can fire again
         _canFire = false;
         StartCoroutine(RecoverFire(fireRecoveryTime));
+    }
+
+    private IEnumerator SequentialFireWithDelay(float bulletDelay) 
+    {
+        for (int i = 0; i < fireRate; i++)
+        {
+            FindClosestPlayerWithTag();
+
+            if (HasLineOfSight() || seeThroughWalls)
+            {
+                Vector2 directionToClosestPlayer = (_closestPlayer.transform.position - transform.position).normalized;
+
+                var projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+                projectile.Init(directionToClosestPlayer, fireForce);
+
+            }
+            yield return new WaitForSeconds(bulletDelay);
+
+        }
     }
 
     private IEnumerator RecoverFire(float time)
@@ -78,5 +99,28 @@ public class ShootingEnemy : MonoBehaviour
         FindClosestPlayerWithTag();
     }
 
+    #endregion
+
+    #region Line Of Sight
+    private bool HasLineOfSight() 
+    {
+        Vector2 direction = transform.position - _closestPlayer.transform.position;
+        RaycastHit2D hit = Physics2D.Raycast(_closestPlayer.transform.position, direction, direction.magnitude);
+
+        // Layer mask to filter out objects you want to be considered as obstacles (e.g., walls).
+        int layerMask = LayerMask.GetMask("Terrain");
+
+        // Check if the ray hits any obstacles.
+        if (hit.collider != null && (layerMask & (1 << hit.collider.gameObject.layer)) != 0)
+        {
+            // A collision occurred; there is no direct line of sight.
+            return false;
+        }
+        else
+        {
+            // No collision; there is a direct line of sight.
+            return true;
+        }
+    }
     #endregion
 }
