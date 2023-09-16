@@ -58,7 +58,6 @@ public class EnemyProjectile : MonoBehaviour
     {
         if (other.transform.CompareTag("Enemy"))
         {
-            Debug.Log("Hit");
             Physics2D.IgnoreCollision(GetComponent<Collider2D>(), other.collider, true);
         }
 
