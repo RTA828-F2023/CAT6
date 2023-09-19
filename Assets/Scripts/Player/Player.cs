@@ -218,11 +218,14 @@ public class Player : MonoBehaviour
 
         isControllable = false;
         isDead = true;
+        gameObject.SetActive(false);
         GameController.Instance.StartCoroutine(GameController.Instance.CheckWinCondition());
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        // If moves off screen
         if (other.CompareTag("DeathPit"))
         {
             _currentHealth--;
@@ -232,4 +235,18 @@ public class Player : MonoBehaviour
             else Die();
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D other) 
+    {
+        //If collides with an Enemy
+        if (other.collider.CompareTag("Enemy") || other.collider.CompareTag("EnemyProjectile"))
+        {
+            _currentHealth--;
+            UpdateHealthDisplay();
+
+            if (_currentHealth > 0) Reset();
+            else Die();
+        }
+    }
+
 }
