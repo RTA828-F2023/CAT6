@@ -23,8 +23,6 @@ public class GameController : MonoBehaviour
 
     #endregion
 
-    [SerializeField] private Transform winnerDisplay;
-
     private MainCamera _mainCamera;
 
     private VolumeProfile _volumeProfile;
@@ -84,37 +82,6 @@ public class GameController : MonoBehaviour
     }
 
     #endregion
-
-    public IEnumerator CheckWinCondition()
-    {
-        // Has to wait til the next frame so that the player is fully destroyed
-        yield return new WaitForEndOfFrame();
-
-        // Check for last-man-standing -> winner
-        var playerAliveCount = 0;
-        var winner = _players[0];
-        foreach (var player in _players)
-        {
-            if (!player.isDead)
-            {
-                playerAliveCount++;
-                winner = player;
-            }
-        }
-        // If more than 1 player is alive then win condition is not met -> return
-        if (playerAliveCount > 1) yield break;
-
-        // Update game state
-        _gameInProgress = false;
-        winner.isControllable = false;
-
-        // Wait a bit then update the UI
-        yield return new WaitForSeconds(0.5f);
-        winnerDisplay.GetComponentInChildren<TMP_Text>().SetText($"Player {winner.type} wins!");
-        winnerDisplay.gameObject.SetActive(true);
-        _depthOfField.active = true;
-
-    }
 
     // Load a new level
     private IEnumerator LoadLevel()
