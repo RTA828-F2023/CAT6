@@ -200,8 +200,9 @@ GameObject:
   - component: {fileID: 5264129568394604473}
   - component: {fileID: 1090325119940595415}
   - component: {fileID: 7318194435396859204}
-  - component: {fileID: 6467354613567103243}
   - component: {fileID: 1252011255780512869}
+  - component: {fileID: 6467354613567103243}
+  - component: {fileID: 3815791872802270189}
   m_Layer: 6
   m_Name: Shooting Enemy
   m_TagString: Enemy
@@ -243,7 +244,7 @@ Rigidbody2D:
   m_LinearDrag: 3
   m_AngularDrag: 0
   m_GravityScale: 0
-  m_Material: {fileID: 6200000, guid: cfb4a945edc725a4fa117cd03c8a4be5, type: 2}
+  m_Material: {fileID: 6200000, guid: 2e9a96a5c2627a041955f1e5f19d40f2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 128
@@ -315,28 +316,10 @@ MonoBehaviour:
   - {x: 0.25, y: -0.5, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 44902
+  m_InstanceId: 49892
   m_LocalBounds:
     m_Center: {x: 0, y: -0.125, z: 0}
     m_Extent: {x: 0.25, y: 0.375, z: 0}
---- !u!114 &6467354613567103243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8790434552323951749}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96710c0c9ba265f46aac82c597f73252, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  seeThroughWalls: 0
-  fireRate: 1
-  fireDelay: 0.25
-  fireRecoveryTime: 2.5
-  fireForce: 5
-  projectilePrefab: {fileID: 156314086139690434, guid: 36efe02e67ff3654a895da3fc2b9e604, type: 3}
 --- !u!114 &1252011255780512869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,6 +334,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   explosionPrefab: {fileID: 2487755348245098086, guid: 1f41fdcb62c84c6479c6ba5034d709ef, type: 3}
+--- !u!114 &6467354613567103243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8790434552323951749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96710c0c9ba265f46aac82c597f73252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seeThroughWalls: 0
+  terrainLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  fireRate: 1
+  fireDelayBetweenBullet: 0.25
+  fireRecoveryTime: 2.5
+  fireForce: 5
+  projectilePrefab: {fileID: 156314086139690434, guid: 36efe02e67ff3654a895da3fc2b9e604, type: 3}
+--- !u!114 &3815791872802270189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8790434552323951749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d711a72b35aca09488ec33e0dbd26a56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!1 &8792841859835459377
 GameObject:
   m_ObjectHideFlags: 0

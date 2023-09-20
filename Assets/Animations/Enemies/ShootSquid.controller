@@ -28,7 +28,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Pixilart Sprite Sheet (4)_0
+  m_Name: ShootSquid
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
