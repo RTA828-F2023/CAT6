@@ -75,12 +75,12 @@ public class GameController : MonoBehaviour
 
     private void SelectOnPerformed(InputAction.CallbackContext context)
     {
-        if (!_gameInProgress || SceneManager.GetActiveScene().name.Equals("Home")) StartCoroutine(LoadLevel());
+        if (!_gameInProgress) StartCoroutine(LoadLevel());
     }
 
     private void ExitOnPerformed(InputAction.CallbackContext context)
     {
-        if (!_gameInProgress || SceneManager.GetActiveScene().name.Equals("Home")) Application.Quit();
+        if (!_gameInProgress) Application.Quit();
     }
 
     #endregion
