@@ -5077,7 +5077,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockBackPerHit: 0
-  maxBounces: 0
+  damage: 1
   explosionPrefab: {fileID: 2487755348245098086, guid: dad2fffc267f5fd48a83b17d20df9dc3, type: 3}
   pathLine: {fileID: 6768790938190882848}
 --- !u!1 &6883941261331219347
