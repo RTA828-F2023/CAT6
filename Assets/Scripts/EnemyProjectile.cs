@@ -4,15 +4,13 @@ public class EnemyProjectile : MonoBehaviour
 {
     [Header("Stats")]
     [SerializeField] private float knockBackPerHit;
-    [SerializeField] private int maxBounces;
+    [SerializeField] private int damage;
 
     [Header("References")]
     [SerializeField] private ParticleSystem explosionPrefab;
     [SerializeField] private LineRenderer pathLine;
 
     private Vector2 _expectedEndPosition;
-
-    private int _bouncesLeft;
 
     private Rigidbody2D _rigidbody;
 
@@ -25,7 +23,7 @@ public class EnemyProjectile : MonoBehaviour
 
     private void Start()
     {
-        _bouncesLeft = maxBounces;
+
     }
 
     private void Update()
@@ -63,15 +61,13 @@ public class EnemyProjectile : MonoBehaviour
 
         if (other.transform.CompareTag("Player"))
         {
-            var player = other.transform.GetComponent<Player>();
-            player.KnockBack(_rigidbody.velocity.normalized, knockBackPerHit);
-
-            Explode();
-            CameraShaker.Instance.Shake(CameraShakeMode.Light);
-            return;
+            Player player = other.gameObject.GetComponent<Player>();
+            if (player != null)
+            {
+                player.TakeDamage(damage);
+            }
         }
 
-        if (_bouncesLeft <= 0) Explode();
-        _bouncesLeft--;
+        Explode();
     }
 }

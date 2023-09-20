@@ -191,12 +191,13 @@ public class Player : MonoBehaviour
         for (int i = _currentHealth; i < maxHealth; i++) _heartIcons[i + 1].gameObject.SetActive(false);
     }
 
-    private void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         _currentHealth--;
         UpdateHealthDisplay();
 
-        CameraShaker.Instance.Shake(CameraShakeMode.Light);
+        CameraShaker.Instance.Shake(CameraShakeMode.Normal);
+        if (_currentHealth <= 0) Die();
     }
 
     private void Die()
@@ -207,18 +208,4 @@ public class Player : MonoBehaviour
 
         // TODO: Check if all players are dead -> game over
     }
-
-    private void OnCollisionEnter2D(Collision2D other) 
-    {
-        //If collides with an Enemy
-        if (other.collider.CompareTag("Enemy") || other.collider.CompareTag("EnemyProjectile"))
-        {
-            _currentHealth--;
-            UpdateHealthDisplay();
-
-            if (_currentHealth > 0) Reset();
-            else Die();
-        }
-    }
-
 }
