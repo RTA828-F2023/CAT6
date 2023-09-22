@@ -25,15 +25,10 @@ public class Player : MonoBehaviour
     [SerializeField] private Shuriken shurikenPrefab;
     [SerializeField] private ParticleSystem explosionPrefab;
 
-    [HideInInspector] public float damageTaken;
-    [HideInInspector] public bool isControllable = true;
-    [HideInInspector] public bool isDead = false;
-
     private Image[] _heartIcons;
 
     private bool _isWalking;
     private Vector2 _currentDirection = Vector2.up;
-    private Vector2 _initPosition;
 
     private static readonly int WalkAnimationBool = Animator.StringToHash("isWalking");
 
@@ -98,7 +93,6 @@ public class Player : MonoBehaviour
     private void Start()
     {
         _currentHealth = maxHealth;
-        _initPosition = transform.position;
     }
 
     private void Update()
@@ -118,7 +112,6 @@ public class Player : MonoBehaviour
 
     private void WalkOnPerformed(InputAction.CallbackContext context)
     {
-        if (!isControllable) return;
         Walk(context.ReadValue<Vector2>().normalized);
     }
 
@@ -129,7 +122,6 @@ public class Player : MonoBehaviour
 
     private void FireOnPerformed(InputAction.CallbackContext context)
     {
-        if (!isControllable) return;
         Fire();
     }
 
@@ -194,42 +186,25 @@ public class Player : MonoBehaviour
 
     private void UpdateHealthDisplay()
     {
-        // Update the visibility of the heart icons on the player HUD
+        // Update the visibility of the heart icons on the UI
         for (int i = 0; i < _currentHealth; i++) _heartIcons[i + 1].gameObject.SetActive(true);
         for (int i = _currentHealth; i < maxHealth; i++) _heartIcons[i + 1].gameObject.SetActive(false);
     }
 
-    private void Reset()
+    private void TakeDamage(int damage)
     {
-        transform.position = _initPosition;
-        _rigidbody.velocity = Vector2.zero;
+        _currentHealth--;
+        UpdateHealthDisplay();
 
-        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-        CameraShaker.Instance.Shake(CameraShakeMode.Normal);
+        CameraShaker.Instance.Shake(CameraShakeMode.Light);
     }
 
     private void Die()
     {
-        _rigidbody.velocity = Vector2.zero;
-        _rigidbody.isKinematic = true;
-        healthDisplay.GetComponentInChildren<TMP_Text>().SetText("Eliminated");
-
+        Destroy(gameObject);
         CameraShaker.Instance.Shake(CameraShakeMode.Normal);
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
 
-        isControllable = false;
-        isDead = true;
-        GameController.Instance.StartCoroutine(GameController.Instance.CheckWinCondition());
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("DeathPit"))
-        {
-            _currentHealth--;
-            UpdateHealthDisplay();
-
-            if (_currentHealth > 0) Reset();
-            else Die();
-        }
+        // TODO: Check if all players are dead -> game over
     }
 }
