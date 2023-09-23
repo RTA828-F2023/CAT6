@@ -83,6 +83,33 @@ public class GameController : MonoBehaviour
 
     #endregion
 
+    private void GameOver()
+    {
+        _gameInProgress = false;
+
+        // TODO: Show game over screen
+        _depthOfField.active = true;
+    }
+
+    private void RoundOver()
+    {
+        // TODO: Load the next round
+    }
+
+    private IEnumerator CheckPlayerCount()
+    {
+        // Have to wait til next frame so that game objects have been fully destroyed
+        yield return new WaitForEndOfFrame();
+        if (FindObjectsOfType<Player>().Length == 0) GameOver();
+    }
+
+    private IEnumerator CheckEnemyCount()
+    {
+        // Have to wait til next frame so that game objects have been fully destroyed
+        yield return new WaitForEndOfFrame();
+        // if (FindObjectsOfType<Enemy>().Length == 0) RoundOver();
+    }
+
     // Load a new level
     private IEnumerator LoadLevel()
     {
