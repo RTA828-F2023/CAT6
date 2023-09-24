@@ -24,7 +24,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform healthDisplay;
     [SerializeField] private Shuriken shurikenPrefab;
     [SerializeField] private ParticleSystem explosionPrefab;
-
+    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private Transform scoreBoard;
     private Image[] _heartIcons;
 
     private bool _isWalking;
@@ -34,6 +35,9 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D _rigidbody;
     private Animator _animator;
+
+    public int _playerScore;
+
 
     private InputManager _inputManager;
 
@@ -93,6 +97,8 @@ public class Player : MonoBehaviour
     private void Start()
     {
         _currentHealth = maxHealth;
+        _playerScore = 0;
+        scoreText.text = "Score: " + _playerScore;
     }
 
     private void Update()
@@ -174,7 +180,7 @@ public class Player : MonoBehaviour
         if (!_canFire) return;
 
         var shuriken = Instantiate(shurikenPrefab, firePoint.position, Quaternion.identity);
-        shuriken.Init(_currentDirection, fireForce);
+        shuriken.Init(gameObject,_currentDirection, fireForce);
 
         // Down time before player can fire again
         _canFire = false;
@@ -209,6 +215,13 @@ public class Player : MonoBehaviour
 
         CameraShaker.Instance.Shake(CameraShakeMode.Normal);
         if (_currentHealth <= 0) Die();
+    }
+
+    public void UpdateScore(int score)
+    {
+        var scoreController = scoreBoard.GetComponent<PointSystemController>();
+        scoreController.UpdatePlayerScore(type,score);
+
     }
 
     private void Die()
