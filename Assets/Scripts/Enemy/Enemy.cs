@@ -6,6 +6,8 @@ public class Enemy : MonoBehaviour
 {
     [Header("Stats")]
     [SerializeField] private int maxHealth = 1;
+    [SerializeField] private int enemyScoreValue = 1;
+
 
     [Header("Prefabs")]
     [SerializeField] private ParticleSystem explosionPrefab;
@@ -36,6 +38,10 @@ public class Enemy : MonoBehaviour
         //If collides with a Shuriken
         if (other.collider.CompareTag("Shuriken"))
         {
+            Shuriken projectile = other.gameObject.GetComponent<Shuriken>();
+            Player player = projectile.GetOwner().GetComponent<Player>();
+
+            player.UpdatePlayerScore(enemyScoreValue);
             _currentHealth--;
 
             Destroy(other.gameObject);

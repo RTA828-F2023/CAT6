@@ -7,6 +7,7 @@ public class Shuriken : MonoBehaviour
 
     private Rigidbody2D _rigidbody;
 
+    private GameObject playerOwner;
     #region Unity Events
 
     private void Awake()
@@ -16,8 +17,9 @@ public class Shuriken : MonoBehaviour
 
     #endregion
 
-    public void Init(Vector2 direction, float force)
+    public void Init(GameObject player,Vector2 direction, float force)
     {
+        playerOwner = player;
         _rigidbody.AddForce(direction * force, ForceMode2D.Impulse);
         _rigidbody.AddTorque(force);
     }
@@ -38,5 +40,10 @@ public class Shuriken : MonoBehaviour
     {
         // TODO: If hit an enemy then deal damage to it
         Explode();
+    }
+
+    public GameObject GetOwner() 
+    {
+        return playerOwner;
     }
 }
