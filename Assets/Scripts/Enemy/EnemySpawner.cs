@@ -16,8 +16,9 @@ public class EnemySpawn : MonoBehaviour {
 
     private float _timeUntilSpawn;
     public int enemyCount;
+    public GameObject[] enemies;
 
-    GameObject[] enemies;
+    public WavesTimer TimerOn;
 
     // Start is called before the first frame update
     void Awake()
@@ -40,9 +41,12 @@ public class EnemySpawn : MonoBehaviour {
             }
         } */
         if (enemies.Length <= 0) {
+            //TimerOn = true;
+            //if (TimerOn) {
             for (int i = 0; i < enemyCount; i++) {
                 Instantiate(_enemyPrefab, transform.position, Quaternion.identity);
             }
+            //}
         }
     }
 
