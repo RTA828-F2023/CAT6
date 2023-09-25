@@ -7,6 +7,10 @@ using UnityEngine.UI;
 public class WavesController : MonoBehaviour {
 
     GameObject[] enemies;
+
+
+    public int enemyCount = 5;
+
     public int waves = 0; 
     public TMP_Text enemyCountText;
 
@@ -23,8 +27,9 @@ public class WavesController : MonoBehaviour {
     {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         enemyCountText.text = "Enemies: " + enemies.Length.ToString();
+        //enemyCountText.text = "Enemies: " + enemyCount;
 
-        if (enemies.Length >= 5) {
+        if (enemies.Length <= 0) {
             waves += 1;
         }
 
