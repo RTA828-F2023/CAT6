@@ -102,12 +102,11 @@ public class GameController : MonoBehaviour
     }
 
     // Load a new level
-    private IEnumerator LoadLevel()
+    private IEnumerator LoadLevel(string levelName)
     {
         _mainCamera.Outro();
         yield return new WaitForSeconds(0.5f);
-
-        SceneManager.LoadScene("TestLevel", LoadSceneMode.Single);
+        SceneManager.LoadScene(levelName, LoadSceneMode.Single);
     }
 
     // Load a map layout for the level
