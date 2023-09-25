@@ -28,10 +28,6 @@ public class GameController : MonoBehaviour
     private VolumeProfile _volumeProfile;
     private DepthOfField _depthOfField;
 
-    private bool _gameInProgress = true;
-
-    private Player[] _players;
-
     private InputManager _inputManager;
 
     #region Unity Events
@@ -58,8 +54,6 @@ public class GameController : MonoBehaviour
 
         _volumeProfile = FindObjectOfType<Volume>().profile;
         _volumeProfile.TryGet(out _depthOfField);
-
-        _players = FindObjectsOfType<Player>();
     }
 
     private void Start()
@@ -69,45 +63,42 @@ public class GameController : MonoBehaviour
 
     #endregion
 
-    #region Unity Events
+    #region Input Handlers
 
     private void SelectOnPerformed(InputAction.CallbackContext context)
     {
-        if (!_gameInProgress) StartCoroutine(LoadLevel());
     }
 
     private void ExitOnPerformed(InputAction.CallbackContext context)
     {
-        if (!_gameInProgress) Application.Quit();
     }
 
     #endregion
 
     private void GameOver()
     {
-        _gameInProgress = false;
-
-        // TODO: Show game over screen
         _depthOfField.active = true;
+        // TODO: Show game over screen
     }
 
-    private void RoundOver()
+    private void LevelCompleted()
     {
-        // TODO: Load the next round
+        _depthOfField.active = true;
+        // TODO: Show level complete screen
     }
 
-    private IEnumerator CheckPlayerCount()
+    public IEnumerator CheckPlayerCount()
     {
         // Have to wait til next frame so that game objects have been fully destroyed
         yield return new WaitForEndOfFrame();
         if (FindObjectsOfType<Player>().Length == 0) GameOver();
     }
 
-    private IEnumerator CheckEnemyCount()
+    public IEnumerator CheckEnemyCount()
     {
         // Have to wait til next frame so that game objects have been fully destroyed
         yield return new WaitForEndOfFrame();
-        // if (FindObjectsOfType<Enemy>().Length == 0) RoundOver();
+        if (FindObjectsOfType<Enemy>().Length == 0) LevelCompleted();
     }
 
     // Load a new level
