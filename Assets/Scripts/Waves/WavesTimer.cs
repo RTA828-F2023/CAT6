@@ -8,11 +8,13 @@ using System;
 
 public class WavesTimer : MonoBehaviour {
 
-    public float TimeLeft;
+    public float TimeLeft = 10;
     public bool TimerOn = false;
     public TMP_Text TimerText;
 
     public GameObject[] enemies;
+
+    public EnemySpawn enemySpawn;
 
     // Start is called before the first frame update
     void Start() {
@@ -22,12 +24,6 @@ public class WavesTimer : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-/*         enemies = GameObject.FindGameObjectsWithTag("Enemy");
-
-        if (enemies.Length <= 0) {
-            TimerOn = false;
-        } */
-
         if (TimerOn) {
             if (TimeLeft > 0) {
                 TimeLeft -= Time.deltaTime;
@@ -36,6 +32,9 @@ public class WavesTimer : MonoBehaviour {
             else {
                 TimeLeft = 0;
                 TimerOn = false;
+                updateTimer(TimeLeft);
+                enemySpawn.spawnEnemies();
+                TimeLeft = 10;
             }
         }
     }

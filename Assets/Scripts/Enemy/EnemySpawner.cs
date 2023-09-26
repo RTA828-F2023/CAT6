@@ -18,13 +18,14 @@ public class EnemySpawn : MonoBehaviour {
     public int enemyCount;
     public GameObject[] enemies;
 
-    public WavesTimer TimerOn;
+    public WavesTimer WavesTimer;
 
     // Start is called before the first frame update
     void Awake()
     {
         SetTimeUntilSpawn();
-        initialSpawn();
+        //initial spawn of enemies
+        spawnEnemies();
     }
 
     // Update is called once per frame
@@ -40,19 +41,16 @@ public class EnemySpawn : MonoBehaviour {
                 SetTimeUntilSpawn();
             }
         } */
+
         if (enemies.Length <= 0) {
-            //TimerOn = true;
-            //if (TimerOn) {
-            for (int i = 0; i < enemyCount; i++) {
-                Instantiate(_enemyPrefab, transform.position, Quaternion.identity);
-            }
-            //}
+            WavesTimer.TimerOn = true;
         }
+
     }
 
-    private void initialSpawn() {
+    public void spawnEnemies() {
         for (int i = 0; i < enemyCount; i++) {
-                Instantiate(_enemyPrefab, transform.position, Quaternion.identity);
+            Instantiate(_enemyPrefab, transform.position, Quaternion.identity);
         }
     }
 
