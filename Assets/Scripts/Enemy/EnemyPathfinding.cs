@@ -10,6 +10,7 @@ public class EnemyPathfinding : MonoBehaviour
 
     private void Start()
     {
+        speed = 1.5f;
         Players = GameObject.FindGameObjectsWithTag("Player");
     }
 
