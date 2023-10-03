@@ -70,6 +70,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "26005ae0-dca5-4e1e-9c80-deb842d185f2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -138,6 +147,17 @@
                     "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2b73820e-60f3-42b8-939e-7917d4997cff",
+                    "path": "<Keyboard>/minus",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -158,6 +178,15 @@
                     "name": "Fire",
                     "type": "Button",
                     "id": "2a05b31a-015d-4087-aaad-13caabf62883",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "fc880602-b0a0-4e13-9631-85de802e7135",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -230,6 +259,17 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "f029f007-20dd-46d1-b65f-236dc1b3a9cc",
+                    "path": "<Keyboard>/rightBracket",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -250,6 +290,15 @@
                     "name": "Fire",
                     "type": "Button",
                     "id": "1a0a42c3-86b1-4759-94b2-48556d88516b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "fd9af98d-ff38-4355-bf60-37876aaaaafd",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -322,6 +371,17 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "0a45f206-752e-4411-be37-02ad4c99397c",
+                    "path": "<Keyboard>/quote",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -342,6 +402,15 @@
                     "name": "Fire",
                     "type": "Button",
                     "id": "404e5120-f805-4df9-b47b-32d028709d94",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "6198369e-ba35-47cc-b2c5-57cc8c40a1df",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -414,6 +483,17 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "baf983c3-a04b-4e06-a22d-35029e6b327c",
+                    "path": "<Keyboard>/backspace",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
