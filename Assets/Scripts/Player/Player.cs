@@ -191,17 +191,18 @@ public class Player : MonoBehaviour
         for (int i = _currentHealth; i < maxHealth; i++) _heartIcons[i + 1].gameObject.SetActive(false);
     }
 
-    private void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         _currentHealth--;
         UpdateHealthDisplay();
 
-        CameraShaker.Instance.Shake(CameraShakeMode.Light);
+        CameraShaker.Instance.Shake(CameraShakeMode.Normal);
+        if (_currentHealth <= 0) Die();
     }
 
     private void Die()
     {
-        Destroy(gameObject);
+        //Destroy(gameObject);
         CameraShaker.Instance.Shake(CameraShakeMode.Normal);
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
 
