@@ -76,7 +76,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
             ""id"": ""dfa8e17e-5725-47b1-9b03-a523ffb77612"",
             ""actions"": [
                 {
-                    ""name"": ""Move"",
+                    ""name"": ""Joystick"",
                     ""type"": ""Value"",
                     ""id"": ""4c993a1d-e68d-4b4b-9502-709e38b19f48"",
                     ""expectedControlType"": ""Vector2"",
@@ -85,7 +85,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Fire"",
+                    ""name"": ""Btn1"",
                     ""type"": ""Button"",
                     ""id"": ""2ad68c57-6c30-4907-8c72-dabbb9bad703"",
                     ""expectedControlType"": ""Button"",
@@ -94,7 +94,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Pause"",
+                    ""name"": ""Select"",
                     ""type"": ""Button"",
                     ""id"": ""26005ae0-dca5-4e1e-9c80-deb842d185f2"",
                     ""expectedControlType"": ""Button"",
@@ -111,7 +111,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""Joystick"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -122,7 +122,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Move"",
+                    ""action"": ""Joystick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -133,7 +133,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Move"",
+                    ""action"": ""Joystick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -144,7 +144,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Move"",
+                    ""action"": ""Joystick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -155,7 +155,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Move"",
+                    ""action"": ""Joystick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -166,7 +166,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Fire"",
+                    ""action"": ""Btn1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -177,7 +177,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Pause"",
+                    ""action"": ""Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -188,7 +188,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
             ""id"": ""03fad348-1a54-4f01-b338-66a786e3277c"",
             ""actions"": [
                 {
-                    ""name"": ""Move"",
+                    ""name"": ""Joystick"",
                     ""type"": ""Value"",
                     ""id"": ""0bd901e0-32f2-40ed-abf2-28aab2a3f8ee"",
                     ""expectedControlType"": ""Vector2"",
@@ -197,7 +197,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Fire"",
+                    ""name"": ""Btn1"",
                     ""type"": ""Button"",
                     ""id"": ""2a05b31a-015d-4087-aaad-13caabf62883"",
                     ""expectedControlType"": ""Button"",
@@ -206,7 +206,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Pause"",
+                    ""name"": ""Select"",
                     ""type"": ""Button"",
                     ""id"": ""fc880602-b0a0-4e13-9631-85de802e7135"",
                     ""expectedControlType"": ""Button"",
@@ -223,7 +223,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Fire"",
+                    ""action"": ""Btn1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -234,7 +234,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""Joystick"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -245,7 +245,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Move"",
+                    ""action"": ""Joystick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -256,7 +256,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Move"",
+                    ""action"": ""Joystick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -267,7 +267,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Move"",
+                    ""action"": ""Joystick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -278,7 +278,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Move"",
+                    ""action"": ""Joystick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -289,7 +289,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Pause"",
+                    ""action"": ""Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -300,7 +300,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
             ""id"": ""07868307-652a-4b8d-a28c-42db61e0ef7b"",
             ""actions"": [
                 {
-                    ""name"": ""Move"",
+                    ""name"": ""Joystick"",
                     ""type"": ""Value"",
                     ""id"": ""4d9cecaf-a464-4318-a327-6e8334c776eb"",
                     ""expectedControlType"": ""Vector2"",
@@ -309,7 +309,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Fire"",
+                    ""name"": ""Btn1"",
                     ""type"": ""Button"",
                     ""id"": ""1a0a42c3-86b1-4759-94b2-48556d88516b"",
                     ""expectedControlType"": ""Button"",
@@ -318,7 +318,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Pause"",
+                    ""name"": ""Select"",
                     ""type"": ""Button"",
                     ""id"": ""fd9af98d-ff38-4355-bf60-37876aaaaafd"",
                     ""expectedControlType"": ""Button"",
@@ -335,7 +335,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Fire"",
+                    ""action"": ""Btn1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -346,7 +346,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""Joystick"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -357,7 +357,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Move"",
+                    ""action"": ""Joystick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -368,7 +368,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Move"",
+                    ""action"": ""Joystick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -379,7 +379,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Move"",
+                    ""action"": ""Joystick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -390,7 +390,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Move"",
+                    ""action"": ""Joystick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -401,7 +401,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Pause"",
+                    ""action"": ""Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -412,7 +412,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
             ""id"": ""7df3d3d4-4b60-441f-b99c-fd3c353ebc7e"",
             ""actions"": [
                 {
-                    ""name"": ""Move"",
+                    ""name"": ""Joystick"",
                     ""type"": ""Value"",
                     ""id"": ""63863df3-e088-4385-af57-38fa5f1dd0a4"",
                     ""expectedControlType"": ""Vector2"",
@@ -421,7 +421,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Fire"",
+                    ""name"": ""Btn1"",
                     ""type"": ""Button"",
                     ""id"": ""404e5120-f805-4df9-b47b-32d028709d94"",
                     ""expectedControlType"": ""Button"",
@@ -430,7 +430,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Pause"",
+                    ""name"": ""Select"",
                     ""type"": ""Button"",
                     ""id"": ""6198369e-ba35-47cc-b2c5-57cc8c40a1df"",
                     ""expectedControlType"": ""Button"",
@@ -447,7 +447,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Fire"",
+                    ""action"": ""Btn1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -458,7 +458,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""Joystick"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -469,7 +469,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Move"",
+                    ""action"": ""Joystick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -480,7 +480,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Move"",
+                    ""action"": ""Joystick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -491,7 +491,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Move"",
+                    ""action"": ""Joystick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -502,7 +502,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Move"",
+                    ""action"": ""Joystick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -513,7 +513,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Pause"",
+                    ""action"": ""Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -556,24 +556,24 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
         m_Game_Exit = m_Game.FindAction("Exit", throwIfNotFound: true);
         // PlayerBlue
         m_PlayerBlue = asset.FindActionMap("PlayerBlue", throwIfNotFound: true);
-        m_PlayerBlue_Move = m_PlayerBlue.FindAction("Move", throwIfNotFound: true);
-        m_PlayerBlue_Fire = m_PlayerBlue.FindAction("Fire", throwIfNotFound: true);
-        m_PlayerBlue_Pause = m_PlayerBlue.FindAction("Pause", throwIfNotFound: true);
+        m_PlayerBlue_Joystick = m_PlayerBlue.FindAction("Joystick", throwIfNotFound: true);
+        m_PlayerBlue_Btn1 = m_PlayerBlue.FindAction("Btn1", throwIfNotFound: true);
+        m_PlayerBlue_Select = m_PlayerBlue.FindAction("Select", throwIfNotFound: true);
         // PlayerPink
         m_PlayerPink = asset.FindActionMap("PlayerPink", throwIfNotFound: true);
-        m_PlayerPink_Move = m_PlayerPink.FindAction("Move", throwIfNotFound: true);
-        m_PlayerPink_Fire = m_PlayerPink.FindAction("Fire", throwIfNotFound: true);
-        m_PlayerPink_Pause = m_PlayerPink.FindAction("Pause", throwIfNotFound: true);
+        m_PlayerPink_Joystick = m_PlayerPink.FindAction("Joystick", throwIfNotFound: true);
+        m_PlayerPink_Btn1 = m_PlayerPink.FindAction("Btn1", throwIfNotFound: true);
+        m_PlayerPink_Select = m_PlayerPink.FindAction("Select", throwIfNotFound: true);
         // PlayerYellow
         m_PlayerYellow = asset.FindActionMap("PlayerYellow", throwIfNotFound: true);
-        m_PlayerYellow_Move = m_PlayerYellow.FindAction("Move", throwIfNotFound: true);
-        m_PlayerYellow_Fire = m_PlayerYellow.FindAction("Fire", throwIfNotFound: true);
-        m_PlayerYellow_Pause = m_PlayerYellow.FindAction("Pause", throwIfNotFound: true);
+        m_PlayerYellow_Joystick = m_PlayerYellow.FindAction("Joystick", throwIfNotFound: true);
+        m_PlayerYellow_Btn1 = m_PlayerYellow.FindAction("Btn1", throwIfNotFound: true);
+        m_PlayerYellow_Select = m_PlayerYellow.FindAction("Select", throwIfNotFound: true);
         // PlayerGreen
         m_PlayerGreen = asset.FindActionMap("PlayerGreen", throwIfNotFound: true);
-        m_PlayerGreen_Move = m_PlayerGreen.FindAction("Move", throwIfNotFound: true);
-        m_PlayerGreen_Fire = m_PlayerGreen.FindAction("Fire", throwIfNotFound: true);
-        m_PlayerGreen_Pause = m_PlayerGreen.FindAction("Pause", throwIfNotFound: true);
+        m_PlayerGreen_Joystick = m_PlayerGreen.FindAction("Joystick", throwIfNotFound: true);
+        m_PlayerGreen_Btn1 = m_PlayerGreen.FindAction("Btn1", throwIfNotFound: true);
+        m_PlayerGreen_Select = m_PlayerGreen.FindAction("Select", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -689,16 +689,16 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
     // PlayerBlue
     private readonly InputActionMap m_PlayerBlue;
     private List<IPlayerBlueActions> m_PlayerBlueActionsCallbackInterfaces = new List<IPlayerBlueActions>();
-    private readonly InputAction m_PlayerBlue_Move;
-    private readonly InputAction m_PlayerBlue_Fire;
-    private readonly InputAction m_PlayerBlue_Pause;
+    private readonly InputAction m_PlayerBlue_Joystick;
+    private readonly InputAction m_PlayerBlue_Btn1;
+    private readonly InputAction m_PlayerBlue_Select;
     public struct PlayerBlueActions
     {
         private @InputManager m_Wrapper;
         public PlayerBlueActions(@InputManager wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_PlayerBlue_Move;
-        public InputAction @Fire => m_Wrapper.m_PlayerBlue_Fire;
-        public InputAction @Pause => m_Wrapper.m_PlayerBlue_Pause;
+        public InputAction @Joystick => m_Wrapper.m_PlayerBlue_Joystick;
+        public InputAction @Btn1 => m_Wrapper.m_PlayerBlue_Btn1;
+        public InputAction @Select => m_Wrapper.m_PlayerBlue_Select;
         public InputActionMap Get() { return m_Wrapper.m_PlayerBlue; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -708,28 +708,28 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PlayerBlueActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PlayerBlueActionsCallbackInterfaces.Add(instance);
-            @Move.started += instance.OnMove;
-            @Move.performed += instance.OnMove;
-            @Move.canceled += instance.OnMove;
-            @Fire.started += instance.OnFire;
-            @Fire.performed += instance.OnFire;
-            @Fire.canceled += instance.OnFire;
-            @Pause.started += instance.OnPause;
-            @Pause.performed += instance.OnPause;
-            @Pause.canceled += instance.OnPause;
+            @Joystick.started += instance.OnJoystick;
+            @Joystick.performed += instance.OnJoystick;
+            @Joystick.canceled += instance.OnJoystick;
+            @Btn1.started += instance.OnBtn1;
+            @Btn1.performed += instance.OnBtn1;
+            @Btn1.canceled += instance.OnBtn1;
+            @Select.started += instance.OnSelect;
+            @Select.performed += instance.OnSelect;
+            @Select.canceled += instance.OnSelect;
         }
 
         private void UnregisterCallbacks(IPlayerBlueActions instance)
         {
-            @Move.started -= instance.OnMove;
-            @Move.performed -= instance.OnMove;
-            @Move.canceled -= instance.OnMove;
-            @Fire.started -= instance.OnFire;
-            @Fire.performed -= instance.OnFire;
-            @Fire.canceled -= instance.OnFire;
-            @Pause.started -= instance.OnPause;
-            @Pause.performed -= instance.OnPause;
-            @Pause.canceled -= instance.OnPause;
+            @Joystick.started -= instance.OnJoystick;
+            @Joystick.performed -= instance.OnJoystick;
+            @Joystick.canceled -= instance.OnJoystick;
+            @Btn1.started -= instance.OnBtn1;
+            @Btn1.performed -= instance.OnBtn1;
+            @Btn1.canceled -= instance.OnBtn1;
+            @Select.started -= instance.OnSelect;
+            @Select.performed -= instance.OnSelect;
+            @Select.canceled -= instance.OnSelect;
         }
 
         public void RemoveCallbacks(IPlayerBlueActions instance)
@@ -751,16 +751,16 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
     // PlayerPink
     private readonly InputActionMap m_PlayerPink;
     private List<IPlayerPinkActions> m_PlayerPinkActionsCallbackInterfaces = new List<IPlayerPinkActions>();
-    private readonly InputAction m_PlayerPink_Move;
-    private readonly InputAction m_PlayerPink_Fire;
-    private readonly InputAction m_PlayerPink_Pause;
+    private readonly InputAction m_PlayerPink_Joystick;
+    private readonly InputAction m_PlayerPink_Btn1;
+    private readonly InputAction m_PlayerPink_Select;
     public struct PlayerPinkActions
     {
         private @InputManager m_Wrapper;
         public PlayerPinkActions(@InputManager wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_PlayerPink_Move;
-        public InputAction @Fire => m_Wrapper.m_PlayerPink_Fire;
-        public InputAction @Pause => m_Wrapper.m_PlayerPink_Pause;
+        public InputAction @Joystick => m_Wrapper.m_PlayerPink_Joystick;
+        public InputAction @Btn1 => m_Wrapper.m_PlayerPink_Btn1;
+        public InputAction @Select => m_Wrapper.m_PlayerPink_Select;
         public InputActionMap Get() { return m_Wrapper.m_PlayerPink; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -770,28 +770,28 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PlayerPinkActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PlayerPinkActionsCallbackInterfaces.Add(instance);
-            @Move.started += instance.OnMove;
-            @Move.performed += instance.OnMove;
-            @Move.canceled += instance.OnMove;
-            @Fire.started += instance.OnFire;
-            @Fire.performed += instance.OnFire;
-            @Fire.canceled += instance.OnFire;
-            @Pause.started += instance.OnPause;
-            @Pause.performed += instance.OnPause;
-            @Pause.canceled += instance.OnPause;
+            @Joystick.started += instance.OnJoystick;
+            @Joystick.performed += instance.OnJoystick;
+            @Joystick.canceled += instance.OnJoystick;
+            @Btn1.started += instance.OnBtn1;
+            @Btn1.performed += instance.OnBtn1;
+            @Btn1.canceled += instance.OnBtn1;
+            @Select.started += instance.OnSelect;
+            @Select.performed += instance.OnSelect;
+            @Select.canceled += instance.OnSelect;
         }
 
         private void UnregisterCallbacks(IPlayerPinkActions instance)
         {
-            @Move.started -= instance.OnMove;
-            @Move.performed -= instance.OnMove;
-            @Move.canceled -= instance.OnMove;
-            @Fire.started -= instance.OnFire;
-            @Fire.performed -= instance.OnFire;
-            @Fire.canceled -= instance.OnFire;
-            @Pause.started -= instance.OnPause;
-            @Pause.performed -= instance.OnPause;
-            @Pause.canceled -= instance.OnPause;
+            @Joystick.started -= instance.OnJoystick;
+            @Joystick.performed -= instance.OnJoystick;
+            @Joystick.canceled -= instance.OnJoystick;
+            @Btn1.started -= instance.OnBtn1;
+            @Btn1.performed -= instance.OnBtn1;
+            @Btn1.canceled -= instance.OnBtn1;
+            @Select.started -= instance.OnSelect;
+            @Select.performed -= instance.OnSelect;
+            @Select.canceled -= instance.OnSelect;
         }
 
         public void RemoveCallbacks(IPlayerPinkActions instance)
@@ -813,16 +813,16 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
     // PlayerYellow
     private readonly InputActionMap m_PlayerYellow;
     private List<IPlayerYellowActions> m_PlayerYellowActionsCallbackInterfaces = new List<IPlayerYellowActions>();
-    private readonly InputAction m_PlayerYellow_Move;
-    private readonly InputAction m_PlayerYellow_Fire;
-    private readonly InputAction m_PlayerYellow_Pause;
+    private readonly InputAction m_PlayerYellow_Joystick;
+    private readonly InputAction m_PlayerYellow_Btn1;
+    private readonly InputAction m_PlayerYellow_Select;
     public struct PlayerYellowActions
     {
         private @InputManager m_Wrapper;
         public PlayerYellowActions(@InputManager wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_PlayerYellow_Move;
-        public InputAction @Fire => m_Wrapper.m_PlayerYellow_Fire;
-        public InputAction @Pause => m_Wrapper.m_PlayerYellow_Pause;
+        public InputAction @Joystick => m_Wrapper.m_PlayerYellow_Joystick;
+        public InputAction @Btn1 => m_Wrapper.m_PlayerYellow_Btn1;
+        public InputAction @Select => m_Wrapper.m_PlayerYellow_Select;
         public InputActionMap Get() { return m_Wrapper.m_PlayerYellow; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -832,28 +832,28 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PlayerYellowActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PlayerYellowActionsCallbackInterfaces.Add(instance);
-            @Move.started += instance.OnMove;
-            @Move.performed += instance.OnMove;
-            @Move.canceled += instance.OnMove;
-            @Fire.started += instance.OnFire;
-            @Fire.performed += instance.OnFire;
-            @Fire.canceled += instance.OnFire;
-            @Pause.started += instance.OnPause;
-            @Pause.performed += instance.OnPause;
-            @Pause.canceled += instance.OnPause;
+            @Joystick.started += instance.OnJoystick;
+            @Joystick.performed += instance.OnJoystick;
+            @Joystick.canceled += instance.OnJoystick;
+            @Btn1.started += instance.OnBtn1;
+            @Btn1.performed += instance.OnBtn1;
+            @Btn1.canceled += instance.OnBtn1;
+            @Select.started += instance.OnSelect;
+            @Select.performed += instance.OnSelect;
+            @Select.canceled += instance.OnSelect;
         }
 
         private void UnregisterCallbacks(IPlayerYellowActions instance)
         {
-            @Move.started -= instance.OnMove;
-            @Move.performed -= instance.OnMove;
-            @Move.canceled -= instance.OnMove;
-            @Fire.started -= instance.OnFire;
-            @Fire.performed -= instance.OnFire;
-            @Fire.canceled -= instance.OnFire;
-            @Pause.started -= instance.OnPause;
-            @Pause.performed -= instance.OnPause;
-            @Pause.canceled -= instance.OnPause;
+            @Joystick.started -= instance.OnJoystick;
+            @Joystick.performed -= instance.OnJoystick;
+            @Joystick.canceled -= instance.OnJoystick;
+            @Btn1.started -= instance.OnBtn1;
+            @Btn1.performed -= instance.OnBtn1;
+            @Btn1.canceled -= instance.OnBtn1;
+            @Select.started -= instance.OnSelect;
+            @Select.performed -= instance.OnSelect;
+            @Select.canceled -= instance.OnSelect;
         }
 
         public void RemoveCallbacks(IPlayerYellowActions instance)
@@ -875,16 +875,16 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
     // PlayerGreen
     private readonly InputActionMap m_PlayerGreen;
     private List<IPlayerGreenActions> m_PlayerGreenActionsCallbackInterfaces = new List<IPlayerGreenActions>();
-    private readonly InputAction m_PlayerGreen_Move;
-    private readonly InputAction m_PlayerGreen_Fire;
-    private readonly InputAction m_PlayerGreen_Pause;
+    private readonly InputAction m_PlayerGreen_Joystick;
+    private readonly InputAction m_PlayerGreen_Btn1;
+    private readonly InputAction m_PlayerGreen_Select;
     public struct PlayerGreenActions
     {
         private @InputManager m_Wrapper;
         public PlayerGreenActions(@InputManager wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_PlayerGreen_Move;
-        public InputAction @Fire => m_Wrapper.m_PlayerGreen_Fire;
-        public InputAction @Pause => m_Wrapper.m_PlayerGreen_Pause;
+        public InputAction @Joystick => m_Wrapper.m_PlayerGreen_Joystick;
+        public InputAction @Btn1 => m_Wrapper.m_PlayerGreen_Btn1;
+        public InputAction @Select => m_Wrapper.m_PlayerGreen_Select;
         public InputActionMap Get() { return m_Wrapper.m_PlayerGreen; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -894,28 +894,28 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PlayerGreenActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PlayerGreenActionsCallbackInterfaces.Add(instance);
-            @Move.started += instance.OnMove;
-            @Move.performed += instance.OnMove;
-            @Move.canceled += instance.OnMove;
-            @Fire.started += instance.OnFire;
-            @Fire.performed += instance.OnFire;
-            @Fire.canceled += instance.OnFire;
-            @Pause.started += instance.OnPause;
-            @Pause.performed += instance.OnPause;
-            @Pause.canceled += instance.OnPause;
+            @Joystick.started += instance.OnJoystick;
+            @Joystick.performed += instance.OnJoystick;
+            @Joystick.canceled += instance.OnJoystick;
+            @Btn1.started += instance.OnBtn1;
+            @Btn1.performed += instance.OnBtn1;
+            @Btn1.canceled += instance.OnBtn1;
+            @Select.started += instance.OnSelect;
+            @Select.performed += instance.OnSelect;
+            @Select.canceled += instance.OnSelect;
         }
 
         private void UnregisterCallbacks(IPlayerGreenActions instance)
         {
-            @Move.started -= instance.OnMove;
-            @Move.performed -= instance.OnMove;
-            @Move.canceled -= instance.OnMove;
-            @Fire.started -= instance.OnFire;
-            @Fire.performed -= instance.OnFire;
-            @Fire.canceled -= instance.OnFire;
-            @Pause.started -= instance.OnPause;
-            @Pause.performed -= instance.OnPause;
-            @Pause.canceled -= instance.OnPause;
+            @Joystick.started -= instance.OnJoystick;
+            @Joystick.performed -= instance.OnJoystick;
+            @Joystick.canceled -= instance.OnJoystick;
+            @Btn1.started -= instance.OnBtn1;
+            @Btn1.performed -= instance.OnBtn1;
+            @Btn1.canceled -= instance.OnBtn1;
+            @Select.started -= instance.OnSelect;
+            @Select.performed -= instance.OnSelect;
+            @Select.canceled -= instance.OnSelect;
         }
 
         public void RemoveCallbacks(IPlayerGreenActions instance)
@@ -958,26 +958,26 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
     }
     public interface IPlayerBlueActions
     {
-        void OnMove(InputAction.CallbackContext context);
-        void OnFire(InputAction.CallbackContext context);
-        void OnPause(InputAction.CallbackContext context);
+        void OnJoystick(InputAction.CallbackContext context);
+        void OnBtn1(InputAction.CallbackContext context);
+        void OnSelect(InputAction.CallbackContext context);
     }
     public interface IPlayerPinkActions
     {
-        void OnMove(InputAction.CallbackContext context);
-        void OnFire(InputAction.CallbackContext context);
-        void OnPause(InputAction.CallbackContext context);
+        void OnJoystick(InputAction.CallbackContext context);
+        void OnBtn1(InputAction.CallbackContext context);
+        void OnSelect(InputAction.CallbackContext context);
     }
     public interface IPlayerYellowActions
     {
-        void OnMove(InputAction.CallbackContext context);
-        void OnFire(InputAction.CallbackContext context);
-        void OnPause(InputAction.CallbackContext context);
+        void OnJoystick(InputAction.CallbackContext context);
+        void OnBtn1(InputAction.CallbackContext context);
+        void OnSelect(InputAction.CallbackContext context);
     }
     public interface IPlayerGreenActions
     {
-        void OnMove(InputAction.CallbackContext context);
-        void OnFire(InputAction.CallbackContext context);
-        void OnPause(InputAction.CallbackContext context);
+        void OnJoystick(InputAction.CallbackContext context);
+        void OnBtn1(InputAction.CallbackContext context);
+        void OnSelect(InputAction.CallbackContext context);
     }
 }

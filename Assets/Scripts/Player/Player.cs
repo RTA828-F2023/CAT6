@@ -47,27 +47,27 @@ public class Player : MonoBehaviour
         switch (type)
         {
             case PlayerType.Blue:
-                _inputManager.PlayerBlue.Move.performed += WalkOnPerformed;
-                _inputManager.PlayerBlue.Move.canceled += WalkOnCanceled;
-                _inputManager.PlayerBlue.Fire.performed += FireOnPerformed;
+                _inputManager.PlayerBlue.Joystick.performed += WalkOnPerformed;
+                _inputManager.PlayerBlue.Joystick.canceled += WalkOnCanceled;
+                _inputManager.PlayerBlue.Btn1.performed += FireOnPerformed;
                 break;
 
             case PlayerType.Pink:
-                _inputManager.PlayerPink.Move.performed += WalkOnPerformed;
-                _inputManager.PlayerPink.Move.canceled += WalkOnCanceled;
-                _inputManager.PlayerPink.Fire.performed += FireOnPerformed;
+                _inputManager.PlayerPink.Joystick.performed += WalkOnPerformed;
+                _inputManager.PlayerPink.Joystick.canceled += WalkOnCanceled;
+                _inputManager.PlayerPink.Btn1.performed += FireOnPerformed;
                 break;
 
             case PlayerType.Yellow:
-                _inputManager.PlayerYellow.Move.performed += WalkOnPerformed;
-                _inputManager.PlayerYellow.Move.canceled += WalkOnCanceled;
-                _inputManager.PlayerYellow.Fire.performed += FireOnPerformed;
+                _inputManager.PlayerYellow.Joystick.performed += WalkOnPerformed;
+                _inputManager.PlayerYellow.Joystick.canceled += WalkOnCanceled;
+                _inputManager.PlayerYellow.Btn1.performed += FireOnPerformed;
                 break;
 
             case PlayerType.Green:
-                _inputManager.PlayerGreen.Move.performed += WalkOnPerformed;
-                _inputManager.PlayerGreen.Move.canceled += WalkOnCanceled;
-                _inputManager.PlayerGreen.Fire.performed += FireOnPerformed;
+                _inputManager.PlayerGreen.Joystick.performed += WalkOnPerformed;
+                _inputManager.PlayerGreen.Joystick.canceled += WalkOnCanceled;
+                _inputManager.PlayerGreen.Btn1.performed += FireOnPerformed;
                 break;
 
             default:

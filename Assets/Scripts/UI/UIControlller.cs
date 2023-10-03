@@ -31,14 +31,16 @@ public class UIControlller : MonoBehaviour
         _inputManager = new InputManager();
 
         //when player presses pause
-        _inputManager.PlayerBlue.Pause.performed += P1PauseOnPerformed;
-        _inputManager.PlayerPink.Pause.performed += P2PauseOnPerformed;
-        _inputManager.PlayerYellow.Pause.performed += P3PauseOnPerformed;
-        _inputManager.PlayerGreen.Pause.performed += P4PauseOnPerformed; 
+        _inputManager.PlayerBlue.Select.performed += P1PauseOnPerformed;
+        _inputManager.PlayerPink.Select.performed += P2PauseOnPerformed;
+        _inputManager.PlayerYellow.Select.performed += P3PauseOnPerformed;
+        _inputManager.PlayerGreen.Select.performed += P4PauseOnPerformed; 
 
         //when player scrolls down
-        _inputManager.PlayerYellow.Move.performed += P3Navigation;
-        _inputManager.PlayerGreen.Move.performed += P4Navigation;
+        _inputManager.PlayerYellow.Joystick.performed += P3Navigation;
+        _inputManager.PlayerGreen.Joystick.performed += P4Navigation;
+
+        //_inputManager.PlayerBlue.Select.performed += 
 
         _inputManager.Enable();
     }
@@ -59,6 +61,11 @@ public class UIControlller : MonoBehaviour
         {
             PauseGame();
         }
+    }
+
+    private void P1Confirm(InputAction.CallbackContext context)
+    {
+
     }
 
     private void P1PauseOnPerformed(InputAction.CallbackContext context)
