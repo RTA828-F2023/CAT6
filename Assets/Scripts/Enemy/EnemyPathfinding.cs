@@ -1,28 +1,42 @@
+using System;
+using System.IO;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class EnemyPathfinding : MonoBehaviour
 {
     // Works! Sort of! Follows the closest player no matter what.
 
-    public GameObject[] Players;
-    public float speed;
+    private GameObject[] Players;
+    private float speed = 2f;
     private float distance;
+    private float viewRadius;
 
+    private LevelScript levelScript;
+    private Vector2[] PatrolRoute;
+    private Boolean onPath = true;
+    private int nextPathPoint = 0;
+    private GameObject target;
+    
     private void Start()
     {
-        speed = 1.5f;
+        speed = 2f;
+        viewRadius = 3f;
         Players = GameObject.FindGameObjectsWithTag("Player");
+        levelScript = GetComponentInParent<LevelScript>();
+        PatrolRoute = levelScript.patrolRoute;
     }
 
     private void Update()
     {
-        GameObject target = closestPlayer();
+        target = ClosestPlayer();
         distance = Vector2.Distance(transform.position, target.transform.position);
-        Vector2 direction = target.transform.position - transform.position;
-        transform.position = Vector2.MoveTowards(this.transform.position, target.transform.position, speed * Time.deltaTime);
+        //Vector2 direction = target.transform.position - transform.position;
+        //transform.position = Vector2.MoveTowards(this.transform.position, target.transform.position, speed * Time.deltaTime);
+        Move();
     }
 
-    private GameObject closestPlayer()
+    private GameObject ClosestPlayer()
     {
         distance = Vector2.Distance(transform.position, Players[0].transform.position);
         GameObject closest = Players[0];
@@ -37,70 +51,45 @@ public class EnemyPathfinding : MonoBehaviour
         return closest;
     }
 
-    /*
-     * Past here: needs a lot of work
-     * For now: Just learn to get the enemies to follow arrays of Vector2's
-    private void attack()
+    private int NearestPathPoint()
     {
-
+        distance = Vector2.Distance(transform.position, PatrolRoute[0]);
+        int closest = 0;
+        for (int i = 1; i < PatrolRoute.Length; i++)
+        {
+            if (Vector2.Distance(transform.position, PatrolRoute[i]) < distance)
+            {
+                distance = Vector2.Distance(transform.position, PatrolRoute[i]);
+                closest = i;
+            }
+        }
+        return closest;
     }
 
-    private void move()
+    private void Move()
     {
-        if (dist(target, (x, y)) < viewRadius){
+        distance = Vector2.Distance(transform.position, ClosestPlayer().transform.position);
+        //if player in view, leave path, move toward target
+        if (distance < viewRadius)
+        {
             onPath = false;
-            moveTowards((target.x, target.y));
+            transform.position = Vector2.MoveTowards(this.transform.position, target.transform.position, speed * Time.deltaTime);
         }
         else
+        //else join, move towards next path point
         {
             if (!onPath)
             {
-                nextPathPoint = nearestPathPoint();
+                nextPathPoint = NearestPathPoint();
                 onPath = true;
             }
-            moveTowards(currentRoom.path[nextPathPoint]);
-            if ((x, y) == currentRoom.path[nextPathPoint])
-                nextPathPoint = (nextPathPoint++) % currentRoom.path.length();
+            transform.position = Vector2.MoveTowards(this.transform.position, PatrolRoute[nextPathPoint], speed * Time.deltaTime);
+            if (Vector2.Distance(transform.position, PatrolRoute[nextPathPoint]) <= 1f)
+            {
+                nextPathPoint = (nextPathPoint + 1) % PatrolRoute.Length;
+            }
             //just remember - if path[0] is always the doors, skip it when finding the next point
             //  if (nextPathPoint == 0) nextPathPoint = 1;
         }
     }
-
-    /*
-
-    private Player lowestHpPlayer()
-    {
-        int weakest = 0;
-        int health = 100000;
-        for (int i = 0; i < players.length(); i++)
-        {
-            if (players[i].health < health)
-            {
-                weakest = i;
-                health = players[i].health;
-            }
-        }
-        return players[weakest];
-    }
-
-    private void moveTowards((int x, int y))
-    {
-
-    }
-
-    private int nearestPathPoint()
-    {
-        int closest = 0;
-        int distance = 100000;
-        for (int i = 0; i < currentRoom.path.length(); i++)
-        {
-            if (dist(currentRoom.path[i], self) < distance)
-            {
-                closest = i;
-                distance = dist(currentRoom.path[i], self);
-            }
-        }
-        return currentRoom.path[closest];
-    }
-    */
 }
