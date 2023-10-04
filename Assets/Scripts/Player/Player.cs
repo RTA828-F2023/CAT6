@@ -112,17 +112,29 @@ public class Player : MonoBehaviour
 
     private void WalkOnPerformed(InputAction.CallbackContext context)
     {
-        Walk(context.ReadValue<Vector2>().normalized);
+        if (Time.timeScale != 0)
+        {
+            Walk(context.ReadValue<Vector2>().normalized);
+        }
+        
     }
 
     private void WalkOnCanceled(InputAction.CallbackContext context)
     {
-        Stop();
+        if (Time.timeScale != 0)
+        {
+            Stop();
+        }
+        
     }
 
     private void FireOnPerformed(InputAction.CallbackContext context)
     {
-        Fire();
+        if (Time.timeScale != 0)
+        {
+            Fire();
+        }
+        
     }
 
     #endregion
