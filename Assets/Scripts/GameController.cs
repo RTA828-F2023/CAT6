@@ -101,13 +101,22 @@ public class GameController : MonoBehaviour
         if (FindObjectsOfType<Enemy>().Length == 0) LevelCompleted();
     }
 
+    #region Level Loading Methods
+
     // Load a new level
-    private IEnumerator LoadLevel(string levelName)
+    private IEnumerator LoadLevelCoroutine(string levelName)
     {
         _mainCamera.Outro();
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(levelName, LoadSceneMode.Single);
     }
+
+    public void LoadLevel(string levelName)
+    {
+        StartCoroutine(LoadLevelCoroutine(levelName));
+    }
+
+    #endregion
 
     // Load a map layout for the level
     private void LoadMap()

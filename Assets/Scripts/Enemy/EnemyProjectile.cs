@@ -8,9 +8,6 @@ public class EnemyProjectile : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private ParticleSystem explosionPrefab;
-    [SerializeField] private LineRenderer pathLine;
-
-    private Vector2 _expectedEndPosition;
 
     private Rigidbody2D _rigidbody;
 
@@ -19,18 +16,6 @@ public class EnemyProjectile : MonoBehaviour
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-    }
-
-    private void Start()
-    {
-
-    }
-
-    private void Update()
-    {
-        _expectedEndPosition = Physics2D.Raycast(transform.position, _rigidbody.velocity.normalized).point;
-        pathLine.SetPosition(0, transform.position);
-        pathLine.SetPosition(1, _expectedEndPosition);
     }
 
     #endregion
@@ -61,8 +46,8 @@ public class EnemyProjectile : MonoBehaviour
 
         if (other.transform.CompareTag("Player"))
         {
-            Player player = other.gameObject.GetComponent<Player>();
-            if (player != null)
+            Player player = other.transform.GetComponent<Player>();
+            if (player)
             {
                 player.TakeDamage(damage);
             }

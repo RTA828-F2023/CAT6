@@ -102,7 +102,6 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // if (_isWalking) _rigidbody.velocity = _walkDirection * speed;
         if (_isWalking) _rigidbody.AddForce(_currentDirection * walkForce, ForceMode2D.Force);
     }
 
@@ -116,7 +115,7 @@ public class Player : MonoBehaviour
         {
             Walk(context.ReadValue<Vector2>().normalized);
         }
-        
+
     }
 
     private void WalkOnCanceled(InputAction.CallbackContext context)
@@ -125,7 +124,7 @@ public class Player : MonoBehaviour
         {
             Stop();
         }
-        
+
     }
 
     private void FireOnPerformed(InputAction.CallbackContext context)
@@ -134,7 +133,7 @@ public class Player : MonoBehaviour
         {
             Fire();
         }
-        
+
     }
 
     #endregion
@@ -161,7 +160,6 @@ public class Player : MonoBehaviour
     {
         // Update walk state & player velocity
         _isWalking = false;
-        // _rigidbody.velocity = Vector2.zero;
 
         // Stop walk animation
         _animator.SetBool(WalkAnimationBool, false);
@@ -193,6 +191,7 @@ public class Player : MonoBehaviour
 
     public void KnockBack(Vector2 direction, float force)
     {
+        _rigidbody.velocity = Vector2.zero;
         _rigidbody.AddForce(direction * force, ForceMode2D.Impulse);
     }
 
@@ -214,11 +213,11 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-        //Destroy(gameObject);
         CameraShaker.Instance.Shake(CameraShakeMode.Normal);
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
 
-        // TODO: Check if all players are dead -> game over
+        // Check if all players are dead -> game over
         GameController.Instance.StartCoroutine(GameController.Instance.CheckPlayerCount());
+        Destroy(gameObject);
     }
 }
