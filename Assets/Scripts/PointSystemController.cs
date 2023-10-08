@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -15,15 +16,17 @@ public class PointSystemController : MonoBehaviour
     void Start()
     {
         var players = GameObject.FindGameObjectsWithTag("Player");
-        for ( int i = 0; i < players.Length; i++) 
+        var playerssorted = players.OrderBy(x => x.transform.GetComponent<Player>().type).ToList();
+
+        foreach (GameObject player in players) 
         {
-            var playerType = players[i].transform.GetComponent<Player>().type;
+            var playerType = player.transform.GetComponent<Player>().type;
             playerScores[playerType] = 0;
 
-            scoreTextObjects[i].enabled = true;
-            scoreTextObjects[i].text = "Score: " + playerScores[playerType];
+            scoreTexts[playerType] = scoreTextObjects[(int)playerType];
 
-            scoreTexts[playerType] = scoreTextObjects[i];
+            scoreTexts[playerType].enabled = true;
+            scoreTexts[playerType].text = "Score: " + playerScores[playerType];
         }
     }
 

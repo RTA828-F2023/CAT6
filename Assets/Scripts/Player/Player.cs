@@ -24,7 +24,6 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform healthDisplay;
     [SerializeField] private Shuriken shurikenPrefab;
     [SerializeField] private ParticleSystem explosionPrefab;
-    [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private Transform scoreBoard;
     private Image[] _heartIcons;
 
@@ -35,9 +34,6 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D _rigidbody;
     private Animator _animator;
-
-    public int _playerScore;
-
 
     private InputManager _inputManager;
 
@@ -97,8 +93,6 @@ public class Player : MonoBehaviour
     private void Start()
     {
         _currentHealth = maxHealth;
-        _playerScore = 0;
-        scoreText.text = "Score: " + _playerScore;
     }
 
     private void Update()
