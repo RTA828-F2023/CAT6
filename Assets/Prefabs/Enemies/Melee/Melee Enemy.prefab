@@ -5030,6 +5030,7 @@ GameObject:
   - component: {fileID: 7318194435396859204}
   - component: {fileID: 3351293655397397785}
   - component: {fileID: 1262593784998913914}
+  - component: {fileID: -8813798326255769416}
   m_Layer: 6
   m_Name: Melee Enemy
   m_TagString: Enemy
@@ -5160,7 +5161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2b3c767642faf942b0bef34182f970f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
+  baseHealth: 1
   explosionPrefab: {fileID: 2487755348245098086, guid: 1f41fdcb62c84c6479c6ba5034d709ef, type: 3}
 --- !u!114 &1262593784998913914
 MonoBehaviour:
@@ -5175,6 +5176,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  knockBackForce: 0
+--- !u!114 &-8813798326255769416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8790434552323951749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b322e2d7ca5527448ae6bc49a238976c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8792841859835459377
 GameObject:
   m_ObjectHideFlags: 0
