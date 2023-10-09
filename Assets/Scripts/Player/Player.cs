@@ -47,27 +47,27 @@ public class Player : MonoBehaviour
         switch (type)
         {
             case PlayerType.Blue:
-                _inputManager.PlayerBlue.Move.performed += WalkOnPerformed;
-                _inputManager.PlayerBlue.Move.canceled += WalkOnCanceled;
-                _inputManager.PlayerBlue.Fire.performed += FireOnPerformed;
+                _inputManager.PlayerBlue.Joystick.performed += WalkOnPerformed;
+                _inputManager.PlayerBlue.Joystick.canceled += WalkOnCanceled;
+                _inputManager.PlayerBlue.Btn1.performed += FireOnPerformed;
                 break;
 
             case PlayerType.Pink:
-                _inputManager.PlayerPink.Move.performed += WalkOnPerformed;
-                _inputManager.PlayerPink.Move.canceled += WalkOnCanceled;
-                _inputManager.PlayerPink.Fire.performed += FireOnPerformed;
+                _inputManager.PlayerPink.Joystick.performed += WalkOnPerformed;
+                _inputManager.PlayerPink.Joystick.canceled += WalkOnCanceled;
+                _inputManager.PlayerPink.Btn1.performed += FireOnPerformed;
                 break;
 
             case PlayerType.Yellow:
-                _inputManager.PlayerYellow.Move.performed += WalkOnPerformed;
-                _inputManager.PlayerYellow.Move.canceled += WalkOnCanceled;
-                _inputManager.PlayerYellow.Fire.performed += FireOnPerformed;
+                _inputManager.PlayerYellow.Joystick.performed += WalkOnPerformed;
+                _inputManager.PlayerYellow.Joystick.canceled += WalkOnCanceled;
+                _inputManager.PlayerYellow.Btn1.performed += FireOnPerformed;
                 break;
 
             case PlayerType.Green:
-                _inputManager.PlayerGreen.Move.performed += WalkOnPerformed;
-                _inputManager.PlayerGreen.Move.canceled += WalkOnCanceled;
-                _inputManager.PlayerGreen.Fire.performed += FireOnPerformed;
+                _inputManager.PlayerGreen.Joystick.performed += WalkOnPerformed;
+                _inputManager.PlayerGreen.Joystick.canceled += WalkOnCanceled;
+                _inputManager.PlayerGreen.Btn1.performed += FireOnPerformed;
                 break;
 
             default:
@@ -102,7 +102,6 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // if (_isWalking) _rigidbody.velocity = _walkDirection * speed;
         if (_isWalking) _rigidbody.AddForce(_currentDirection * walkForce, ForceMode2D.Force);
     }
 
@@ -112,17 +111,29 @@ public class Player : MonoBehaviour
 
     private void WalkOnPerformed(InputAction.CallbackContext context)
     {
-        Walk(context.ReadValue<Vector2>().normalized);
+        if (Time.timeScale != 0)
+        {
+            Walk(context.ReadValue<Vector2>().normalized);
+        }
+
     }
 
     private void WalkOnCanceled(InputAction.CallbackContext context)
     {
-        Stop();
+        if (Time.timeScale != 0)
+        {
+            Stop();
+        }
+
     }
 
     private void FireOnPerformed(InputAction.CallbackContext context)
     {
-        Fire();
+        if (Time.timeScale != 0)
+        {
+            Fire();
+        }
+
     }
 
     #endregion
@@ -149,7 +160,6 @@ public class Player : MonoBehaviour
     {
         // Update walk state & player velocity
         _isWalking = false;
-        // _rigidbody.velocity = Vector2.zero;
 
         // Stop walk animation
         _animator.SetBool(WalkAnimationBool, false);
@@ -181,6 +191,7 @@ public class Player : MonoBehaviour
 
     public void KnockBack(Vector2 direction, float force)
     {
+        _rigidbody.velocity = Vector2.zero;
         _rigidbody.AddForce(direction * force, ForceMode2D.Impulse);
     }
 
@@ -191,20 +202,22 @@ public class Player : MonoBehaviour
         for (int i = _currentHealth; i < maxHealth; i++) _heartIcons[i + 1].gameObject.SetActive(false);
     }
 
-    private void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         _currentHealth--;
         UpdateHealthDisplay();
 
-        CameraShaker.Instance.Shake(CameraShakeMode.Light);
+        CameraShaker.Instance.Shake(CameraShakeMode.Normal);
+        if (_currentHealth <= 0) Die();
     }
 
     private void Die()
     {
-        Destroy(gameObject);
         CameraShaker.Instance.Shake(CameraShakeMode.Normal);
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
 
-        // TODO: Check if all players are dead -> game over
+        // Check if all players are dead -> game over
+        GameController.Instance.StartCoroutine(GameController.Instance.CheckPlayerCount());
+        Destroy(gameObject);
     }
 }

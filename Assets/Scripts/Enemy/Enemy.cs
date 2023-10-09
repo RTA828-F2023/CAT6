@@ -2,28 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour  {
+public class Enemy : MonoBehaviour
+{
+    [Header("Stats")]
+    [SerializeField] private int baseHealth = 1;
 
-    public GameObject player;
-    public float speed;
-    private float distance;
-    Rigidbody2D body;
+    [Header("Prefabs")]
+    [SerializeField] private ParticleSystem explosionPrefab;
 
-    // Start is called before the first frame update
-    void Start()
+    private int _currentHealth;
+
+    #region Unity Events
+
+    private void Start()
     {
-        body = GetComponent<Rigidbody2D>();
-        Launch();
+        _currentHealth = baseHealth;
     }
 
-    // Update is called once per frame
-    void Update()
+    #endregion
+
+    public void TakeDamage(int damage)
     {
+        _currentHealth -= damage;
+        if (_currentHealth <= 0) Die();
     }
 
-    private void Launch() {
-        float x = 1;
-        float y = 1;
-        body.velocity = new Vector2(speed * x, speed * y);
+    private void Die()
+    {
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }

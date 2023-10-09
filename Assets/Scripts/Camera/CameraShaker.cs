@@ -44,7 +44,7 @@ public class CameraShaker : MonoBehaviour
         if (_shakeDuration > 0f)
         {
             transform.localPosition = _originalPosition + Random.insideUnitSphere * _shakeIntensity;
-            _shakeDuration -= Time.fixedDeltaTime * _shakeDecreaseFactor * Time.timeScale;
+            _shakeDuration -= Time.deltaTime * _shakeDecreaseFactor * Time.timeScale;
         }
         // When shake duration reaches 0, reset everything
         else if (_shakeDuration < 0f)
@@ -71,9 +71,6 @@ public class CameraShaker : MonoBehaviour
     private IEnumerator ShakeCoroutine(CameraShakeMode cameraShakeMode, float delay)
     {
         yield return new WaitForSeconds(delay);
-
-        // If screen shake disabled in menu then do nothing
-        if (PlayerPrefs.GetInt("ScreenShake", 0) == 1) yield break;
 
         _originalPosition = new Vector3(0f, 0f, -10f);
 

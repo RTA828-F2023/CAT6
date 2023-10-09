@@ -36,7 +36,15 @@ public class Shuriken : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        // TODO: If hit an enemy then deal damage to it
+        // If hit an enemy then deal damage to it
+        if (other.transform.CompareTag("Enemy"))
+        {
+            var enemy = other.transform.GetComponent<Enemy>();
+            enemy.TakeDamage(1);
+
+            CameraShaker.Instance.Shake(CameraShakeMode.Light);
+        }
+
         Explode();
     }
 }
