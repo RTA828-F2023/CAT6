@@ -4,6 +4,7 @@ public class Enemy : MonoBehaviour
 {
     [Header("Stats")]
     [SerializeField] private int baseHealth = 1;
+    [SerializeField] private int scoreValue = 100;
 
     [Header("Prefabs")]
     [SerializeField] private ParticleSystem explosionPrefab;
@@ -23,6 +24,11 @@ public class Enemy : MonoBehaviour
     {
         _currentHealth -= damage;
         if (_currentHealth <= 0) Die();
+    }
+
+    public int GetScore() 
+    {
+        return scoreValue;
     }
 
     private void Die()

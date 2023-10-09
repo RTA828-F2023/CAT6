@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform healthDisplay;
     [SerializeField] private Shuriken shurikenPrefab;
     [SerializeField] private ParticleSystem explosionPrefab;
-
+    [SerializeField] private Transform scoreBoard;
     private Image[] _heartIcons;
 
     private bool _isWalking;
@@ -174,7 +174,7 @@ public class Player : MonoBehaviour
         if (!_canFire) return;
 
         var shuriken = Instantiate(shurikenPrefab, firePoint.position, Quaternion.identity);
-        shuriken.Init(_currentDirection, fireForce);
+        shuriken.Init(gameObject,_currentDirection, fireForce);
 
         // Down time before player can fire again
         _canFire = false;
@@ -209,6 +209,13 @@ public class Player : MonoBehaviour
 
         CameraShaker.Instance.Shake(CameraShakeMode.Normal);
         if (_currentHealth <= 0) Die();
+    }
+
+    public void UpdateScore(int score)
+    {
+        var scoreController = scoreBoard.GetComponent<PointSystemController>();
+        scoreController.UpdatePlayerScore(type,score);
+
     }
 
     private void Die()
