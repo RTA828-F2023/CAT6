@@ -107,7 +107,7 @@ public class GameController : MonoBehaviour
     private IEnumerator LoadLevelCoroutine(string levelName)
     {
         _mainCamera.Outro();
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSecondsRealtime(0.5f);
         SceneManager.LoadScene(levelName, LoadSceneMode.Single);
     }
 
