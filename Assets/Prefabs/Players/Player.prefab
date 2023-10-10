@@ -335,7 +335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  speed: 4
+  speed: 3
   maxHealth: 3
   walkForce: 20
   fireForce: 15
@@ -345,8 +345,7 @@ MonoBehaviour:
   healthDisplay: {fileID: 887281472516566361}
   shurikenPrefab: {fileID: 2839642025101349446, guid: 2e45d1bf5996e1e459e58a88561dfefa, type: 3}
   explosionPrefab: {fileID: 0}
-  scoreText: {fileID: 5165177080523384987}
-  _playerScore: 0
+  scoreBoard: {fileID: 0}
 --- !u!1 &2485277474907954766
 GameObject:
   m_ObjectHideFlags: 0

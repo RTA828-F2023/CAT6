@@ -58,7 +58,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        _depthOfField.active = false;
+        
     }
 
     #endregion
@@ -117,6 +117,11 @@ public class GameController : MonoBehaviour
     }
 
     #endregion
+
+    public void SetDepthOfField(bool value)
+    {
+        _depthOfField.active = value;
+    }
 
     // Load a map layout for the level
     private void LoadMap()

@@ -289,6 +289,7 @@ public class UIControlller : MonoBehaviour
     //desc: Pauses the game
     public void PauseGame()
     {
+        GameController.Instance.SetDepthOfField(true);
         //set pause menu panel to active
         pauseMenu.SetActive(true);
 
@@ -305,6 +306,7 @@ public class UIControlller : MonoBehaviour
     //desc: Resume the game
     public void ResumeGame()
     {
+        GameController.Instance.SetDepthOfField(false);
         //set pause menu panel to be unactive
         pauseMenu.SetActive(false);
 
