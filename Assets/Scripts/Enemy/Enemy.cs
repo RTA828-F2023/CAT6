@@ -33,6 +33,9 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        // Check win condition on enemy death
+        GameController.Instance.StartCoroutine(GameController.Instance.CheckWinCondition());
+
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

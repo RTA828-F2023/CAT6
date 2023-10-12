@@ -44,7 +44,7 @@ public class CameraShaker : MonoBehaviour
         if (_shakeDuration > 0f)
         {
             transform.localPosition = _originalPosition + Random.insideUnitSphere * _shakeIntensity;
-            _shakeDuration -= Time.deltaTime * _shakeDecreaseFactor * Time.timeScale;
+            _shakeDuration -= Time.unscaledDeltaTime * _shakeDecreaseFactor;
         }
         // When shake duration reaches 0, reset everything
         else if (_shakeDuration < 0f)

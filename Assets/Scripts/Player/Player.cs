@@ -224,7 +224,7 @@ public class Player : MonoBehaviour
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
 
         // Check if all players are dead -> game over
-        GameController.Instance.StartCoroutine(GameController.Instance.CheckPlayerCount());
+        GameController.Instance.StartCoroutine(GameController.Instance.CheckLoseCondition());
         Destroy(gameObject);
     }
 }

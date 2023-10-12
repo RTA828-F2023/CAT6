@@ -23,6 +23,9 @@ public class GameController : MonoBehaviour
 
     #endregion
 
+    [SerializeField] private GameObject levelCompleteMenu;
+    [SerializeField] private GameObject gameOverMenu;
+
     private MainCamera _mainCamera;
 
     private VolumeProfile _volumeProfile;
@@ -58,7 +61,8 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        
+        levelCompleteMenu.SetActive(false);
+        // gameOverMenu.SetActive(false);
     }
 
     #endregion
@@ -78,27 +82,39 @@ public class GameController : MonoBehaviour
     private void GameOver()
     {
         _depthOfField.active = true;
-        // TODO: Show game over screen
+        // gameOverMenu.SetActive(true);
+
+        Time.timeScale = 0f;
     }
 
     private void LevelCompleted()
     {
         _depthOfField.active = true;
-        // TODO: Show level complete screen
+        levelCompleteMenu.SetActive(true);
+
+        Time.timeScale = 0f;
     }
 
-    public IEnumerator CheckPlayerCount()
+    public IEnumerator CheckLoseCondition()
     {
         // Have to wait til next frame so that game objects have been fully destroyed
         yield return new WaitForEndOfFrame();
-        if (FindObjectsOfType<Player>().Length == 0) GameOver();
+        if (FindObjectsOfType<Player>().Length == 0)
+        {
+            yield return new WaitForSeconds(0.5f);
+            GameOver();
+        }
     }
 
-    public IEnumerator CheckEnemyCount()
+    public IEnumerator CheckWinCondition()
     {
         // Have to wait til next frame so that game objects have been fully destroyed
         yield return new WaitForEndOfFrame();
-        if (FindObjectsOfType<Enemy>().Length == 0) LevelCompleted();
+        if (FindObjectsOfType<Enemy>().Length == 0 && FindObjectOfType<WavesController>().ReachedMaxWaveCount())
+        {
+            yield return new WaitForSeconds(0.5f);
+            LevelCompleted();
+        }
     }
 
     #region Level Loading Methods
