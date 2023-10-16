@@ -29,11 +29,14 @@ public class EnemyPathfinding : MonoBehaviour
 
     private void Update()
     {
-        target = ClosestPlayer();
-        distance = Vector2.Distance(transform.position, target.transform.position);
-        //Vector2 direction = target.transform.position - transform.position;
-        //transform.position = Vector2.MoveTowards(this.transform.position, target.transform.position, speed * Time.deltaTime);
-        Move();
+        Players = GameObject.FindGameObjectsWithTag("Player");
+        if (Players.Length > 0) {
+            target = ClosestPlayer();
+            distance = Vector2.Distance(transform.position, target.transform.position);
+            //Vector2 direction = target.transform.position - transform.position;
+            //transform.position = Vector2.MoveTowards(this.transform.position, target.transform.position, speed * Time.deltaTime);
+            Move();
+        }
     }
 
     private GameObject ClosestPlayer()
