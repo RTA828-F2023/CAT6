@@ -85,6 +85,15 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
+                    ""name"": ""Select"",
+                    ""type"": ""Button"",
+                    ""id"": ""26005ae0-dca5-4e1e-9c80-deb842d185f2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Btn1"",
                     ""type"": ""Button"",
                     ""id"": ""2ad68c57-6c30-4907-8c72-dabbb9bad703"",
@@ -94,9 +103,9 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Select"",
+                    ""name"": ""Btn2"",
                     ""type"": ""Button"",
-                    ""id"": ""26005ae0-dca5-4e1e-9c80-deb842d185f2"",
+                    ""id"": ""cf0c633c-8c71-4eac-b1b7-3ea64d6810ad"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -161,23 +170,34 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""e8f18757-d333-42e5-aac2-606952dd0f0d"",
-                    ""path"": ""<Keyboard>/4"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Btn1"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""2b73820e-60f3-42b8-939e-7917d4997cff"",
                     ""path"": ""<Keyboard>/minus"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e39f6cdf-a771-4ae6-9b7e-f5d086632252"",
+                    ""path"": ""<Keyboard>/5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""MouseKeyboard"",
+                    ""action"": ""Btn2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e8f18757-d333-42e5-aac2-606952dd0f0d"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""MouseKeyboard"",
+                    ""action"": ""Btn1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -197,6 +217,15 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
+                    ""name"": ""Select"",
+                    ""type"": ""Button"",
+                    ""id"": ""fc880602-b0a0-4e13-9631-85de802e7135"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Btn1"",
                     ""type"": ""Button"",
                     ""id"": ""2a05b31a-015d-4087-aaad-13caabf62883"",
@@ -206,9 +235,9 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Select"",
+                    ""name"": ""Btn2"",
                     ""type"": ""Button"",
-                    ""id"": ""fc880602-b0a0-4e13-9631-85de802e7135"",
+                    ""id"": ""2b41dc95-56cb-47c2-87d1-ac2a98f1627c"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -216,17 +245,6 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""521c0734-cc72-4b2c-9044-969bd909b159"",
-                    ""path"": ""<Keyboard>/0"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Btn1"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": ""WASD"",
                     ""id"": ""dd049188-b9f0-4091-99ef-d1d00b3b79f0"",
@@ -292,6 +310,28 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""action"": ""Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""47a32739-c4e5-41a6-bf5f-e7ec593f8315"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""MouseKeyboard"",
+                    ""action"": ""Btn2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""521c0734-cc72-4b2c-9044-969bd909b159"",
+                    ""path"": ""<Keyboard>/0"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""MouseKeyboard"",
+                    ""action"": ""Btn1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -309,6 +349,15 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
+                    ""name"": ""Select"",
+                    ""type"": ""Button"",
+                    ""id"": ""fd9af98d-ff38-4355-bf60-37876aaaaafd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Btn1"",
                     ""type"": ""Button"",
                     ""id"": ""1a0a42c3-86b1-4759-94b2-48556d88516b"",
@@ -318,9 +367,9 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Select"",
+                    ""name"": ""Btn2"",
                     ""type"": ""Button"",
-                    ""id"": ""fd9af98d-ff38-4355-bf60-37876aaaaafd"",
+                    ""id"": ""496c181f-c3fe-437f-9809-9f0a4cf3bdcd"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -328,17 +377,6 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""4fa01021-ea7b-409c-92f0-dde34f4924a4"",
-                    ""path"": ""<Keyboard>/z"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Btn1"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": ""TFGH"",
                     ""id"": ""7dce616b-cd80-4e6f-88db-d42b8a3dd3bf"",
@@ -404,6 +442,28 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""action"": ""Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cb6f9394-eddd-4afa-8b50-e698785830db"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""MouseKeyboard"",
+                    ""action"": ""Btn2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4fa01021-ea7b-409c-92f0-dde34f4924a4"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""MouseKeyboard"",
+                    ""action"": ""Btn1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -421,6 +481,15 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
+                    ""name"": ""Select"",
+                    ""type"": ""Button"",
+                    ""id"": ""6198369e-ba35-47cc-b2c5-57cc8c40a1df"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Btn1"",
                     ""type"": ""Button"",
                     ""id"": ""404e5120-f805-4df9-b47b-32d028709d94"",
@@ -430,9 +499,9 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Select"",
+                    ""name"": ""Btn2"",
                     ""type"": ""Button"",
-                    ""id"": ""6198369e-ba35-47cc-b2c5-57cc8c40a1df"",
+                    ""id"": ""74d04696-addf-45ff-ad46-db4ac7678894"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -440,17 +509,6 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""09247d44-463d-4bf2-b151-4476db97266d"",
-                    ""path"": ""<Keyboard>/m"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Btn1"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": ""IJKL"",
                     ""id"": ""2e96bdfe-448c-4a13-a6e0-d792aae41c9b"",
@@ -516,6 +574,28 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""action"": ""Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ef52370d-adf7-4317-bdbb-9c24279753f5"",
+                    ""path"": ""<Keyboard>/period"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""MouseKeyboard"",
+                    ""action"": ""Btn2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""09247d44-463d-4bf2-b151-4476db97266d"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""MouseKeyboard"",
+                    ""action"": ""Btn1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -557,23 +637,27 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
         // PlayerBlue
         m_PlayerBlue = asset.FindActionMap("PlayerBlue", throwIfNotFound: true);
         m_PlayerBlue_Joystick = m_PlayerBlue.FindAction("Joystick", throwIfNotFound: true);
-        m_PlayerBlue_Btn1 = m_PlayerBlue.FindAction("Btn1", throwIfNotFound: true);
         m_PlayerBlue_Select = m_PlayerBlue.FindAction("Select", throwIfNotFound: true);
+        m_PlayerBlue_Btn1 = m_PlayerBlue.FindAction("Btn1", throwIfNotFound: true);
+        m_PlayerBlue_Btn2 = m_PlayerBlue.FindAction("Btn2", throwIfNotFound: true);
         // PlayerPink
         m_PlayerPink = asset.FindActionMap("PlayerPink", throwIfNotFound: true);
         m_PlayerPink_Joystick = m_PlayerPink.FindAction("Joystick", throwIfNotFound: true);
-        m_PlayerPink_Btn1 = m_PlayerPink.FindAction("Btn1", throwIfNotFound: true);
         m_PlayerPink_Select = m_PlayerPink.FindAction("Select", throwIfNotFound: true);
+        m_PlayerPink_Btn1 = m_PlayerPink.FindAction("Btn1", throwIfNotFound: true);
+        m_PlayerPink_Btn2 = m_PlayerPink.FindAction("Btn2", throwIfNotFound: true);
         // PlayerYellow
         m_PlayerYellow = asset.FindActionMap("PlayerYellow", throwIfNotFound: true);
         m_PlayerYellow_Joystick = m_PlayerYellow.FindAction("Joystick", throwIfNotFound: true);
-        m_PlayerYellow_Btn1 = m_PlayerYellow.FindAction("Btn1", throwIfNotFound: true);
         m_PlayerYellow_Select = m_PlayerYellow.FindAction("Select", throwIfNotFound: true);
+        m_PlayerYellow_Btn1 = m_PlayerYellow.FindAction("Btn1", throwIfNotFound: true);
+        m_PlayerYellow_Btn2 = m_PlayerYellow.FindAction("Btn2", throwIfNotFound: true);
         // PlayerGreen
         m_PlayerGreen = asset.FindActionMap("PlayerGreen", throwIfNotFound: true);
         m_PlayerGreen_Joystick = m_PlayerGreen.FindAction("Joystick", throwIfNotFound: true);
-        m_PlayerGreen_Btn1 = m_PlayerGreen.FindAction("Btn1", throwIfNotFound: true);
         m_PlayerGreen_Select = m_PlayerGreen.FindAction("Select", throwIfNotFound: true);
+        m_PlayerGreen_Btn1 = m_PlayerGreen.FindAction("Btn1", throwIfNotFound: true);
+        m_PlayerGreen_Btn2 = m_PlayerGreen.FindAction("Btn2", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -690,15 +774,17 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_PlayerBlue;
     private List<IPlayerBlueActions> m_PlayerBlueActionsCallbackInterfaces = new List<IPlayerBlueActions>();
     private readonly InputAction m_PlayerBlue_Joystick;
-    private readonly InputAction m_PlayerBlue_Btn1;
     private readonly InputAction m_PlayerBlue_Select;
+    private readonly InputAction m_PlayerBlue_Btn1;
+    private readonly InputAction m_PlayerBlue_Btn2;
     public struct PlayerBlueActions
     {
         private @InputManager m_Wrapper;
         public PlayerBlueActions(@InputManager wrapper) { m_Wrapper = wrapper; }
         public InputAction @Joystick => m_Wrapper.m_PlayerBlue_Joystick;
-        public InputAction @Btn1 => m_Wrapper.m_PlayerBlue_Btn1;
         public InputAction @Select => m_Wrapper.m_PlayerBlue_Select;
+        public InputAction @Btn1 => m_Wrapper.m_PlayerBlue_Btn1;
+        public InputAction @Btn2 => m_Wrapper.m_PlayerBlue_Btn2;
         public InputActionMap Get() { return m_Wrapper.m_PlayerBlue; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -711,12 +797,15 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
             @Joystick.started += instance.OnJoystick;
             @Joystick.performed += instance.OnJoystick;
             @Joystick.canceled += instance.OnJoystick;
-            @Btn1.started += instance.OnBtn1;
-            @Btn1.performed += instance.OnBtn1;
-            @Btn1.canceled += instance.OnBtn1;
             @Select.started += instance.OnSelect;
             @Select.performed += instance.OnSelect;
             @Select.canceled += instance.OnSelect;
+            @Btn1.started += instance.OnBtn1;
+            @Btn1.performed += instance.OnBtn1;
+            @Btn1.canceled += instance.OnBtn1;
+            @Btn2.started += instance.OnBtn2;
+            @Btn2.performed += instance.OnBtn2;
+            @Btn2.canceled += instance.OnBtn2;
         }
 
         private void UnregisterCallbacks(IPlayerBlueActions instance)
@@ -724,12 +813,15 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
             @Joystick.started -= instance.OnJoystick;
             @Joystick.performed -= instance.OnJoystick;
             @Joystick.canceled -= instance.OnJoystick;
-            @Btn1.started -= instance.OnBtn1;
-            @Btn1.performed -= instance.OnBtn1;
-            @Btn1.canceled -= instance.OnBtn1;
             @Select.started -= instance.OnSelect;
             @Select.performed -= instance.OnSelect;
             @Select.canceled -= instance.OnSelect;
+            @Btn1.started -= instance.OnBtn1;
+            @Btn1.performed -= instance.OnBtn1;
+            @Btn1.canceled -= instance.OnBtn1;
+            @Btn2.started -= instance.OnBtn2;
+            @Btn2.performed -= instance.OnBtn2;
+            @Btn2.canceled -= instance.OnBtn2;
         }
 
         public void RemoveCallbacks(IPlayerBlueActions instance)
@@ -752,15 +844,17 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_PlayerPink;
     private List<IPlayerPinkActions> m_PlayerPinkActionsCallbackInterfaces = new List<IPlayerPinkActions>();
     private readonly InputAction m_PlayerPink_Joystick;
-    private readonly InputAction m_PlayerPink_Btn1;
     private readonly InputAction m_PlayerPink_Select;
+    private readonly InputAction m_PlayerPink_Btn1;
+    private readonly InputAction m_PlayerPink_Btn2;
     public struct PlayerPinkActions
     {
         private @InputManager m_Wrapper;
         public PlayerPinkActions(@InputManager wrapper) { m_Wrapper = wrapper; }
         public InputAction @Joystick => m_Wrapper.m_PlayerPink_Joystick;
-        public InputAction @Btn1 => m_Wrapper.m_PlayerPink_Btn1;
         public InputAction @Select => m_Wrapper.m_PlayerPink_Select;
+        public InputAction @Btn1 => m_Wrapper.m_PlayerPink_Btn1;
+        public InputAction @Btn2 => m_Wrapper.m_PlayerPink_Btn2;
         public InputActionMap Get() { return m_Wrapper.m_PlayerPink; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -773,12 +867,15 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
             @Joystick.started += instance.OnJoystick;
             @Joystick.performed += instance.OnJoystick;
             @Joystick.canceled += instance.OnJoystick;
-            @Btn1.started += instance.OnBtn1;
-            @Btn1.performed += instance.OnBtn1;
-            @Btn1.canceled += instance.OnBtn1;
             @Select.started += instance.OnSelect;
             @Select.performed += instance.OnSelect;
             @Select.canceled += instance.OnSelect;
+            @Btn1.started += instance.OnBtn1;
+            @Btn1.performed += instance.OnBtn1;
+            @Btn1.canceled += instance.OnBtn1;
+            @Btn2.started += instance.OnBtn2;
+            @Btn2.performed += instance.OnBtn2;
+            @Btn2.canceled += instance.OnBtn2;
         }
 
         private void UnregisterCallbacks(IPlayerPinkActions instance)
@@ -786,12 +883,15 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
             @Joystick.started -= instance.OnJoystick;
             @Joystick.performed -= instance.OnJoystick;
             @Joystick.canceled -= instance.OnJoystick;
-            @Btn1.started -= instance.OnBtn1;
-            @Btn1.performed -= instance.OnBtn1;
-            @Btn1.canceled -= instance.OnBtn1;
             @Select.started -= instance.OnSelect;
             @Select.performed -= instance.OnSelect;
             @Select.canceled -= instance.OnSelect;
+            @Btn1.started -= instance.OnBtn1;
+            @Btn1.performed -= instance.OnBtn1;
+            @Btn1.canceled -= instance.OnBtn1;
+            @Btn2.started -= instance.OnBtn2;
+            @Btn2.performed -= instance.OnBtn2;
+            @Btn2.canceled -= instance.OnBtn2;
         }
 
         public void RemoveCallbacks(IPlayerPinkActions instance)
@@ -814,15 +914,17 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_PlayerYellow;
     private List<IPlayerYellowActions> m_PlayerYellowActionsCallbackInterfaces = new List<IPlayerYellowActions>();
     private readonly InputAction m_PlayerYellow_Joystick;
-    private readonly InputAction m_PlayerYellow_Btn1;
     private readonly InputAction m_PlayerYellow_Select;
+    private readonly InputAction m_PlayerYellow_Btn1;
+    private readonly InputAction m_PlayerYellow_Btn2;
     public struct PlayerYellowActions
     {
         private @InputManager m_Wrapper;
         public PlayerYellowActions(@InputManager wrapper) { m_Wrapper = wrapper; }
         public InputAction @Joystick => m_Wrapper.m_PlayerYellow_Joystick;
-        public InputAction @Btn1 => m_Wrapper.m_PlayerYellow_Btn1;
         public InputAction @Select => m_Wrapper.m_PlayerYellow_Select;
+        public InputAction @Btn1 => m_Wrapper.m_PlayerYellow_Btn1;
+        public InputAction @Btn2 => m_Wrapper.m_PlayerYellow_Btn2;
         public InputActionMap Get() { return m_Wrapper.m_PlayerYellow; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -835,12 +937,15 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
             @Joystick.started += instance.OnJoystick;
             @Joystick.performed += instance.OnJoystick;
             @Joystick.canceled += instance.OnJoystick;
-            @Btn1.started += instance.OnBtn1;
-            @Btn1.performed += instance.OnBtn1;
-            @Btn1.canceled += instance.OnBtn1;
             @Select.started += instance.OnSelect;
             @Select.performed += instance.OnSelect;
             @Select.canceled += instance.OnSelect;
+            @Btn1.started += instance.OnBtn1;
+            @Btn1.performed += instance.OnBtn1;
+            @Btn1.canceled += instance.OnBtn1;
+            @Btn2.started += instance.OnBtn2;
+            @Btn2.performed += instance.OnBtn2;
+            @Btn2.canceled += instance.OnBtn2;
         }
 
         private void UnregisterCallbacks(IPlayerYellowActions instance)
@@ -848,12 +953,15 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
             @Joystick.started -= instance.OnJoystick;
             @Joystick.performed -= instance.OnJoystick;
             @Joystick.canceled -= instance.OnJoystick;
-            @Btn1.started -= instance.OnBtn1;
-            @Btn1.performed -= instance.OnBtn1;
-            @Btn1.canceled -= instance.OnBtn1;
             @Select.started -= instance.OnSelect;
             @Select.performed -= instance.OnSelect;
             @Select.canceled -= instance.OnSelect;
+            @Btn1.started -= instance.OnBtn1;
+            @Btn1.performed -= instance.OnBtn1;
+            @Btn1.canceled -= instance.OnBtn1;
+            @Btn2.started -= instance.OnBtn2;
+            @Btn2.performed -= instance.OnBtn2;
+            @Btn2.canceled -= instance.OnBtn2;
         }
 
         public void RemoveCallbacks(IPlayerYellowActions instance)
@@ -876,15 +984,17 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_PlayerGreen;
     private List<IPlayerGreenActions> m_PlayerGreenActionsCallbackInterfaces = new List<IPlayerGreenActions>();
     private readonly InputAction m_PlayerGreen_Joystick;
-    private readonly InputAction m_PlayerGreen_Btn1;
     private readonly InputAction m_PlayerGreen_Select;
+    private readonly InputAction m_PlayerGreen_Btn1;
+    private readonly InputAction m_PlayerGreen_Btn2;
     public struct PlayerGreenActions
     {
         private @InputManager m_Wrapper;
         public PlayerGreenActions(@InputManager wrapper) { m_Wrapper = wrapper; }
         public InputAction @Joystick => m_Wrapper.m_PlayerGreen_Joystick;
-        public InputAction @Btn1 => m_Wrapper.m_PlayerGreen_Btn1;
         public InputAction @Select => m_Wrapper.m_PlayerGreen_Select;
+        public InputAction @Btn1 => m_Wrapper.m_PlayerGreen_Btn1;
+        public InputAction @Btn2 => m_Wrapper.m_PlayerGreen_Btn2;
         public InputActionMap Get() { return m_Wrapper.m_PlayerGreen; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -897,12 +1007,15 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
             @Joystick.started += instance.OnJoystick;
             @Joystick.performed += instance.OnJoystick;
             @Joystick.canceled += instance.OnJoystick;
-            @Btn1.started += instance.OnBtn1;
-            @Btn1.performed += instance.OnBtn1;
-            @Btn1.canceled += instance.OnBtn1;
             @Select.started += instance.OnSelect;
             @Select.performed += instance.OnSelect;
             @Select.canceled += instance.OnSelect;
+            @Btn1.started += instance.OnBtn1;
+            @Btn1.performed += instance.OnBtn1;
+            @Btn1.canceled += instance.OnBtn1;
+            @Btn2.started += instance.OnBtn2;
+            @Btn2.performed += instance.OnBtn2;
+            @Btn2.canceled += instance.OnBtn2;
         }
 
         private void UnregisterCallbacks(IPlayerGreenActions instance)
@@ -910,12 +1023,15 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
             @Joystick.started -= instance.OnJoystick;
             @Joystick.performed -= instance.OnJoystick;
             @Joystick.canceled -= instance.OnJoystick;
-            @Btn1.started -= instance.OnBtn1;
-            @Btn1.performed -= instance.OnBtn1;
-            @Btn1.canceled -= instance.OnBtn1;
             @Select.started -= instance.OnSelect;
             @Select.performed -= instance.OnSelect;
             @Select.canceled -= instance.OnSelect;
+            @Btn1.started -= instance.OnBtn1;
+            @Btn1.performed -= instance.OnBtn1;
+            @Btn1.canceled -= instance.OnBtn1;
+            @Btn2.started -= instance.OnBtn2;
+            @Btn2.performed -= instance.OnBtn2;
+            @Btn2.canceled -= instance.OnBtn2;
         }
 
         public void RemoveCallbacks(IPlayerGreenActions instance)
@@ -959,25 +1075,29 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
     public interface IPlayerBlueActions
     {
         void OnJoystick(InputAction.CallbackContext context);
-        void OnBtn1(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
+        void OnBtn1(InputAction.CallbackContext context);
+        void OnBtn2(InputAction.CallbackContext context);
     }
     public interface IPlayerPinkActions
     {
         void OnJoystick(InputAction.CallbackContext context);
-        void OnBtn1(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
+        void OnBtn1(InputAction.CallbackContext context);
+        void OnBtn2(InputAction.CallbackContext context);
     }
     public interface IPlayerYellowActions
     {
         void OnJoystick(InputAction.CallbackContext context);
-        void OnBtn1(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
+        void OnBtn1(InputAction.CallbackContext context);
+        void OnBtn2(InputAction.CallbackContext context);
     }
     public interface IPlayerGreenActions
     {
         void OnJoystick(InputAction.CallbackContext context);
-        void OnBtn1(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
+        void OnBtn1(InputAction.CallbackContext context);
+        void OnBtn2(InputAction.CallbackContext context);
     }
 }

@@ -63,6 +63,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Select",
+                    "type": "Button",
+                    "id": "26005ae0-dca5-4e1e-9c80-deb842d185f2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Btn1",
                     "type": "Button",
                     "id": "2ad68c57-6c30-4907-8c72-dabbb9bad703",
@@ -72,9 +81,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Select",
+                    "name": "Btn2",
                     "type": "Button",
-                    "id": "26005ae0-dca5-4e1e-9c80-deb842d185f2",
+                    "id": "cf0c633c-8c71-4eac-b1b7-3ea64d6810ad",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -139,23 +148,34 @@
                 },
                 {
                     "name": "",
-                    "id": "e8f18757-d333-42e5-aac2-606952dd0f0d",
-                    "path": "<Keyboard>/4",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "MouseKeyboard",
-                    "action": "Btn1",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "2b73820e-60f3-42b8-939e-7917d4997cff",
                     "path": "<Keyboard>/minus",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e39f6cdf-a771-4ae6-9b7e-f5d086632252",
+                    "path": "<Keyboard>/5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "MouseKeyboard",
+                    "action": "Btn2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e8f18757-d333-42e5-aac2-606952dd0f0d",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "MouseKeyboard",
+                    "action": "Btn1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -175,6 +195,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Select",
+                    "type": "Button",
+                    "id": "fc880602-b0a0-4e13-9631-85de802e7135",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Btn1",
                     "type": "Button",
                     "id": "2a05b31a-015d-4087-aaad-13caabf62883",
@@ -184,9 +213,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Select",
+                    "name": "Btn2",
                     "type": "Button",
-                    "id": "fc880602-b0a0-4e13-9631-85de802e7135",
+                    "id": "2b41dc95-56cb-47c2-87d1-ac2a98f1627c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -194,17 +223,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "521c0734-cc72-4b2c-9044-969bd909b159",
-                    "path": "<Keyboard>/0",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "MouseKeyboard",
-                    "action": "Btn1",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "WASD",
                     "id": "dd049188-b9f0-4091-99ef-d1d00b3b79f0",
@@ -270,6 +288,28 @@
                     "action": "Select",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "47a32739-c4e5-41a6-bf5f-e7ec593f8315",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "MouseKeyboard",
+                    "action": "Btn2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "521c0734-cc72-4b2c-9044-969bd909b159",
+                    "path": "<Keyboard>/0",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "MouseKeyboard",
+                    "action": "Btn1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -287,6 +327,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Select",
+                    "type": "Button",
+                    "id": "fd9af98d-ff38-4355-bf60-37876aaaaafd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Btn1",
                     "type": "Button",
                     "id": "1a0a42c3-86b1-4759-94b2-48556d88516b",
@@ -296,9 +345,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Select",
+                    "name": "Btn2",
                     "type": "Button",
-                    "id": "fd9af98d-ff38-4355-bf60-37876aaaaafd",
+                    "id": "496c181f-c3fe-437f-9809-9f0a4cf3bdcd",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -306,17 +355,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "4fa01021-ea7b-409c-92f0-dde34f4924a4",
-                    "path": "<Keyboard>/z",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "MouseKeyboard",
-                    "action": "Btn1",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "TFGH",
                     "id": "7dce616b-cd80-4e6f-88db-d42b8a3dd3bf",
@@ -382,6 +420,28 @@
                     "action": "Select",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cb6f9394-eddd-4afa-8b50-e698785830db",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "MouseKeyboard",
+                    "action": "Btn2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4fa01021-ea7b-409c-92f0-dde34f4924a4",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "MouseKeyboard",
+                    "action": "Btn1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -399,6 +459,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Select",
+                    "type": "Button",
+                    "id": "6198369e-ba35-47cc-b2c5-57cc8c40a1df",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Btn1",
                     "type": "Button",
                     "id": "404e5120-f805-4df9-b47b-32d028709d94",
@@ -408,9 +477,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Select",
+                    "name": "Btn2",
                     "type": "Button",
-                    "id": "6198369e-ba35-47cc-b2c5-57cc8c40a1df",
+                    "id": "74d04696-addf-45ff-ad46-db4ac7678894",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -418,17 +487,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "09247d44-463d-4bf2-b151-4476db97266d",
-                    "path": "<Keyboard>/m",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "MouseKeyboard",
-                    "action": "Btn1",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "IJKL",
                     "id": "2e96bdfe-448c-4a13-a6e0-d792aae41c9b",
@@ -492,6 +550,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ef52370d-adf7-4317-bdbb-9c24279753f5",
+                    "path": "<Keyboard>/period",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "MouseKeyboard",
+                    "action": "Btn2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "09247d44-463d-4bf2-b151-4476db97266d",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "MouseKeyboard",
+                    "action": "Btn1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
