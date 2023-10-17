@@ -17,6 +17,9 @@ public class WavesController : MonoBehaviour
     [SerializeField] private TMP_Text wavesCountText;
     [SerializeField] private TMP_Text timerText;
 
+    [Header("References")]
+    [SerializeField] private PointSystemController pointSystem;
+
     public EnemySpawner enemySpawner;
 
     private GameObject[] enemies;
@@ -54,7 +57,6 @@ public class WavesController : MonoBehaviour
                 enemySpawner.Spawn(enemyCountPerWave);
                 _currentWave++;
                 _timeLeft = waveDuration;
-
                 StartCoroutine(WaitBetweenWaves());
             }
 
@@ -84,6 +86,11 @@ public class WavesController : MonoBehaviour
 
     private IEnumerator WaitBetweenWaves()
     {
+        //TODO Only updating when the next round starts, not when all enemies defeated keep track of enemies some other way other than Find?
+        if (_currentWave >= 2)
+        {
+            pointSystem.DisplayBestPlayer();
+        }
         StopWave();
         yield return new WaitForSeconds(waveDelay);
         StartWave();

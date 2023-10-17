@@ -45,4 +45,22 @@ public class PointSystemController : MonoBehaviour
         playerScores[playerType] += score;
     }
 
+    public void DisplayBestPlayer()
+    {
+        //TODO: Show which player currently has the highest score
+        //How do we show it? highlight biggest score (Edit scoreboard text?)
+        //Display on player? (Edit the player or show/hide some element on player?)
+        var bestPlayer = playerScores.Aggregate((x, y) => x.Value > y.Value ? x : y).Key;
+        var greatestValue = playerScores[bestPlayer];
+
+        foreach (KeyValuePair<PlayerType, TextMeshProUGUI> score in scoreTexts)
+        {
+            if (score.Key != bestPlayer)
+            {
+                scoreTexts[score.Key].color = new Color(255, 255, 255, 255);
+            }
+        }
+
+        scoreTexts[bestPlayer].color = new Color(255,0,0,255);
+    }
 }
