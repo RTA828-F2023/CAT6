@@ -44,6 +44,15 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Any"",
+                    ""type"": ""Button"",
+                    ""id"": ""b9fcced6-6245-420d-b915-9733cd49483b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -66,6 +75,17 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
                     ""action"": ""Exit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e85569b8-0b58-4446-92a2-842cf8b91856"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Any"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -634,6 +654,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
         m_Game = asset.FindActionMap("Game", throwIfNotFound: true);
         m_Game_Select = m_Game.FindAction("Select", throwIfNotFound: true);
         m_Game_Exit = m_Game.FindAction("Exit", throwIfNotFound: true);
+        m_Game_Any = m_Game.FindAction("Any", throwIfNotFound: true);
         // PlayerBlue
         m_PlayerBlue = asset.FindActionMap("PlayerBlue", throwIfNotFound: true);
         m_PlayerBlue_Joystick = m_PlayerBlue.FindAction("Joystick", throwIfNotFound: true);
@@ -721,12 +742,14 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
     private List<IGameActions> m_GameActionsCallbackInterfaces = new List<IGameActions>();
     private readonly InputAction m_Game_Select;
     private readonly InputAction m_Game_Exit;
+    private readonly InputAction m_Game_Any;
     public struct GameActions
     {
         private @InputManager m_Wrapper;
         public GameActions(@InputManager wrapper) { m_Wrapper = wrapper; }
         public InputAction @Select => m_Wrapper.m_Game_Select;
         public InputAction @Exit => m_Wrapper.m_Game_Exit;
+        public InputAction @Any => m_Wrapper.m_Game_Any;
         public InputActionMap Get() { return m_Wrapper.m_Game; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -742,6 +765,9 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
             @Exit.started += instance.OnExit;
             @Exit.performed += instance.OnExit;
             @Exit.canceled += instance.OnExit;
+            @Any.started += instance.OnAny;
+            @Any.performed += instance.OnAny;
+            @Any.canceled += instance.OnAny;
         }
 
         private void UnregisterCallbacks(IGameActions instance)
@@ -752,6 +778,9 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
             @Exit.started -= instance.OnExit;
             @Exit.performed -= instance.OnExit;
             @Exit.canceled -= instance.OnExit;
+            @Any.started -= instance.OnAny;
+            @Any.performed -= instance.OnAny;
+            @Any.canceled -= instance.OnAny;
         }
 
         public void RemoveCallbacks(IGameActions instance)
@@ -1071,6 +1100,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
     {
         void OnSelect(InputAction.CallbackContext context);
         void OnExit(InputAction.CallbackContext context);
+        void OnAny(InputAction.CallbackContext context);
     }
     public interface IPlayerBlueActions
     {

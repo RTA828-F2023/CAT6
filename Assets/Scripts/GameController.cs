@@ -23,6 +23,8 @@ public class GameController : MonoBehaviour
 
     #endregion
 
+    public GameState State { get; set; } = GameState.InProgress;
+
     [SerializeField] private GameObject levelCompleteMenu;
     [SerializeField] private GameObject gameOverMenu;
 
@@ -42,6 +44,7 @@ public class GameController : MonoBehaviour
         // Handle game select input
         _inputManager.Game.Select.performed += SelectOnPerformed;
         _inputManager.Game.Exit.performed += ExitOnPerformed;
+        _inputManager.Game.Any.performed += AnyOnPerformed;
 
         _inputManager.Enable();
     }
@@ -61,8 +64,9 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1f;
         levelCompleteMenu.SetActive(false);
-        // gameOverMenu.SetActive(false);
+        gameOverMenu.SetActive(false);
     }
 
     #endregion
@@ -71,10 +75,19 @@ public class GameController : MonoBehaviour
 
     private void SelectOnPerformed(InputAction.CallbackContext context)
     {
+        // Placeholder code
+        // TODO: Removed after implementing the level complete and game over menu
+        // if (State == GameState.Completed || State == GameState.GameOver) RestartLevel();
     }
 
     private void ExitOnPerformed(InputAction.CallbackContext context)
     {
+        // if (State == GameState.Completed || State == GameState.GameOver) LoadLevel("MainMenu");
+    }
+
+    private void AnyOnPerformed(InputAction.CallbackContext context)
+    {
+        if (State == GameState.Completed || State == GameState.GameOver) LoadLevel("MainMenu");
     }
 
     #endregion
@@ -82,9 +95,10 @@ public class GameController : MonoBehaviour
     private void GameOver()
     {
         _depthOfField.active = true;
-        // gameOverMenu.SetActive(true);
+        gameOverMenu.SetActive(true);
 
         Time.timeScale = 0f;
+        State = GameState.GameOver;
     }
 
     private void LevelCompleted()
@@ -93,6 +107,7 @@ public class GameController : MonoBehaviour
         levelCompleteMenu.SetActive(true);
 
         Time.timeScale = 0f;
+        State = GameState.Completed;
     }
 
     public IEnumerator CheckLoseCondition()
@@ -132,16 +147,15 @@ public class GameController : MonoBehaviour
         StartCoroutine(LoadLevelCoroutine(levelName));
     }
 
+    public void RestartLevel()
+    {
+        LoadLevel(SceneManager.GetActiveScene().name);
+    }
+
     #endregion
 
     public void SetDepthOfField(bool value)
     {
         _depthOfField.active = value;
-    }
-
-    // Load a map layout for the level
-    private void LoadMap()
-    {
-
     }
 }
