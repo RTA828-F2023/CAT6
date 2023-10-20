@@ -16,9 +16,16 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         _currentHealth = baseHealth;
+
+        InvokeRepeating(nameof(FollowPlayer1), 0f, 0.5f);
     }
 
     #endregion
+
+    private void FollowPlayer1()
+    {
+        GetComponent<EnemyPathfinding2>().Track(FindObjectsOfType<Player>()[0]?.transform);
+    }
 
     public void TakeDamage(int damage)
     {
