@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
     public PlayerType type;
 
     [Header("Stats")]
-    [SerializeField] private float speed;
     [SerializeField] private int maxHealth;
     public float walkForce;
     [SerializeField] private float fireForce;

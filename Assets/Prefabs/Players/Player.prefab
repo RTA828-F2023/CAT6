@@ -222,7 +222,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 3
+  m_LinearDrag: 4
   m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: cfb4a945edc725a4fa117cd03c8a4be5, type: 2}
@@ -335,9 +335,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  speed: 3
   maxHealth: 3
-  walkForce: 20
+  walkForce: 24
   fireForce: 15
   fireRecoveryTime: 0.25
   arrow: {fileID: 577884539775098679}

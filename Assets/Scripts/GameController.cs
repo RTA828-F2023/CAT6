@@ -1,10 +1,8 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.InputSystem;
-using TMPro;
 
 public class GameController : MonoBehaviour
 {
@@ -27,8 +25,6 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private GameObject levelCompleteMenu;
     [SerializeField] private GameObject gameOverMenu;
-
-    private MainCamera _mainCamera;
 
     private VolumeProfile _volumeProfile;
     private DepthOfField _depthOfField;
@@ -56,8 +52,6 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        _mainCamera = Camera.main.GetComponent<MainCamera>();
-
         _volumeProfile = FindObjectOfType<Volume>().profile;
         _volumeProfile.TryGet(out _depthOfField);
     }
@@ -75,19 +69,18 @@ public class GameController : MonoBehaviour
 
     private void SelectOnPerformed(InputAction.CallbackContext context)
     {
-        // Placeholder code
-        // TODO: Removed after implementing the level complete and game over menu
-        // if (State == GameState.Completed || State == GameState.GameOver) RestartLevel();
     }
 
     private void ExitOnPerformed(InputAction.CallbackContext context)
     {
-        // if (State == GameState.Completed || State == GameState.GameOver) LoadLevel("MainMenu");
     }
 
     private void AnyOnPerformed(InputAction.CallbackContext context)
     {
-        if (State == GameState.Completed || State == GameState.GameOver) LoadLevel("MainMenu");
+        // Placeholder code
+        // TODO: Removed after implementing the level complete and game over menu
+        if (State == GameState.Completed || State == GameState.GameOver)
+            SceneLoader.Instance.Load("MainMenu");
     }
 
     #endregion
@@ -131,28 +124,6 @@ public class GameController : MonoBehaviour
             LevelCompleted();
         }
     }
-
-    #region Level Loading Methods
-
-    // Load a new level
-    private IEnumerator LoadLevelCoroutine(string levelName)
-    {
-        _mainCamera.Outro();
-        yield return new WaitForSecondsRealtime(0.5f);
-        SceneManager.LoadScene(levelName, LoadSceneMode.Single);
-    }
-
-    public void LoadLevel(string levelName)
-    {
-        StartCoroutine(LoadLevelCoroutine(levelName));
-    }
-
-    public void RestartLevel()
-    {
-        LoadLevel(SceneManager.GetActiveScene().name);
-    }
-
-    #endregion
 
     public void SetDepthOfField(bool value)
     {
