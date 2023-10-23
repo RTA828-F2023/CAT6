@@ -12,15 +12,17 @@ public class PointSystemController : MonoBehaviour
 
     Dictionary<PlayerType,TextMeshProUGUI> scoreTexts = new Dictionary<PlayerType, TextMeshProUGUI>();
     Dictionary<PlayerType, int> playerScores = new Dictionary<PlayerType, int>();
+    Dictionary<PlayerType, GameObject> playerObjects = new Dictionary<PlayerType, GameObject>();
+
     // Start is called before the first frame update
     void Start()
     {
         var players = GameObject.FindGameObjectsWithTag("Player");
-        var playerssorted = players.OrderBy(x => x.transform.GetComponent<Player>().type).ToList();
 
         foreach (GameObject player in players) 
         {
             var playerType = player.transform.GetComponent<Player>().type;
+            playerObjects[playerType] = player;
             playerScores[playerType] = 0;
 
             scoreTexts[playerType] = scoreTextObjects[(int)playerType];
@@ -51,16 +53,45 @@ public class PointSystemController : MonoBehaviour
         //How do we show it? highlight biggest score (Edit scoreboard text?)
         //Display on player? (Edit the player or show/hide some element on player?)
         var bestPlayer = playerScores.Aggregate((x, y) => x.Value > y.Value ? x : y).Key;
-        var greatestValue = playerScores[bestPlayer];
+        var greatestValue = GetHighestScore();
 
         foreach (KeyValuePair<PlayerType, TextMeshProUGUI> score in scoreTexts)
         {
             if (score.Key != bestPlayer)
             {
-                scoreTexts[score.Key].color = new Color(255, 255, 255, 255);
+                UpdateCrown(score.Key, false);
+                VertexGradient whiteGradient = scoreTexts[score.Key].colorGradient;
+                whiteGradient.topLeft = Color.white;
+                whiteGradient.topRight = Color.white;
+                whiteGradient.bottomLeft = Color.white;
+                whiteGradient.bottomRight = Color.white;
+                scoreTexts[score.Key].colorGradient = whiteGradient;
             }
         }
 
-        scoreTexts[bestPlayer].color = new Color(255,0,0,255);
+        VertexGradient gradient = scoreTexts[bestPlayer].colorGradient;
+        gradient.topLeft = new Color(0, 92, 200, 255);
+        gradient.topRight = new Color(0, 92, 200, 255);
+        gradient.bottomLeft = new Color(205, 200, 240, 255);
+        gradient.bottomRight = new Color(205, 200, 240, 255);
+        scoreTexts[bestPlayer].colorGradient = gradient;
+
+        UpdateCrown(bestPlayer,true);
+    }
+
+    private int GetHighestScore() 
+    {
+        var bestPlayer = playerScores.Aggregate((x, y) => x.Value > y.Value ? x : y).Key;
+        return playerScores[bestPlayer];
+    }
+
+    private void UpdateCrown(PlayerType playerType,bool condition)
+    {
+        GameObject crownObject = playerObjects[playerType].transform.Find("Crown").gameObject;
+        if (crownObject != null) 
+        {
+            crownObject.SetActive(condition);
+        }
+
     }
 }
