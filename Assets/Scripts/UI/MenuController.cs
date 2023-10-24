@@ -57,13 +57,15 @@ public class MenuController : MonoBehaviour
 
     private void Nav(InputAction.CallbackContext context)
     {
-        if(context.ReadValue<Vector2>().y != 1)
+        //if(context.ReadValue<Vector2>().y != 1)
+        if(context.ReadValue<Vector2>().y < 0)
         {
             //select menu button
             EventSystem.current.SetSelectedGameObject(null);
             EventSystem.current.SetSelectedGameObject(exitBtn);
         } 
-        else 
+        //else 
+        else if (context.ReadValue<Vector2>().y > 0)
         {
             //select resume button
             EventSystem.current.SetSelectedGameObject(null);

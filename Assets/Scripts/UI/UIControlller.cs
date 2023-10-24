@@ -213,13 +213,15 @@ public class UIControlller : MonoBehaviour
     private void Navigation(InputAction.CallbackContext context)
     {
         //figure out if player is moving joystick up or down
-        if(context.ReadValue<Vector2>().y != 1)
+        //if(context.ReadValue<Vector2>().y != 1)
+        if(context.ReadValue<Vector2>().y < 0)
         {
             //select menu button
             EventSystem.current.SetSelectedGameObject(null);
             EventSystem.current.SetSelectedGameObject(menuBtn);
         } 
-        else 
+        //else 
+        else if (context.ReadValue<Vector2>().y > 0)
         {
             //select resume button
             EventSystem.current.SetSelectedGameObject(null);
@@ -289,7 +291,6 @@ public class UIControlller : MonoBehaviour
     //desc: Pauses the game
     public void PauseGame()
     {
-        GameController.Instance.SetDepthOfField(true);
         //set pause menu panel to active
         pauseMenu.SetActive(true);
 
@@ -306,7 +307,6 @@ public class UIControlller : MonoBehaviour
     //desc: Resume the game
     public void ResumeGame()
     {
-        GameController.Instance.SetDepthOfField(false);
         //set pause menu panel to be unactive
         pauseMenu.SetActive(false);
 

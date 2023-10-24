@@ -14,6 +14,11 @@ public class SelectController : MonoBehaviour
     public TextMeshProUGUI p3text;
     public TextMeshProUGUI p4text;
 
+    public TextMeshProUGUI p1CurrChoice;
+    public TextMeshProUGUI p2CurrChoice;
+    public TextMeshProUGUI p3CurrChoice;
+    public TextMeshProUGUI p4CurrChoice;
+
     public TextMeshProUGUI p1textOK;
     public TextMeshProUGUI p2textOK;
     public TextMeshProUGUI p3textOK;
@@ -23,6 +28,9 @@ public class SelectController : MonoBehaviour
 
     //array will keep track of what player is playing, and players choosen character
     private int[] players = {0,0,0,0};
+
+    //                               lello, macho, eepy, ruuki, billi
+    private bool[] isCharSelected = {false, false, false, false, false};
 
     //constants of all playable character names
     private const int LELLO = 1;
@@ -107,18 +115,8 @@ public class SelectController : MonoBehaviour
         //only do this code if player is locked in
         if( pActions[0] == LOCKED_IN)
         {
-            //if player used joystick left, else player moved joystick to the right
-            if(context.ReadValue<Vector2>().x != 1)
-            {
-                Debug.Log("Left");
-            }
-            else
-            {
-                Debug.Log("Right");
-            }
+            nav(context, 0);
         }
-
-        
     }
 
     private void P2Nav(InputAction.CallbackContext context)
@@ -127,18 +125,8 @@ public class SelectController : MonoBehaviour
         if( pActions[1] == LOCKED_IN)
         {
             //if player used joystick left, else player moved joystick to the right
-            if(context.ReadValue<Vector2>().x != 1)
-            {
-
-                
-            }
-            else
-            {
-
-            }
+            nav(context, 1);
         }
-
-        
     }
     private void P3Nav(InputAction.CallbackContext context)
     {
@@ -146,17 +134,8 @@ public class SelectController : MonoBehaviour
         if( pActions[2] == LOCKED_IN)
         {
             //if player used joystick left, else player moved joystick to the right
-            if(context.ReadValue<Vector2>().x != 1)
-            {
-                
-            }
-            else
-            {
-
-            }
+            nav(context, 2);
         }
-
-        
     }
 
     private void P4Nav(InputAction.CallbackContext context)
@@ -165,16 +144,8 @@ public class SelectController : MonoBehaviour
         if( pActions[3] == LOCKED_IN)
         {
             //if player used joystick left, else player moved joystick to the right
-            if(context.ReadValue<Vector2>().x != 1)
-            {
-                
-            }
-            else
-            {
-
-            }
+            nav(context, 3);
         }
-        
     }
 
     private void P1Lock(InputAction.CallbackContext context)
@@ -183,13 +154,13 @@ public class SelectController : MonoBehaviour
         {
             Debug.Log("P1 locked in");
             p1text.text = "P1";
-            pActions[0] = LOCKED_IN;
+            PLock_NoAction(context, 0);
         }
         else if( pActions[0] == LOCKED_IN)
         {
             Debug.Log("P1 selected char");
             p1textOK.text = "ok";   
-            pActions[0] = CHAR_SELECTED;
+            PLock_LockedIn(context, 0);
         }
     }
 
@@ -200,14 +171,14 @@ public class SelectController : MonoBehaviour
         {
             Debug.Log("P2 locked in");
             p2text.text = "P2";
-            pActions[1] = LOCKED_IN;
+            PLock_NoAction(context, 1);
         }
         //only do this code if player is locked in
         else if( pActions[1] == LOCKED_IN)
         {
             Debug.Log("P2 selected char");
             p2textOK.text = "ok";
-            pActions[1] = CHAR_SELECTED;
+            PLock_LockedIn(context, 1);
         }
     }
 
@@ -218,14 +189,14 @@ public class SelectController : MonoBehaviour
         {
             Debug.Log("P3 locked in");
             p3text.text = "P3";
-            pActions[2] = LOCKED_IN;
+            PLock_NoAction(context, 2);
         }
         //only do this code if player is locked in
         else if( pActions[2] == LOCKED_IN)
         {
             Debug.Log("P3 selected char");
             p3textOK.text = "ok";
-            pActions[2] = CHAR_SELECTED;
+            PLock_LockedIn(context, 2);
         }
     }
 
@@ -236,14 +207,14 @@ public class SelectController : MonoBehaviour
         {
             Debug.Log("P4 locked in");
             p4text.text = "P4";
-            pActions[3] = LOCKED_IN;
+            PLock_NoAction(context, 3);
         }
         //only do this code if player is locked in
         else if (pActions[3] == LOCKED_IN)
         {
             Debug.Log("P4 selected char");
             p4textOK.text = "ok";
-            pActions[3] = CHAR_SELECTED;
+            PLock_LockedIn(context, 3);
         }
 
     }
@@ -254,13 +225,13 @@ public class SelectController : MonoBehaviour
         {
             Debug.Log("P1 UNlocked in");
             p1text.text = "";
-            pActions[0] = NO_ACTIONS;
+            PUnLock_LockedIn(context, 0);
         }
         else if( pActions[0] == CHAR_SELECTED)
         {
             Debug.Log("P1 UN - selected char");
             p1textOK.text = "";   
-            pActions[0] = LOCKED_IN;
+            PUnLock_CharSelect(context, 0);
         }
     }
 
@@ -270,13 +241,13 @@ public class SelectController : MonoBehaviour
         {
             Debug.Log("P2 UN - locked in");
             p2text.text = "";
-            pActions[1] = NO_ACTIONS;
+            PUnLock_LockedIn(context, 1);
         }
         else if(pActions[1] == CHAR_SELECTED)
         {
             Debug.Log("P2 UN - selected char");
             p2textOK.text = "";   
-            pActions[1] = LOCKED_IN;
+            PUnLock_CharSelect(context, 1);
         }
     }
 
@@ -286,13 +257,13 @@ public class SelectController : MonoBehaviour
         {
             Debug.Log("P3 UN - locked in");
             p3text.text = "";
-            pActions[2] = NO_ACTIONS;
+            PUnLock_LockedIn(context, 2);
         }
         else if(pActions[2] == CHAR_SELECTED)
         {
             Debug.Log("P3 UN - selected char");
             p3textOK.text = "";   
-            pActions[2] = LOCKED_IN;
+            PUnLock_CharSelect(context, 2);
         }
     }
 
@@ -302,13 +273,157 @@ public class SelectController : MonoBehaviour
         {
             Debug.Log("P4 UN - locked in");
             p4text.text = "";
-            pActions[3] = NO_ACTIONS;
+            PUnLock_LockedIn(context, 3);
         }
         else if(pActions[3] == CHAR_SELECTED)
         {
             Debug.Log("P4 UN - selected char");
             p4textOK.text = "";   
-            pActions[3] = LOCKED_IN;
+            PUnLock_CharSelect(context, 3);
         }
     }
+
+    private void nav(InputAction.CallbackContext context, int p)
+    {
+        if(context.ReadValue<Vector2>().x < 0)
+        {
+            PlayerNav(p, "left");
+            GetNextChar(p);
+        }
+        else if (context.ReadValue<Vector2>().x > 0)
+        {
+            PlayerNav(p, "right");
+            GetNextChar(p);
+        }
+    }
+
+    private void PLock_NoAction(InputAction.CallbackContext context, int p)
+    {
+        pActions[p] = LOCKED_IN;
+        players[p] = StartAt(1,p);
+
+        Debug.Log( "start char " + players[p]);
+        GetNextChar(p);
+    }
+
+    private void PLock_LockedIn(InputAction.CallbackContext context, int p)
+    {
+        pActions[p] = CHAR_SELECTED;
+
+        isCharSelected[players[p] - 1] = true;
+        CheckSameChar(p);
+    }
+
+    private void PUnLock_LockedIn(InputAction.CallbackContext context, int p)
+    {
+        pActions[p] = NO_ACTIONS;
+    }
+
+    private void PUnLock_CharSelect(InputAction.CallbackContext context, int p)
+    {
+        pActions[p] = LOCKED_IN;
+        isCharSelected[players[p] - 1] = false;
+    }
+
+    private void GetNextChar( int p)
+    {
+        string charTxt = "";
+        //check if player is currently not selected
+        //if character player wants to choose is already selected, skip to next one
+            
+        switch (players[p])
+            {
+            case LELLO:
+                charTxt = "lello";
+                break;
+            case MACHO:
+                charTxt = "macho";
+                break;
+            case EEPY:
+                charTxt = "eepy";
+                break;
+            case RUUKI:
+                charTxt = "ruuki";
+                break;
+            case BILLI:
+                charTxt = "billi";
+                break;
+            default:
+                charTxt = "default";
+                break;
+            }
+
+        if( p == 0)
+        {
+            p1CurrChoice.text = charTxt;
+        }
+        if( p == 1)
+        {
+            p2CurrChoice.text = charTxt;
+        }
+        if( p == 2)
+        {
+            p3CurrChoice.text = charTxt;
+        }
+        if( p == 3)
+        {
+            p4CurrChoice.text = charTxt;
+        }
+    }
+
+    private void PlayerNav(int p, string nav)
+    {
+        if (nav == "left")
+        {
+            if(players[p] != 1)
+            {
+                players[p] -= 1;
+            }
+            else
+            {
+                players[p] = 5;
+            }
+        }
+        else 
+        {
+            if(players[p] != 5)
+            {
+                players[p] += 1;
+                Debug.Log(players[p]);
+            }
+            else
+            {
+                players[p] = 1;
+                Debug.Log(players[p]);
+            }
+        }
+
+        if (isCharSelected[players[p] - 1])
+        {
+            PlayerNav(p, nav);
+        }
+    }
+
+    private void CheckSameChar(int pChosen)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (players[pChosen] == players[i] && pChosen != i)
+            {
+                PlayerNav(i, "right");
+                GetNextChar(i );
+            }
+        }
+    }
+
+    private int StartAt(int start, int p)
+    {
+        if(isCharSelected[start - 1])
+        {
+            return StartAt(start + 1, p);
+        }
+
+        return start;
+    }
+
 }
