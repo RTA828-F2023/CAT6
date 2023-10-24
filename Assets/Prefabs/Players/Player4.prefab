@@ -80,7 +80,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 193502535026093494, guid: 70ae737caac5f124db4a38e7805a23c9, type: 3}
       propertyPath: m_InstanceId
-      value: -80672
+      value: -7774
       objectReference: {fileID: 0}
     - target: {fileID: 887281472516566361, guid: 70ae737caac5f124db4a38e7805a23c9, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -112,7 +112,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2224183594087683191, guid: 70ae737caac5f124db4a38e7805a23c9, type: 3}
       propertyPath: m_Name
-      value: PlayerGreen
+      value: Player4
       objectReference: {fileID: 0}
     - target: {fileID: 2544119214789841813, guid: 70ae737caac5f124db4a38e7805a23c9, type: 3}
       propertyPath: m_Color.b

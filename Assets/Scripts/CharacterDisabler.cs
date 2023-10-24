@@ -4,15 +4,16 @@ using UnityEngine;
 public class CharacterDisabler : MonoBehaviour
 {
 
-    public GameObject p1; 
-    public GameObject p2; 
-    public GameObject p3; 
-    public GameObject p4; 
+    public GameObject p1;
+    public GameObject p2;
+    public GameObject p3;
+    public GameObject p4;
 
     public AnimatorOverrideController lelloAnimator;
     public AnimatorOverrideController machoAnimator;
     public AnimatorOverrideController eepyAnimator;
     public AnimatorOverrideController ruukiAnimator;
+    public AnimatorOverrideController billiAnimator;
 
     private const int LELLO = 1;
     private const int MACHO = 2;
@@ -25,25 +26,13 @@ public class CharacterDisabler : MonoBehaviour
     private const int P3 = 2;
     private const int P4 = 3;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
-        //PlayerPrefs.GetInt("p2");
-        //PlayerPrefs.GetInt("p3");
-        //PlayerPrefs.GetInt("p4");
-
         SetChar(P1, PlayerPrefs.GetInt("p1"));
         SetChar(P2, PlayerPrefs.GetInt("p2"));
         SetChar(P3, PlayerPrefs.GetInt("p3"));
         SetChar(P4, PlayerPrefs.GetInt("p4"));
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void SetChar(int p, int character)
@@ -53,27 +42,31 @@ public class CharacterDisabler : MonoBehaviour
             switch (character)
             {
                 case 0:
-                p1.SetActive(false);
-                break;
+                    p1.SetActive(false);
+                    break;
 
                 case 1:
-                p1.GetComponent<Animator>().runtimeAnimatorController = lelloAnimator;
-                break;
+                    p1.GetComponent<Animator>().runtimeAnimatorController = lelloAnimator;
+                    break;
 
                 case 2:
-                p1.GetComponent<Animator>().runtimeAnimatorController = machoAnimator;
-                break;
+                    p1.GetComponent<Animator>().runtimeAnimatorController = machoAnimator;
+                    break;
 
                 case 3:
-                p1.GetComponent<Animator>().runtimeAnimatorController = eepyAnimator;
-                break;
+                    p1.GetComponent<Animator>().runtimeAnimatorController = eepyAnimator;
+                    break;
 
                 case 4:
-                p1.GetComponent<Animator>().runtimeAnimatorController = ruukiAnimator;
-                break;
+                    p1.GetComponent<Animator>().runtimeAnimatorController = ruukiAnimator;
+                    break;
+
+                case 5:
+                    p1.GetComponent<Animator>().runtimeAnimatorController = billiAnimator;
+                    break;
 
                 default:
-                break;
+                    break;
             }
         }
         else if (p == P2)
@@ -81,27 +74,31 @@ public class CharacterDisabler : MonoBehaviour
             switch (character)
             {
                 case 0:
-                p2.SetActive(false);
-                break;
+                    p2.SetActive(false);
+                    break;
 
                 case 1:
-                p2.GetComponent<Animator>().runtimeAnimatorController = lelloAnimator;
-                break;
+                    p2.GetComponent<Animator>().runtimeAnimatorController = lelloAnimator;
+                    break;
 
                 case 2:
-                p2.GetComponent<Animator>().runtimeAnimatorController = machoAnimator;
-                break;
+                    p2.GetComponent<Animator>().runtimeAnimatorController = machoAnimator;
+                    break;
 
                 case 3:
-                p2.GetComponent<Animator>().runtimeAnimatorController = eepyAnimator;
-                break;
+                    p2.GetComponent<Animator>().runtimeAnimatorController = eepyAnimator;
+                    break;
 
                 case 4:
-                p2.GetComponent<Animator>().runtimeAnimatorController = ruukiAnimator;
-                break;
+                    p2.GetComponent<Animator>().runtimeAnimatorController = ruukiAnimator;
+                    break;
+
+                case 5:
+                    p2.GetComponent<Animator>().runtimeAnimatorController = billiAnimator;
+                    break;
 
                 default:
-                break;
+                    break;
             }
         }
         else if (p == P3)
@@ -109,27 +106,31 @@ public class CharacterDisabler : MonoBehaviour
             switch (character)
             {
                 case 0:
-                p3.SetActive(false);
-                break;
+                    p3.SetActive(false);
+                    break;
 
                 case 1:
-                p3.GetComponent<Animator>().runtimeAnimatorController = lelloAnimator;
-                break;
+                    p3.GetComponent<Animator>().runtimeAnimatorController = lelloAnimator;
+                    break;
 
                 case 2:
-                p3.GetComponent<Animator>().runtimeAnimatorController = machoAnimator;
-                break;
+                    p3.GetComponent<Animator>().runtimeAnimatorController = machoAnimator;
+                    break;
 
                 case 3:
-                p3.GetComponent<Animator>().runtimeAnimatorController = eepyAnimator;
-                break;
+                    p3.GetComponent<Animator>().runtimeAnimatorController = eepyAnimator;
+                    break;
 
                 case 4:
-                p3.GetComponent<Animator>().runtimeAnimatorController = ruukiAnimator;
-                break;
+                    p3.GetComponent<Animator>().runtimeAnimatorController = ruukiAnimator;
+                    break;
+
+                case 5:
+                    p3.GetComponent<Animator>().runtimeAnimatorController = billiAnimator;
+                    break;
 
                 default:
-                break;
+                    break;
             }
         }
         else if (p == P4)
@@ -137,27 +138,31 @@ public class CharacterDisabler : MonoBehaviour
             switch (character)
             {
                 case 0:
-                p4.SetActive(false);
-                break;
+                    p4.SetActive(false);
+                    break;
 
                 case 1:
-                p4.GetComponent<Animator>().runtimeAnimatorController = lelloAnimator;
-                break;
+                    p4.GetComponent<Animator>().runtimeAnimatorController = lelloAnimator;
+                    break;
 
                 case 2:
-                p4.GetComponent<Animator>().runtimeAnimatorController = machoAnimator;
-                break;
+                    p4.GetComponent<Animator>().runtimeAnimatorController = machoAnimator;
+                    break;
 
                 case 3:
-                p4.GetComponent<Animator>().runtimeAnimatorController = eepyAnimator;
-                break;
+                    p4.GetComponent<Animator>().runtimeAnimatorController = eepyAnimator;
+                    break;
 
                 case 4:
-                p4.GetComponent<Animator>().runtimeAnimatorController = ruukiAnimator;
-                break;
+                    p4.GetComponent<Animator>().runtimeAnimatorController = ruukiAnimator;
+                    break;
+
+                case 5:
+                    p4.GetComponent<Animator>().runtimeAnimatorController = billiAnimator;
+                    break;
 
                 default:
-                break;
+                    break;
             }
         }
     }
