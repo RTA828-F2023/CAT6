@@ -12,7 +12,7 @@ public class CharacterDisabler : MonoBehaviour
     public AnimatorOverrideController lelloAnimator;
     public AnimatorOverrideController machoAnimator;
     public AnimatorOverrideController eepyAnimator;
-    
+    public AnimatorOverrideController ruukiAnimator;
 
     private const int LELLO = 1;
     private const int MACHO = 2;
@@ -48,73 +48,117 @@ public class CharacterDisabler : MonoBehaviour
 
     private void SetChar(int p, int character)
     {
-        if(character == 0 && p == P1)
+        if (p == P1)
         {
-            p1.SetActive(false);
-        }
-        if(character == 0 && p == P2)
-        {
-            p2.SetActive(false);
-        }
-        if(character == 0 && p == P3)
-        {
-            p3.SetActive(false);
-        }
-        if(character == 0 && p == P4)
-        {
-            p4.SetActive(false);
-        }
+            switch (character)
+            {
+                case 0:
+                p1.SetActive(false);
+                break;
 
-        if(character == 1 && p == P1)
-        {
-            p1.GetComponent<Animator>().runtimeAnimatorController = lelloAnimator;
-        }
-        if(character == 2 && p == P1)
-        {
-            p1.GetComponent<Animator>().runtimeAnimatorController = machoAnimator;
-        }
-        if(character == 3 && p == P1)
-        {
-            p1.GetComponent<Animator>().runtimeAnimatorController = eepyAnimator;
-        }
+                case 1:
+                p1.GetComponent<Animator>().runtimeAnimatorController = lelloAnimator;
+                break;
 
-         if(character == 1 && p == P2)
-        {
-            p2.GetComponent<Animator>().runtimeAnimatorController = lelloAnimator;
-        }
-        if(character == 2 && p == P2)
-        {
-            p2.GetComponent<Animator>().runtimeAnimatorController = machoAnimator;
-        }
-        if(character == 3 && p == P2)
-        {
-            p2.GetComponent<Animator>().runtimeAnimatorController = eepyAnimator;
-        }
+                case 2:
+                p1.GetComponent<Animator>().runtimeAnimatorController = machoAnimator;
+                break;
 
-        if(character == 1 && p == P3)
-        {
-            p3.GetComponent<Animator>().runtimeAnimatorController = lelloAnimator;
-        }
-        if(character == 2 && p == P3)
-        {
-            p3.GetComponent<Animator>().runtimeAnimatorController = machoAnimator;
-        }
-        if(character == 3 && p == P3)
-        {
-            p3.GetComponent<Animator>().runtimeAnimatorController = eepyAnimator;
-        }
+                case 3:
+                p1.GetComponent<Animator>().runtimeAnimatorController = eepyAnimator;
+                break;
 
-        if(character == 1 && p == P4)
-        {
-            p4.GetComponent<Animator>().runtimeAnimatorController = lelloAnimator;
+                case 4:
+                p1.GetComponent<Animator>().runtimeAnimatorController = ruukiAnimator;
+                break;
+
+                default:
+                break;
+            }
         }
-        if(character == 2 && p == P4)
+        else if (p == P2)
         {
-            p4.GetComponent<Animator>().runtimeAnimatorController = machoAnimator;
+            switch (character)
+            {
+                case 0:
+                p2.SetActive(false);
+                break;
+
+                case 1:
+                p2.GetComponent<Animator>().runtimeAnimatorController = lelloAnimator;
+                break;
+
+                case 2:
+                p2.GetComponent<Animator>().runtimeAnimatorController = machoAnimator;
+                break;
+
+                case 3:
+                p2.GetComponent<Animator>().runtimeAnimatorController = eepyAnimator;
+                break;
+
+                case 4:
+                p2.GetComponent<Animator>().runtimeAnimatorController = ruukiAnimator;
+                break;
+
+                default:
+                break;
+            }
         }
-        if(character == 3 && p == P4)
+        else if (p == P3)
         {
-            p4.GetComponent<Animator>().runtimeAnimatorController = eepyAnimator;
+            switch (character)
+            {
+                case 0:
+                p3.SetActive(false);
+                break;
+
+                case 1:
+                p3.GetComponent<Animator>().runtimeAnimatorController = lelloAnimator;
+                break;
+
+                case 2:
+                p3.GetComponent<Animator>().runtimeAnimatorController = machoAnimator;
+                break;
+
+                case 3:
+                p3.GetComponent<Animator>().runtimeAnimatorController = eepyAnimator;
+                break;
+
+                case 4:
+                p3.GetComponent<Animator>().runtimeAnimatorController = ruukiAnimator;
+                break;
+
+                default:
+                break;
+            }
+        }
+        else if (p == P4)
+        {
+            switch (character)
+            {
+                case 0:
+                p4.SetActive(false);
+                break;
+
+                case 1:
+                p4.GetComponent<Animator>().runtimeAnimatorController = lelloAnimator;
+                break;
+
+                case 2:
+                p4.GetComponent<Animator>().runtimeAnimatorController = machoAnimator;
+                break;
+
+                case 3:
+                p4.GetComponent<Animator>().runtimeAnimatorController = eepyAnimator;
+                break;
+
+                case 4:
+                p4.GetComponent<Animator>().runtimeAnimatorController = ruukiAnimator;
+                break;
+
+                default:
+                break;
+            }
         }
     }
 }
