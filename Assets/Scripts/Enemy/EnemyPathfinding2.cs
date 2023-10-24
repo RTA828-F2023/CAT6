@@ -20,6 +20,8 @@ public class EnemyPathfinding2 : MonoBehaviour
 
     private Rigidbody2D _rigidbody;
 
+    private Player _target;
+
     #region Unity Events
 
     private void Awake()
@@ -28,23 +30,30 @@ public class EnemyPathfinding2 : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
+    private void Start()
+    {
+        // Follow nearest player
+        InvokeRepeating(nameof(TrackNearestPlayer), 0f, 0.5f);
+    }
+
     private void Update()
     {
-        if (_path == null || !_isTracking) return;
-
-        // Reached pathfinding destination, stopping...
-        if (_currentWaypoint >= _path.vectorPath.Count || Vector2.Distance(transform.position, _targetPosition) <= stoppingDistance)
+        if (_path != null || _isTracking)
         {
-            StopTracking();
-            return;
+            // Reached pathfinding destination, stopping...
+            if (_currentWaypoint >= _path.vectorPath.Count || Vector2.Distance(transform.position, _targetPosition) <= stoppingDistance)
+            {
+                StopTracking();
+                return;
+            }
+
+            // Travel to current waypoint
+            Direction = (_path.vectorPath[_currentWaypoint] - transform.position).normalized;
+            Move(Direction);
+
+            // If waypoint reached then proceed to the next waypoint
+            if (Vector2.Distance(transform.position, _path.vectorPath[_currentWaypoint]) < NextWaypointDistance) _currentWaypoint++;
         }
-
-        // Travel to current waypoint
-        Direction = (_path.vectorPath[_currentWaypoint] - transform.position).normalized;
-        Walk(Direction);
-
-        // If waypoint reached then proceed to the next waypoint
-        if (Vector2.Distance(transform.position, _path.vectorPath[_currentWaypoint]) < NextWaypointDistance) _currentWaypoint++;
     }
 
     private void FixedUpdate()
@@ -80,7 +89,12 @@ public class EnemyPathfinding2 : MonoBehaviour
 
     public bool Track(Transform target)
     {
-        if (!target) return false;
+        if (!target)
+        {
+            StopMoving();
+            return false;
+        }
+
         return Track(target.position);
     }
 
@@ -91,19 +105,66 @@ public class EnemyPathfinding2 : MonoBehaviour
         _path = null;
         _currentWaypoint = 0;
 
-        StopWalking();
+        StopMoving();
     }
 
     #endregion
 
-    private void Walk(Vector2 direction)
+    #region Movement Methods
+
+    private void Move(Vector2 direction)
     {
         _currentDirection = direction;
         _isWalking = true;
     }
 
-    private void StopWalking()
+    private void StopMoving()
     {
         _isWalking = false;
+    }
+
+    #endregion
+
+    private void TrackNearestPlayer()
+    {
+        Track(NearestPlayer().transform);
+    }
+
+    private Player NearestPlayer()
+    {
+        var players = FindObjectsOfType<Player>();
+        if (players.Length == 0) return null;
+
+        var distance = Vector2.Distance(transform.position, players[0].transform.position);
+        var nearest = players[0];
+
+        for (int i = 1; i < players.Length; i++)
+        {
+            var newDistance = Vector2.Distance(transform.position, players[i].transform.position);
+            if (newDistance < distance)
+            {
+                distance = newDistance;
+                nearest = players[i];
+            }
+        }
+        return nearest;
+    }
+
+    private int NearestPathPoint()
+    {
+        var patrolRoute = Level.Instance.patrolRoute;
+        var distance = Vector2.Distance(transform.position, patrolRoute[0]);
+        var nearest = 0;
+
+        for (int i = 1; i < patrolRoute.Length; i++)
+        {
+            var newDistance = Vector2.Distance(transform.position, patrolRoute[i]);
+            if (newDistance < distance)
+            {
+                distance = newDistance;
+                nearest = i;
+            }
+        }
+        return nearest;
     }
 }

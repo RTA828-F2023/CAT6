@@ -12,7 +12,7 @@ public class EnemyPathfinding : MonoBehaviour
     private float distance;
     private float viewRadius;
 
-    private LevelScript levelScript;
+    private Level level;
     private Vector2[] PatrolRoute;
     private Boolean onPath = true;
     private int nextPathPoint = 0;
@@ -23,8 +23,8 @@ public class EnemyPathfinding : MonoBehaviour
         speed = 2f;
         viewRadius = 3f;
         Players = GameObject.FindGameObjectsWithTag("Player");
-        levelScript = GetComponentInParent<LevelScript>();
-        PatrolRoute = levelScript.patrolRoute;
+        level = GetComponentInParent<Level>();
+        PatrolRoute = level.patrolRoute;
     }
 
     private void Update()
