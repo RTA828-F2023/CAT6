@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class SelectController : MonoBehaviour
 {
+
     private InputManager _inputManager;
     public TextMeshProUGUI p1text;
     public TextMeshProUGUI p2text;
@@ -50,8 +52,7 @@ public class SelectController : MonoBehaviour
     //array to keep track of characters
     private int[] characters = new int[5];
 
-    //TO DO:
-    //GET READY TIMER THING TO WORK SO WHEN TIME UP START GAME 
+    private float timer = 5.0f;
     
 
     // Start is called before the first frame update
@@ -68,11 +69,28 @@ public class SelectController : MonoBehaviour
         p4textOK.text = "";
 
         ready.text = "";
+
+        StartCountDown();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(IsReady())
+        {
+            ready.text = "Ready in... " + (int)timer;
+            timer -= Time.deltaTime;
+
+            if(timer <= 1.95f)
+            {
+                SceneManager.LoadScene("TestLevel");
+            }
+        }
+        else 
+        {
+            ready.text = "";
+            timer = 5.0f;
+        }
         
     }
 
@@ -424,6 +442,43 @@ public class SelectController : MonoBehaviour
         }
 
         return start;
+    }
+
+    private bool IsReady()
+    {
+        //check how many players are currently locked in
+        //compare against how many ppl are ready(selected their char and on ok)
+        //if # of player locked == # of ppl who are ready 
+        //then start countdown 
+
+        int countLockIn = 0;
+        int countCharSelected = 0;
+
+        for (int i = 0; i < 4; i++)
+        {
+            if(pActions[i] != NO_ACTIONS)
+            {
+                countLockIn += 1;
+            }
+            if(pActions[i] == CHAR_SELECTED)
+            {
+                countCharSelected += 1;
+            }
+        }
+
+        if(countLockIn == countCharSelected && countLockIn >= 1)
+        {
+
+            return true;
+        }
+
+        return false;
+    }
+
+    private void StartCountDown()
+    {
+        
+
     }
 
 }
