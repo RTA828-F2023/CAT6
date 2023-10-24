@@ -11,6 +11,7 @@ public class CharacterDisabler : MonoBehaviour
 
     public AnimatorOverrideController lelloAnimator;
     public AnimatorOverrideController machoAnimator;
+    public AnimatorOverrideController eepyAnimator;
     
 
     private const int LELLO = 1;
@@ -72,6 +73,10 @@ public class CharacterDisabler : MonoBehaviour
         {
             p1.GetComponent<Animator>().runtimeAnimatorController = machoAnimator;
         }
+        if(character == 3 && p == P1)
+        {
+            p1.GetComponent<Animator>().runtimeAnimatorController = eepyAnimator;
+        }
 
          if(character == 1 && p == P2)
         {
@@ -80,6 +85,36 @@ public class CharacterDisabler : MonoBehaviour
         if(character == 2 && p == P2)
         {
             p2.GetComponent<Animator>().runtimeAnimatorController = machoAnimator;
+        }
+        if(character == 3 && p == P2)
+        {
+            p2.GetComponent<Animator>().runtimeAnimatorController = eepyAnimator;
+        }
+
+        if(character == 1 && p == P3)
+        {
+            p3.GetComponent<Animator>().runtimeAnimatorController = lelloAnimator;
+        }
+        if(character == 2 && p == P3)
+        {
+            p3.GetComponent<Animator>().runtimeAnimatorController = machoAnimator;
+        }
+        if(character == 3 && p == P3)
+        {
+            p3.GetComponent<Animator>().runtimeAnimatorController = eepyAnimator;
+        }
+
+        if(character == 1 && p == P4)
+        {
+            p4.GetComponent<Animator>().runtimeAnimatorController = lelloAnimator;
+        }
+        if(character == 2 && p == P4)
+        {
+            p4.GetComponent<Animator>().runtimeAnimatorController = machoAnimator;
+        }
+        if(character == 3 && p == P4)
+        {
+            p4.GetComponent<Animator>().runtimeAnimatorController = eepyAnimator;
         }
     }
 }
