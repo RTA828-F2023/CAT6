@@ -100,7 +100,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3436777799238357938
 Transform:
   m_ObjectHideFlags: 0
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4528181248855086054}
   - component: {fileID: 3327587711510230859}
-  - component: {fileID: 7494441114300143141}
+  - component: {fileID: 2778778172501345407}
   - component: {fileID: 5428064538846914430}
   - component: {fileID: 193502535026093494}
   - component: {fileID: 7732265457616006186}
@@ -236,8 +236,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &7494441114300143141
-CapsuleCollider2D:
+--- !u!58 &2778778172501345407
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -268,9 +268,9 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.125}
-  m_Size: {x: 0.5, y: 0.75}
-  m_Direction: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!95 &5428064538846914430
 Animator:
   serializedVersion: 5
@@ -318,7 +318,7 @@ MonoBehaviour:
   - {x: 0.25, y: -0.5, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 43334
+  m_InstanceId: 36120
   m_LocalBounds:
     m_Center: {x: 0, y: -0.125, z: 0}
     m_Extent: {x: 0.25, y: 0.375, z: 0}
@@ -984,7 +984,7 @@ SpriteRenderer:
   m_SortingLayerID: -384838627
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -541194828, guid: 9a33bbf94587a3a4c837a93c3e04848e, type: 3}
+  m_Sprite: {fileID: -433244581, guid: 6ced853203516414aaace1edbe56e26a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
