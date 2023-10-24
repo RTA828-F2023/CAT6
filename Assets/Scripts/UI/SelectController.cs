@@ -83,6 +83,11 @@ public class SelectController : MonoBehaviour
 
             if(timer <= 1.95f)
             {
+                PlayerPrefs.SetInt("p1", players[0]);
+                PlayerPrefs.SetInt("p2", players[1]);
+                PlayerPrefs.SetInt("p3", players[2]);
+                PlayerPrefs.SetInt("p4", players[3]);
+                
                 SceneManager.LoadScene("TestLevel");
             }
         }
