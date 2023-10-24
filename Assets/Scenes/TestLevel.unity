@@ -2972,7 +2972,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7171204331402664313, guid: bba46277cd2584948a40cb0e11bf2bc0, type: 3}
       propertyPath: m_Name
-      value: PlayerPink
+      value: Macho
       objectReference: {fileID: 0}
     - target: {fileID: 9221026702710841528, guid: bba46277cd2584948a40cb0e11bf2bc0, type: 3}
       propertyPath: m_Mesh
@@ -4354,7 +4354,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7171204331402664313, guid: 28c9dd6d28c22f94b95918c429eefac7, type: 3}
       propertyPath: m_Name
-      value: PlayerBlue
+      value: Lello
       objectReference: {fileID: 0}
     - target: {fileID: 9172565292245167127, guid: 28c9dd6d28c22f94b95918c429eefac7, type: 3}
       propertyPath: m_Mesh

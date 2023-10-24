@@ -80,7 +80,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 193502535026093494, guid: 70ae737caac5f124db4a38e7805a23c9, type: 3}
       propertyPath: m_InstanceId
-      value: -11390
+      value: -32010
       objectReference: {fileID: 0}
     - target: {fileID: 887281472516566361, guid: 70ae737caac5f124db4a38e7805a23c9, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -199,9 +199,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4926048167082251076, guid: 70ae737caac5f124db4a38e7805a23c9, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -433244581, guid: 6ced853203516414aaace1edbe56e26a, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5361407974764249918, guid: 70ae737caac5f124db4a38e7805a23c9, type: 3}
       propertyPath: m_Layer
       value: 0

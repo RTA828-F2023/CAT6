@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player_blue_idle_0
+      name: lello_idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a60a34f843338a4fa7742da72ea6245
-      internalID: -433244581
+      spriteID: 7591c65a9e1817b43a3fa59df23ee055
+      internalID: 1359921098
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_blue_idle_1
+      name: lello_idle_1
       rect:
         serializedVersion: 2
         x: 100
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05f82cb709629ac4d9bd1e0fb541c120
-      internalID: -587126622
+      spriteID: a32d424232879f3479a2fb9f43995cad
+      internalID: -945950154
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_blue_idle_2
+      name: lello_idle_2
       rect:
         serializedVersion: 2
         x: 200
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 978a23b3814882846b184383f5a0b0df
-      internalID: 580048444
+      spriteID: 11c00438f679d0c458fd61b8a48b2cec
+      internalID: -863158263
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_blue_idle_3
+      name: lello_idle_3
       rect:
         serializedVersion: 2
         x: 300
@@ -200,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68c8587abd4a9dd41939d79eae8f22bc
-      internalID: 420776170
+      spriteID: 0f00b3f69599cbc4f8fcbaf2d5707042
+      internalID: -842393393
       vertices: []
       indices: 
       edges: []
@@ -217,10 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      player_blue_idle_0: -433244581
-      player_blue_idle_1: -587126622
-      player_blue_idle_2: 580048444
-      player_blue_idle_3: 420776170
+      lello_idle_0: 1359921098
+      lello_idle_1: -945950154
+      lello_idle_2: -863158263
+      lello_idle_3: -842393393
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

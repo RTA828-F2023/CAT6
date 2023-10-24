@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player_red_idle_0
+      name: macho_idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef20c912416e4e1498a0bcec001a646a
-      internalID: 150362471
+      spriteID: cc6e72c3eeb5e664ab73134ce45e23cf
+      internalID: -1289184322
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_red_idle_1
+      name: macho_idle_1
       rect:
         serializedVersion: 2
         x: 100
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b95bff97f84bde4bbd8955debfc5c98
-      internalID: -290681457
+      spriteID: 6045d6159d4cf9248914be279b551fb1
+      internalID: 1632161326
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_red_idle_2
+      name: macho_idle_2
       rect:
         serializedVersion: 2
         x: 200
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30e2c91aea76b1e4b8cbcd732c873013
-      internalID: -1382519388
+      spriteID: c84466ecd26b2eb47ac3aee3e5b86fdc
+      internalID: -1180351796
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_red_idle_3
+      name: macho_idle_3
       rect:
         serializedVersion: 2
         x: 300
@@ -200,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e65e0a8b786546f4a9dfe216af6b6514
-      internalID: 1576893537
+      spriteID: 8c81fd94a4e13e8419baf06ca36db708
+      internalID: 1439332309
       vertices: []
       indices: 
       edges: []
@@ -217,10 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      player_red_idle_0: 150362471
-      player_red_idle_1: -290681457
-      player_red_idle_2: -1382519388
-      player_red_idle_3: 1576893537
+      macho_idle_0: -1289184322
+      macho_idle_1: 1632161326
+      macho_idle_2: -1180351796
+      macho_idle_3: 1439332309
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
