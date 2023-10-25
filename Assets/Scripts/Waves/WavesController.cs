@@ -92,11 +92,6 @@ public class WavesController : MonoBehaviour
 
     private IEnumerator WaitBetweenWaves()
     {
-        //TODO Only updating when the next round starts, not when all enemies defeated keep track of enemies some other way other than Find?
-        if (_currentWave >= 2)
-        {
-            pointSystem.DisplayBestPlayer();
-        }
         StopWave();
         yield return new WaitForSeconds(waveDelay);
         StartWave();

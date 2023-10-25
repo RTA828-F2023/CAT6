@@ -9,8 +9,9 @@ public class PointSystemController : MonoBehaviour
 {
     [Header("Scoreboard")]
     [SerializeField] private TextMeshProUGUI[] scoreTextObjects;
+    [SerializeField] private VertexGradient newColorGradient;
 
-    Dictionary<PlayerType,TextMeshProUGUI> scoreTexts = new Dictionary<PlayerType, TextMeshProUGUI>();
+    Dictionary<PlayerType, TextMeshProUGUI> scoreTexts = new Dictionary<PlayerType, TextMeshProUGUI>();
     Dictionary<PlayerType, int> playerScores = new Dictionary<PlayerType, int>();
     Dictionary<PlayerType, GameObject> playerObjects = new Dictionary<PlayerType, GameObject>();
 
@@ -19,7 +20,7 @@ public class PointSystemController : MonoBehaviour
     {
         var players = GameObject.FindGameObjectsWithTag("Player");
 
-        foreach (GameObject player in players) 
+        foreach (GameObject player in players)
         {
             var playerType = player.transform.GetComponent<Player>().type;
             playerObjects[playerType] = player;
@@ -35,63 +36,57 @@ public class PointSystemController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach ( KeyValuePair<PlayerType,TextMeshProUGUI> kvp in scoreTexts) 
+        foreach (KeyValuePair<PlayerType, TextMeshProUGUI> kvp in scoreTexts)
         {
             var newScore = playerScores[kvp.Key];
             kvp.Value.text = "Score:" + newScore;
         }
     }
 
-    public void UpdatePlayerScore(PlayerType playerType,int score) 
+    public void UpdatePlayerScore(PlayerType playerType, int score)
     {
         playerScores[playerType] += score;
     }
 
     public void DisplayBestPlayer()
     {
-        //TODO: Show which player currently has the highest score
-        //How do we show it? highlight biggest score (Edit scoreboard text?)
-        //Display on player? (Edit the player or show/hide some element on player?)
-        var bestPlayer = playerScores.Aggregate((x, y) => x.Value > y.Value ? x : y).Key;
         var greatestValue = GetHighestScore();
-
         foreach (KeyValuePair<PlayerType, TextMeshProUGUI> score in scoreTexts)
         {
-            if (score.Key != bestPlayer)
+            if (scoreTexts[score.Key] != null)
             {
-                UpdateCrown(score.Key, false);
-                VertexGradient whiteGradient = scoreTexts[score.Key].colorGradient;
-                whiteGradient.topLeft = Color.white;
-                whiteGradient.topRight = Color.white;
-                whiteGradient.bottomLeft = Color.white;
-                whiteGradient.bottomRight = Color.white;
-                scoreTexts[score.Key].colorGradient = whiteGradient;
+                if (playerScores[score.Key] == greatestValue)
+                {
+                    UpdateCrown(score.Key, true);
+                    scoreTexts[score.Key].colorGradient = newColorGradient;
+                    scoreTexts[score.Key].enableVertexGradient = true;
+                }
+
+                else
+                {
+                    UpdateCrown(score.Key, false);
+                    scoreTexts[score.Key].enableVertexGradient = false;
+                }
             }
         }
-
-        VertexGradient gradient = scoreTexts[bestPlayer].colorGradient;
-        gradient.topLeft = new Color(0, 92, 200, 255);
-        gradient.topRight = new Color(0, 92, 200, 255);
-        gradient.bottomLeft = new Color(205, 200, 240, 255);
-        gradient.bottomRight = new Color(205, 200, 240, 255);
-        scoreTexts[bestPlayer].colorGradient = gradient;
-
-        UpdateCrown(bestPlayer,true);
     }
 
-    private int GetHighestScore() 
+    public int GetHighestScore()
     {
         var bestPlayer = playerScores.Aggregate((x, y) => x.Value > y.Value ? x : y).Key;
+        Debug.Log(playerScores[bestPlayer]);
         return playerScores[bestPlayer];
     }
 
-    private void UpdateCrown(PlayerType playerType,bool condition)
+    private void UpdateCrown(PlayerType playerType, bool condition)
     {
-        GameObject crownObject = playerObjects[playerType].transform.Find("Crown").gameObject;
-        if (crownObject != null) 
+        if (playerObjects[playerType] != null)
         {
-            crownObject.SetActive(condition);
+            GameObject crownObject = playerObjects[playerType].transform.Find("Crown").gameObject;
+            if (crownObject != null)
+            {
+                crownObject.SetActive(condition);
+            }
         }
-
     }
 }
