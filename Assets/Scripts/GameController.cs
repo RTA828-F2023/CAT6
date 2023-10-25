@@ -103,6 +103,14 @@ public class GameController : MonoBehaviour
         State = GameState.Completed;
     }
 
+    public IEnumerator CheckWaveEnd() {
+        yield return new WaitForEndOfFrame();
+        if (FindObjectsOfType<Enemy>().Length == 0 && FindObjectOfType<WavesController>().GetTimer()) {
+            yield return new WaitForSeconds(FindObjectOfType<WavesController>().GetWaveDelay());
+            FindObjectOfType<WavesController>().StartWave();
+        }
+    }
+
     public IEnumerator CheckLoseCondition()
     {
         // Have to wait til next frame so that game objects have been fully destroyed

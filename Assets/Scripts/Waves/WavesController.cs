@@ -21,7 +21,7 @@ public class WavesController : MonoBehaviour
 
     private GameObject[] enemies;
 
-    private bool _timerOn;
+    [SerializeField] private bool _timerOn;
     private float _timeLeft;
 
     private int _currentWave;
@@ -39,7 +39,7 @@ public class WavesController : MonoBehaviour
 
         // wavesCountText.text = "Waves: " + _currentWave;
 
-        if (_timerOn && _currentWave < waveCount)
+/*         if (_timerOn && _currentWave < waveCount)
         {
             if (_timeLeft > 0)
             {
@@ -59,7 +59,7 @@ public class WavesController : MonoBehaviour
             }
 
             UpdateTimer(_timeLeft);
-        }
+        } */
     }
 
     void UpdateTimer(float currentTime)
@@ -72,9 +72,19 @@ public class WavesController : MonoBehaviour
         // timerText.text = "Wave starts in: " + string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
-    private void StartWave()
+    public bool GetTimer() {
+        return _timerOn;
+    }
+
+    public float GetWaveDelay() {
+        return waveDelay;
+    }
+
+    public void StartWave()
     {
         _timerOn = true;
+        enemySpawner.Spawn(enemyCountPerWave);
+        _currentWave++;
     }
 
     private void StopWave()
@@ -82,9 +92,9 @@ public class WavesController : MonoBehaviour
         _timerOn = false;
     }
 
-    private IEnumerator WaitBetweenWaves()
+    public IEnumerator WaitBetweenWaves()
     {
-        StopWave();
+        //StopWave();
         yield return new WaitForSeconds(waveDelay);
         StartWave();
     }

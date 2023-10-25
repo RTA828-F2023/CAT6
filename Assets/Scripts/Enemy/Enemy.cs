@@ -42,6 +42,8 @@ public class Enemy : MonoBehaviour
     {
         // Check win condition on enemy death
         GameController.Instance.StartCoroutine(GameController.Instance.CheckWinCondition());
+        // Check wave end condition on enemy death
+        GameController.Instance.StartCoroutine(GameController.Instance.CheckWaveEnd());
 
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
