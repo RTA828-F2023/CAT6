@@ -9,18 +9,21 @@ public class PointSystemController : MonoBehaviour
 {
     [Header("Scoreboard")]
     [SerializeField] private TextMeshProUGUI[] scoreTextObjects;
+    [SerializeField] private VertexGradient newColorGradient;
 
-    Dictionary<PlayerType,TextMeshProUGUI> scoreTexts = new Dictionary<PlayerType, TextMeshProUGUI>();
+    Dictionary<PlayerType, TextMeshProUGUI> scoreTexts = new Dictionary<PlayerType, TextMeshProUGUI>();
     Dictionary<PlayerType, int> playerScores = new Dictionary<PlayerType, int>();
+    Dictionary<PlayerType, GameObject> playerObjects = new Dictionary<PlayerType, GameObject>();
+
     // Start is called before the first frame update
     void Start()
     {
         var players = GameObject.FindGameObjectsWithTag("Player");
-        var playerssorted = players.OrderBy(x => x.transform.GetComponent<Player>().type).ToList();
 
-        foreach (GameObject player in players) 
+        foreach (GameObject player in players)
         {
             var playerType = player.transform.GetComponent<Player>().type;
+            playerObjects[playerType] = player;
             playerScores[playerType] = 0;
 
             scoreTexts[playerType] = scoreTextObjects[(int)playerType];
@@ -33,16 +36,57 @@ public class PointSystemController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach ( KeyValuePair<PlayerType,TextMeshProUGUI> kvp in scoreTexts) 
+        foreach (KeyValuePair<PlayerType, TextMeshProUGUI> kvp in scoreTexts)
         {
             var newScore = playerScores[kvp.Key];
             kvp.Value.text = "Score:" + newScore;
         }
     }
 
-    public void UpdatePlayerScore(PlayerType playerType,int score) 
+    public void UpdatePlayerScore(PlayerType playerType, int score)
     {
         playerScores[playerType] += score;
     }
 
+    public void DisplayBestPlayer()
+    {
+        var greatestValue = GetHighestScore();
+        foreach (KeyValuePair<PlayerType, TextMeshProUGUI> score in scoreTexts)
+        {
+            if (scoreTexts[score.Key] != null)
+            {
+                if (playerScores[score.Key] == greatestValue)
+                {
+                    UpdateCrown(score.Key, true);
+                    scoreTexts[score.Key].colorGradient = newColorGradient;
+                    scoreTexts[score.Key].enableVertexGradient = true;
+                }
+
+                else
+                {
+                    UpdateCrown(score.Key, false);
+                    scoreTexts[score.Key].enableVertexGradient = false;
+                }
+            }
+        }
+    }
+
+    public int GetHighestScore()
+    {
+        var bestPlayer = playerScores.Aggregate((x, y) => x.Value > y.Value ? x : y).Key;
+        Debug.Log(playerScores[bestPlayer]);
+        return playerScores[bestPlayer];
+    }
+
+    private void UpdateCrown(PlayerType playerType, bool condition)
+    {
+        if (playerObjects[playerType] != null)
+        {
+            GameObject crownObject = playerObjects[playerType].transform.Find("Crown").gameObject;
+            if (crownObject != null)
+            {
+                crownObject.SetActive(condition);
+            }
+        }
+    }
 }
