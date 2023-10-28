@@ -17,8 +17,10 @@ public class WavesController : MonoBehaviour
     [SerializeField] private TMP_Text wavesCountText;
     [SerializeField] private TMP_Text timerText;
 
-    public EnemySpawner enemySpawner;
-
+    public EnemySpawner enemySpawner_topleft;
+    public EnemySpawner enemySpawner_topright; 
+    public EnemySpawner enemySpawner_bottomleft; 
+    public EnemySpawner enemySpawner_bottomright; 
     private GameObject[] enemies;
 
     [SerializeField] private bool _timerOn;
@@ -83,7 +85,12 @@ public class WavesController : MonoBehaviour
     public void StartWave()
     {
         _timerOn = true;
-        enemySpawner.Spawn(enemyCountPerWave);
+
+        enemySpawner_topleft.Spawn(enemyCountPerWave);
+        enemySpawner_topright.Spawn(enemyCountPerWave);
+        enemySpawner_bottomleft.Spawn(enemyCountPerWave);
+        enemySpawner_bottomright.Spawn(enemyCountPerWave);
+
         _currentWave++;
     }
 
