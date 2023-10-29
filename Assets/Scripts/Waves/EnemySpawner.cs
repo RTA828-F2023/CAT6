@@ -5,8 +5,11 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private float minimumSpawnTime;
     [SerializeField] private float maximumSpawnTime;
+    [SerializeField] private bool isSpawning;
+    [SerializeField] private int currentEnemyCount;
+    [SerializeField] private int maxEnemyCount;
 
-    private float _timeUntilSpawn;
+    [SerializeField] private float _timeUntilSpawn;
 
     private void Start()
     {
@@ -15,22 +18,33 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        /*         if (enemies.Length < 5) {
-                    _timeUntilSpawn -= Time.deltaTime;
-                    Instantiate(_enemyPrefab, transform.position, Quaternion.identity);
-                     if (_timeUntilSpawn <= 0) {
-                        Instantiate(_enemyPrefab, transform.position, Quaternion.identity);
-                        SetTimeUntilSpawn();
-                    }
-                } */
+        _timeUntilSpawn -= Time.deltaTime;
+        if (isSpawning) {
+            if (currentEnemyCount < maxEnemyCount) {
+                if (_timeUntilSpawn <= 0) {
+                    Instantiate(enemyPrefab, transform.position, Quaternion.identity).transform.SetParent(transform);
+                    currentEnemyCount++;
+                    SetTimeUntilSpawn();
+                }
+            }
+            else {
+                isSpawning = false;
+            }
+        }
     }
 
     public void Spawn(int enemyCount) // TODO: Spawn position other than transform.position
     {
-        for (int i = 0; i < enemyCount; i++)
+        isSpawning = true;
+        currentEnemyCount = 0;
+        maxEnemyCount = enemyCount;
+/*         for (int i = 0; i < enemyCount; i++)
         {
-            Instantiate(enemyPrefab, transform.position, Quaternion.identity).transform.SetParent(transform);
-        }
+            if (_timeUntilSpawn <= 0) {
+                Instantiate(enemyPrefab, transform.position, Quaternion.identity).transform.SetParent(transform);
+                SetTimeUntilSpawn();
+            }
+        } */
     }
 
     private void SetTimeUntilSpawn()

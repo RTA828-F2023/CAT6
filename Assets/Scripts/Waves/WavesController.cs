@@ -26,7 +26,7 @@ public class WavesController : MonoBehaviour
     [SerializeField] private bool _timerOn;
     private float _timeLeft;
 
-    private int _currentWave;
+    [SerializeField] private int _currentWave;
 
     private IEnumerator Start()
     {
@@ -36,32 +36,6 @@ public class WavesController : MonoBehaviour
 
     private void Update()
     {
-        // enemies = GameObject.FindGameObjectsWithTag("Enemy"); // TODO: This function impacts performance in Update
-        // enemyCountText.text = "Enemies: " + enemies.Length.ToString();
-
-        // wavesCountText.text = "Waves: " + _currentWave;
-
-/*         if (_timerOn && _currentWave < waveCount)
-        {
-            if (_timeLeft > 0)
-            {
-                // timerText.enabled = true;
-                _timeLeft -= Time.deltaTime;
-
-                // Consider spawning enemies here
-            }
-            else
-            {
-                // timerText.enabled = false;
-                enemySpawner.Spawn(enemyCountPerWave);
-                _currentWave++;
-                _timeLeft = waveDuration;
-
-                StartCoroutine(WaitBetweenWaves());
-            }
-
-            UpdateTimer(_timeLeft);
-        } */
     }
 
     void UpdateTimer(float currentTime)
