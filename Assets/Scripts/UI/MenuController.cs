@@ -29,20 +29,20 @@ public class MenuController : MonoBehaviour
     {
         _inputManager = new InputManager();
          //Check if player one pressed, joystick, or button 1 
-        _inputManager.PlayerBlue.Joystick.performed += Nav;
-        _inputManager.PlayerBlue.Btn1.performed += Confirm;
+        _inputManager.Player1.Joystick.performed += Nav;
+        _inputManager.Player1.Btn1.performed += Confirm;
 
         //Check if player two pressed, select, joystick, or button 1 
-        _inputManager.PlayerPink.Joystick.performed += Nav;
-        _inputManager.PlayerPink.Btn1.performed += Confirm;
+        _inputManager.Player2.Joystick.performed += Nav;
+        _inputManager.Player2.Btn1.performed += Confirm;
 
         //Check if player three pressed, joystick, or button 1 
-        _inputManager.PlayerYellow.Joystick.performed += Nav;
-        _inputManager.PlayerYellow.Btn1.performed += Confirm;
+        _inputManager.Player3.Joystick.performed += Nav;
+        _inputManager.Player3.Btn1.performed += Confirm;
 
         //Check if player four pressed, joystick, or button 1 
-        _inputManager.PlayerGreen.Joystick.performed += Nav;
-        _inputManager.PlayerGreen.Btn1.performed += Confirm;
+        _inputManager.Player4.Joystick.performed += Nav;
+        _inputManager.Player4.Btn1.performed += Confirm;
 
         _inputManager.Enable();
 

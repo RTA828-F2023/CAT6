@@ -52,24 +52,24 @@ public class UIControlller : MonoBehaviour
         _inputManager = new InputManager();
 
         //Check if player one pressed, select, joystick, or button 1 
-        _inputManager.PlayerBlue.Select.performed += P1PauseOnPerformed;
-        _inputManager.PlayerBlue.Joystick.performed += P1Nav;
-        _inputManager.PlayerBlue.Btn1.performed += P1Confirm;
+        _inputManager.Player1.Select.performed += P1PauseOnPerformed;
+        _inputManager.Player1.Joystick.performed += P1Nav;
+        _inputManager.Player1.Btn1.performed += P1Confirm;
 
         //Check if player two pressed, select, joystick, or button 1 
-        _inputManager.PlayerPink.Select.performed += P2PauseOnPerformed;
-        _inputManager.PlayerPink.Joystick.performed += P2Nav;
-        _inputManager.PlayerPink.Btn1.performed += P2Confirm;
+        _inputManager.Player2.Select.performed += P2PauseOnPerformed;
+        _inputManager.Player2.Joystick.performed += P2Nav;
+        _inputManager.Player2.Btn1.performed += P2Confirm;
 
         //Check if player three pressed, select, joystick, or button 1 
-        _inputManager.PlayerYellow.Select.performed += P3PauseOnPerformed;
-        _inputManager.PlayerYellow.Joystick.performed += P3Nav;
-        _inputManager.PlayerYellow.Btn1.performed += P3Confirm;
+        _inputManager.Player3.Select.performed += P3PauseOnPerformed;
+        _inputManager.Player3.Joystick.performed += P3Nav;
+        _inputManager.Player3.Btn1.performed += P3Confirm;
 
         //Check if player four pressed, select, joystick, or button 1 
-        _inputManager.PlayerGreen.Select.performed += P4PauseOnPerformed; 
-        _inputManager.PlayerGreen.Joystick.performed += P4Nav;
-        _inputManager.PlayerGreen.Btn1.performed += P4Confirm;
+        _inputManager.Player4.Select.performed += P4PauseOnPerformed; 
+        _inputManager.Player4.Joystick.performed += P4Nav;
+        _inputManager.Player4.Btn1.performed += P4Confirm;
 
         //enable checking keyinputs
         _inputManager.Enable();

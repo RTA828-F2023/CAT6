@@ -104,23 +104,23 @@ public class SelectController : MonoBehaviour
         _inputManager = new InputManager();
 
         //Check if player one pressed, select, joystick, or button 1 
-        _inputManager.PlayerBlue.Joystick.performed += P1Nav;
-        _inputManager.PlayerBlue.Btn1.performed += P1Lock;
-        _inputManager.PlayerBlue.Btn2.performed += P1UnLock;
+        _inputManager.Player1.Joystick.performed += P1Nav;
+        _inputManager.Player1.Btn1.performed += P1Lock;
+        _inputManager.Player1.Btn2.performed += P1UnLock;
 
         //Check if player two pressed, select, joystick, or button 1 
-        _inputManager.PlayerPink.Joystick.performed += P2Nav;
-        _inputManager.PlayerPink.Btn1.performed += P2Lock;
-        _inputManager.PlayerPink.Btn2.performed += P2UnLock;
+        _inputManager.Player2.Joystick.performed += P2Nav;
+        _inputManager.Player2.Btn1.performed += P2Lock;
+        _inputManager.Player2.Btn2.performed += P2UnLock;
 
         //Check if player three pressed, select, joystick, or button 1 
-        _inputManager.PlayerYellow.Joystick.performed += P3Nav;
-        _inputManager.PlayerYellow.Btn1.performed += P3Lock;
-        _inputManager.PlayerYellow.Btn2.performed += P3UnLock;
+        _inputManager.Player3.Joystick.performed += P3Nav;
+        _inputManager.Player3.Btn1.performed += P3Lock;
+        _inputManager.Player3.Btn2.performed += P3UnLock;
         //Check if player four pressed, select, joystick, or button 1 
-        _inputManager.PlayerGreen.Joystick.performed += P4Nav;
-        _inputManager.PlayerGreen.Btn1.performed += P4Lock;
-        _inputManager.PlayerGreen.Btn2.performed += P4UnLock;
+        _inputManager.Player4.Joystick.performed += P4Nav;
+        _inputManager.Player4.Btn1.performed += P4Lock;
+        _inputManager.Player4.Btn2.performed += P4UnLock;
 
         //enable checking keyinputs
         _inputManager.Enable();

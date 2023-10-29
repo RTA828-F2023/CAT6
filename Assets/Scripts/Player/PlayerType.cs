@@ -1,7 +1,7 @@
 public enum PlayerType
 {
-    Blue,
-    Pink,
-    Yellow,
-    Green
+    One,
+    Two,
+    Three,
+    Four
 }

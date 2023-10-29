@@ -47,28 +47,28 @@ public class Player : MonoBehaviour
         // Handle player input based on player type
         switch (type)
         {
-            case PlayerType.Blue:
-                _inputManager.PlayerBlue.Joystick.performed += WalkOnPerformed;
-                _inputManager.PlayerBlue.Joystick.canceled += WalkOnCanceled;
-                _inputManager.PlayerBlue.Btn1.performed += FireOnPerformed;
+            case PlayerType.One:
+                _inputManager.Player1.Joystick.performed += WalkOnPerformed;
+                _inputManager.Player1.Joystick.canceled += WalkOnCanceled;
+                _inputManager.Player1.Btn1.performed += FireOnPerformed;
                 break;
 
-            case PlayerType.Pink:
-                _inputManager.PlayerPink.Joystick.performed += WalkOnPerformed;
-                _inputManager.PlayerPink.Joystick.canceled += WalkOnCanceled;
-                _inputManager.PlayerPink.Btn1.performed += FireOnPerformed;
+            case PlayerType.Two:
+                _inputManager.Player2.Joystick.performed += WalkOnPerformed;
+                _inputManager.Player2.Joystick.canceled += WalkOnCanceled;
+                _inputManager.Player2.Btn1.performed += FireOnPerformed;
                 break;
 
-            case PlayerType.Yellow:
-                _inputManager.PlayerYellow.Joystick.performed += WalkOnPerformed;
-                _inputManager.PlayerYellow.Joystick.canceled += WalkOnCanceled;
-                _inputManager.PlayerYellow.Btn1.performed += FireOnPerformed;
+            case PlayerType.Three:
+                _inputManager.Player3.Joystick.performed += WalkOnPerformed;
+                _inputManager.Player3.Joystick.canceled += WalkOnCanceled;
+                _inputManager.Player3.Btn1.performed += FireOnPerformed;
                 break;
 
-            case PlayerType.Green:
-                _inputManager.PlayerGreen.Joystick.performed += WalkOnPerformed;
-                _inputManager.PlayerGreen.Joystick.canceled += WalkOnCanceled;
-                _inputManager.PlayerGreen.Btn1.performed += FireOnPerformed;
+            case PlayerType.Four:
+                _inputManager.Player4.Joystick.performed += WalkOnPerformed;
+                _inputManager.Player4.Joystick.canceled += WalkOnCanceled;
+                _inputManager.Player4.Btn1.performed += FireOnPerformed;
                 break;
 
             default:
