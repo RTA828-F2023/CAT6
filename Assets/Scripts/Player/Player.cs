@@ -29,7 +29,9 @@ public class Player : MonoBehaviour
     private bool _isWalking;
     private Vector2 _currentDirection = Vector2.up;
 
-    private static readonly int WalkAnimationBool = Animator.StringToHash("isWalking");
+    private static readonly int WalkFrontAnimationBool = Animator.StringToHash("isWalkingFront");
+    private static readonly int WalkBackAnimationBool = Animator.StringToHash("isWalkingBack");
+    private static readonly int WalkSideAnimationBool = Animator.StringToHash("isWalkingSide");
 
     private Rigidbody2D _rigidbody;
     private Animator _animator;
@@ -150,9 +152,16 @@ public class Player : MonoBehaviour
         _currentDirection = direction;
         _isWalking = true;
 
-        // Play walk animation
-        _animator.SetBool(WalkAnimationBool, true);
         SetFlip(_currentDirection.x < 0f);
+
+        // Play walk animation
+        _animator.SetBool(WalkFrontAnimationBool, false);
+        _animator.SetBool(WalkBackAnimationBool, false);
+        _animator.SetBool(WalkSideAnimationBool, false);
+
+        if (direction.y > 0f) _animator.SetBool(WalkBackAnimationBool, true);
+        else if (direction.y < 0f) _animator.SetBool(WalkFrontAnimationBool, true);
+        else _animator.SetBool(WalkSideAnimationBool, true);
     }
 
     private void Stop()
@@ -161,7 +170,9 @@ public class Player : MonoBehaviour
         _isWalking = false;
 
         // Stop walk animation
-        _animator.SetBool(WalkAnimationBool, false);
+        _animator.SetBool(WalkFrontAnimationBool, false);
+        _animator.SetBool(WalkBackAnimationBool, false);
+        _animator.SetBool(WalkSideAnimationBool, false);
     }
 
     #endregion
@@ -173,7 +184,7 @@ public class Player : MonoBehaviour
         if (!_canFire) return;
 
         var shuriken = Instantiate(shurikenPrefab, firePoint.position, Quaternion.identity);
-        shuriken.Init(gameObject,_currentDirection, fireForce);
+        shuriken.Init(gameObject, _currentDirection, fireForce);
 
         // Down time before player can fire again
         _canFire = false;
@@ -213,7 +224,7 @@ public class Player : MonoBehaviour
     public void UpdateScore(int score)
     {
         var scoreController = scoreBoard.GetComponent<PointSystemController>();
-        scoreController.UpdatePlayerScore(type,score);
+        scoreController.UpdatePlayerScore(type, score);
 
     }
 
