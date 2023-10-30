@@ -11,17 +11,14 @@ public class Player : MonoBehaviour
     [Header("Stats")]
     [SerializeField] private int maxHealth;
     public float walkForce;
-    [SerializeField] private float fireForce;
     [SerializeField] private float fireRecoveryTime;
 
     private bool _canFire = true;
     public int _currentHealth;
 
     [Header("References")]
-    [SerializeField] private Transform arrow;
-    [SerializeField] private Transform firePoint;
     [SerializeField] private Transform healthDisplay;
-    [SerializeField] private Shuriken shurikenPrefab;
+    
     [SerializeField] private ParticleSystem explosionPrefab;
     [SerializeField] private Transform scoreBoard;
     private Image[] _heartIcons;
@@ -32,6 +29,8 @@ public class Player : MonoBehaviour
     private static readonly int WalkFrontAnimationBool = Animator.StringToHash("isWalkingFront");
     private static readonly int WalkBackAnimationBool = Animator.StringToHash("isWalkingBack");
     private static readonly int WalkSideAnimationBool = Animator.StringToHash("isWalkingSide");
+
+    private Weapon _weapon;
 
     private Rigidbody2D _rigidbody;
     private Animator _animator;
@@ -89,6 +88,8 @@ public class Player : MonoBehaviour
         _animator = GetComponent<Animator>();
 
         _heartIcons = healthDisplay.GetComponentsInChildren<Image>();
+
+        _weapon = GetComponentInChildren<Weapon>();
     }
 
     private void Start()
@@ -98,7 +99,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        arrow.up = _currentDirection;
+        _weapon.transform.up = _currentDirection;
     }
 
     private void FixedUpdate()
@@ -116,7 +117,6 @@ public class Player : MonoBehaviour
         {
             Walk(context.ReadValue<Vector2>().normalized);
         }
-
     }
 
     private void WalkOnCanceled(InputAction.CallbackContext context)
@@ -125,7 +125,6 @@ public class Player : MonoBehaviour
         {
             Stop();
         }
-
     }
 
     private void FireOnPerformed(InputAction.CallbackContext context)
@@ -134,7 +133,6 @@ public class Player : MonoBehaviour
         {
             Fire();
         }
-
     }
 
     #endregion
@@ -183,8 +181,7 @@ public class Player : MonoBehaviour
     {
         if (!_canFire) return;
 
-        var shuriken = Instantiate(shurikenPrefab, firePoint.position, Quaternion.identity);
-        shuriken.Init(gameObject, _currentDirection, fireForce);
+        _weapon?.Fire();
 
         // Down time before player can fire again
         _canFire = false;

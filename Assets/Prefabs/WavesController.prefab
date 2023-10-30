@@ -45,11 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialWait: 3
-  waveCount: 3
-  waveDuration: 1
-  waveDelay: 3
-  enemyCountPerWave: 2
+  waveCount: 5
+  waveDuration: 5
+  waveDelay: 1
+  enemyCountPerWave: 3
   enemyCountText: {fileID: 0}
   wavesCountText: {fileID: 0}
   timerText: {fileID: 0}
+  pointSystem: {fileID: 0}
   enemySpawner: {fileID: 0}
