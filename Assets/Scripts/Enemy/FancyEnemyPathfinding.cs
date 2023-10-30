@@ -1,7 +1,7 @@
 using UnityEngine;
 using Pathfinding;
 
-public class EnemyPathfinding2 : MonoBehaviour
+public class FancyEnemyPathfinding : MonoBehaviour
 {
     [Header("Pathfinding Stats")]
     public float stoppingDistance;
