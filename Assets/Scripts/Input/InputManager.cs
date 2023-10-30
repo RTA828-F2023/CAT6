@@ -92,7 +92,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""PlayerBlue"",
+            ""name"": ""Player1"",
             ""id"": ""dfa8e17e-5725-47b1-9b03-a523ffb77612"",
             ""actions"": [
                 {
@@ -224,7 +224,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""PlayerPink"",
+            ""name"": ""Player2"",
             ""id"": ""03fad348-1a54-4f01-b338-66a786e3277c"",
             ""actions"": [
                 {
@@ -356,7 +356,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""PlayerYellow"",
+            ""name"": ""Player3"",
             ""id"": ""07868307-652a-4b8d-a28c-42db61e0ef7b"",
             ""actions"": [
                 {
@@ -488,7 +488,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""PlayerGreen"",
+            ""name"": ""Player4"",
             ""id"": ""7df3d3d4-4b60-441f-b99c-fd3c353ebc7e"",
             ""actions"": [
                 {
@@ -655,30 +655,30 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
         m_Game_Select = m_Game.FindAction("Select", throwIfNotFound: true);
         m_Game_Exit = m_Game.FindAction("Exit", throwIfNotFound: true);
         m_Game_Any = m_Game.FindAction("Any", throwIfNotFound: true);
-        // PlayerBlue
-        m_PlayerBlue = asset.FindActionMap("PlayerBlue", throwIfNotFound: true);
-        m_PlayerBlue_Joystick = m_PlayerBlue.FindAction("Joystick", throwIfNotFound: true);
-        m_PlayerBlue_Select = m_PlayerBlue.FindAction("Select", throwIfNotFound: true);
-        m_PlayerBlue_Btn1 = m_PlayerBlue.FindAction("Btn1", throwIfNotFound: true);
-        m_PlayerBlue_Btn2 = m_PlayerBlue.FindAction("Btn2", throwIfNotFound: true);
-        // PlayerPink
-        m_PlayerPink = asset.FindActionMap("PlayerPink", throwIfNotFound: true);
-        m_PlayerPink_Joystick = m_PlayerPink.FindAction("Joystick", throwIfNotFound: true);
-        m_PlayerPink_Select = m_PlayerPink.FindAction("Select", throwIfNotFound: true);
-        m_PlayerPink_Btn1 = m_PlayerPink.FindAction("Btn1", throwIfNotFound: true);
-        m_PlayerPink_Btn2 = m_PlayerPink.FindAction("Btn2", throwIfNotFound: true);
-        // PlayerYellow
-        m_PlayerYellow = asset.FindActionMap("PlayerYellow", throwIfNotFound: true);
-        m_PlayerYellow_Joystick = m_PlayerYellow.FindAction("Joystick", throwIfNotFound: true);
-        m_PlayerYellow_Select = m_PlayerYellow.FindAction("Select", throwIfNotFound: true);
-        m_PlayerYellow_Btn1 = m_PlayerYellow.FindAction("Btn1", throwIfNotFound: true);
-        m_PlayerYellow_Btn2 = m_PlayerYellow.FindAction("Btn2", throwIfNotFound: true);
-        // PlayerGreen
-        m_PlayerGreen = asset.FindActionMap("PlayerGreen", throwIfNotFound: true);
-        m_PlayerGreen_Joystick = m_PlayerGreen.FindAction("Joystick", throwIfNotFound: true);
-        m_PlayerGreen_Select = m_PlayerGreen.FindAction("Select", throwIfNotFound: true);
-        m_PlayerGreen_Btn1 = m_PlayerGreen.FindAction("Btn1", throwIfNotFound: true);
-        m_PlayerGreen_Btn2 = m_PlayerGreen.FindAction("Btn2", throwIfNotFound: true);
+        // Player1
+        m_Player1 = asset.FindActionMap("Player1", throwIfNotFound: true);
+        m_Player1_Joystick = m_Player1.FindAction("Joystick", throwIfNotFound: true);
+        m_Player1_Select = m_Player1.FindAction("Select", throwIfNotFound: true);
+        m_Player1_Btn1 = m_Player1.FindAction("Btn1", throwIfNotFound: true);
+        m_Player1_Btn2 = m_Player1.FindAction("Btn2", throwIfNotFound: true);
+        // Player2
+        m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
+        m_Player2_Joystick = m_Player2.FindAction("Joystick", throwIfNotFound: true);
+        m_Player2_Select = m_Player2.FindAction("Select", throwIfNotFound: true);
+        m_Player2_Btn1 = m_Player2.FindAction("Btn1", throwIfNotFound: true);
+        m_Player2_Btn2 = m_Player2.FindAction("Btn2", throwIfNotFound: true);
+        // Player3
+        m_Player3 = asset.FindActionMap("Player3", throwIfNotFound: true);
+        m_Player3_Joystick = m_Player3.FindAction("Joystick", throwIfNotFound: true);
+        m_Player3_Select = m_Player3.FindAction("Select", throwIfNotFound: true);
+        m_Player3_Btn1 = m_Player3.FindAction("Btn1", throwIfNotFound: true);
+        m_Player3_Btn2 = m_Player3.FindAction("Btn2", throwIfNotFound: true);
+        // Player4
+        m_Player4 = asset.FindActionMap("Player4", throwIfNotFound: true);
+        m_Player4_Joystick = m_Player4.FindAction("Joystick", throwIfNotFound: true);
+        m_Player4_Select = m_Player4.FindAction("Select", throwIfNotFound: true);
+        m_Player4_Btn1 = m_Player4.FindAction("Btn1", throwIfNotFound: true);
+        m_Player4_Btn2 = m_Player4.FindAction("Btn2", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -799,30 +799,30 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
     }
     public GameActions @Game => new GameActions(this);
 
-    // PlayerBlue
-    private readonly InputActionMap m_PlayerBlue;
-    private List<IPlayerBlueActions> m_PlayerBlueActionsCallbackInterfaces = new List<IPlayerBlueActions>();
-    private readonly InputAction m_PlayerBlue_Joystick;
-    private readonly InputAction m_PlayerBlue_Select;
-    private readonly InputAction m_PlayerBlue_Btn1;
-    private readonly InputAction m_PlayerBlue_Btn2;
-    public struct PlayerBlueActions
+    // Player1
+    private readonly InputActionMap m_Player1;
+    private List<IPlayer1Actions> m_Player1ActionsCallbackInterfaces = new List<IPlayer1Actions>();
+    private readonly InputAction m_Player1_Joystick;
+    private readonly InputAction m_Player1_Select;
+    private readonly InputAction m_Player1_Btn1;
+    private readonly InputAction m_Player1_Btn2;
+    public struct Player1Actions
     {
         private @InputManager m_Wrapper;
-        public PlayerBlueActions(@InputManager wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Joystick => m_Wrapper.m_PlayerBlue_Joystick;
-        public InputAction @Select => m_Wrapper.m_PlayerBlue_Select;
-        public InputAction @Btn1 => m_Wrapper.m_PlayerBlue_Btn1;
-        public InputAction @Btn2 => m_Wrapper.m_PlayerBlue_Btn2;
-        public InputActionMap Get() { return m_Wrapper.m_PlayerBlue; }
+        public Player1Actions(@InputManager wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Joystick => m_Wrapper.m_Player1_Joystick;
+        public InputAction @Select => m_Wrapper.m_Player1_Select;
+        public InputAction @Btn1 => m_Wrapper.m_Player1_Btn1;
+        public InputAction @Btn2 => m_Wrapper.m_Player1_Btn2;
+        public InputActionMap Get() { return m_Wrapper.m_Player1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerBlueActions set) { return set.Get(); }
-        public void AddCallbacks(IPlayerBlueActions instance)
+        public static implicit operator InputActionMap(Player1Actions set) { return set.Get(); }
+        public void AddCallbacks(IPlayer1Actions instance)
         {
-            if (instance == null || m_Wrapper.m_PlayerBlueActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_PlayerBlueActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_Player1ActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_Player1ActionsCallbackInterfaces.Add(instance);
             @Joystick.started += instance.OnJoystick;
             @Joystick.performed += instance.OnJoystick;
             @Joystick.canceled += instance.OnJoystick;
@@ -837,7 +837,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
             @Btn2.canceled += instance.OnBtn2;
         }
 
-        private void UnregisterCallbacks(IPlayerBlueActions instance)
+        private void UnregisterCallbacks(IPlayer1Actions instance)
         {
             @Joystick.started -= instance.OnJoystick;
             @Joystick.performed -= instance.OnJoystick;
@@ -853,46 +853,46 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
             @Btn2.canceled -= instance.OnBtn2;
         }
 
-        public void RemoveCallbacks(IPlayerBlueActions instance)
+        public void RemoveCallbacks(IPlayer1Actions instance)
         {
-            if (m_Wrapper.m_PlayerBlueActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_Player1ActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IPlayerBlueActions instance)
+        public void SetCallbacks(IPlayer1Actions instance)
         {
-            foreach (var item in m_Wrapper.m_PlayerBlueActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_Player1ActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_PlayerBlueActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_Player1ActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public PlayerBlueActions @PlayerBlue => new PlayerBlueActions(this);
+    public Player1Actions @Player1 => new Player1Actions(this);
 
-    // PlayerPink
-    private readonly InputActionMap m_PlayerPink;
-    private List<IPlayerPinkActions> m_PlayerPinkActionsCallbackInterfaces = new List<IPlayerPinkActions>();
-    private readonly InputAction m_PlayerPink_Joystick;
-    private readonly InputAction m_PlayerPink_Select;
-    private readonly InputAction m_PlayerPink_Btn1;
-    private readonly InputAction m_PlayerPink_Btn2;
-    public struct PlayerPinkActions
+    // Player2
+    private readonly InputActionMap m_Player2;
+    private List<IPlayer2Actions> m_Player2ActionsCallbackInterfaces = new List<IPlayer2Actions>();
+    private readonly InputAction m_Player2_Joystick;
+    private readonly InputAction m_Player2_Select;
+    private readonly InputAction m_Player2_Btn1;
+    private readonly InputAction m_Player2_Btn2;
+    public struct Player2Actions
     {
         private @InputManager m_Wrapper;
-        public PlayerPinkActions(@InputManager wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Joystick => m_Wrapper.m_PlayerPink_Joystick;
-        public InputAction @Select => m_Wrapper.m_PlayerPink_Select;
-        public InputAction @Btn1 => m_Wrapper.m_PlayerPink_Btn1;
-        public InputAction @Btn2 => m_Wrapper.m_PlayerPink_Btn2;
-        public InputActionMap Get() { return m_Wrapper.m_PlayerPink; }
+        public Player2Actions(@InputManager wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Joystick => m_Wrapper.m_Player2_Joystick;
+        public InputAction @Select => m_Wrapper.m_Player2_Select;
+        public InputAction @Btn1 => m_Wrapper.m_Player2_Btn1;
+        public InputAction @Btn2 => m_Wrapper.m_Player2_Btn2;
+        public InputActionMap Get() { return m_Wrapper.m_Player2; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerPinkActions set) { return set.Get(); }
-        public void AddCallbacks(IPlayerPinkActions instance)
+        public static implicit operator InputActionMap(Player2Actions set) { return set.Get(); }
+        public void AddCallbacks(IPlayer2Actions instance)
         {
-            if (instance == null || m_Wrapper.m_PlayerPinkActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_PlayerPinkActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_Player2ActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_Player2ActionsCallbackInterfaces.Add(instance);
             @Joystick.started += instance.OnJoystick;
             @Joystick.performed += instance.OnJoystick;
             @Joystick.canceled += instance.OnJoystick;
@@ -907,7 +907,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
             @Btn2.canceled += instance.OnBtn2;
         }
 
-        private void UnregisterCallbacks(IPlayerPinkActions instance)
+        private void UnregisterCallbacks(IPlayer2Actions instance)
         {
             @Joystick.started -= instance.OnJoystick;
             @Joystick.performed -= instance.OnJoystick;
@@ -923,46 +923,46 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
             @Btn2.canceled -= instance.OnBtn2;
         }
 
-        public void RemoveCallbacks(IPlayerPinkActions instance)
+        public void RemoveCallbacks(IPlayer2Actions instance)
         {
-            if (m_Wrapper.m_PlayerPinkActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_Player2ActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IPlayerPinkActions instance)
+        public void SetCallbacks(IPlayer2Actions instance)
         {
-            foreach (var item in m_Wrapper.m_PlayerPinkActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_Player2ActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_PlayerPinkActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_Player2ActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public PlayerPinkActions @PlayerPink => new PlayerPinkActions(this);
+    public Player2Actions @Player2 => new Player2Actions(this);
 
-    // PlayerYellow
-    private readonly InputActionMap m_PlayerYellow;
-    private List<IPlayerYellowActions> m_PlayerYellowActionsCallbackInterfaces = new List<IPlayerYellowActions>();
-    private readonly InputAction m_PlayerYellow_Joystick;
-    private readonly InputAction m_PlayerYellow_Select;
-    private readonly InputAction m_PlayerYellow_Btn1;
-    private readonly InputAction m_PlayerYellow_Btn2;
-    public struct PlayerYellowActions
+    // Player3
+    private readonly InputActionMap m_Player3;
+    private List<IPlayer3Actions> m_Player3ActionsCallbackInterfaces = new List<IPlayer3Actions>();
+    private readonly InputAction m_Player3_Joystick;
+    private readonly InputAction m_Player3_Select;
+    private readonly InputAction m_Player3_Btn1;
+    private readonly InputAction m_Player3_Btn2;
+    public struct Player3Actions
     {
         private @InputManager m_Wrapper;
-        public PlayerYellowActions(@InputManager wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Joystick => m_Wrapper.m_PlayerYellow_Joystick;
-        public InputAction @Select => m_Wrapper.m_PlayerYellow_Select;
-        public InputAction @Btn1 => m_Wrapper.m_PlayerYellow_Btn1;
-        public InputAction @Btn2 => m_Wrapper.m_PlayerYellow_Btn2;
-        public InputActionMap Get() { return m_Wrapper.m_PlayerYellow; }
+        public Player3Actions(@InputManager wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Joystick => m_Wrapper.m_Player3_Joystick;
+        public InputAction @Select => m_Wrapper.m_Player3_Select;
+        public InputAction @Btn1 => m_Wrapper.m_Player3_Btn1;
+        public InputAction @Btn2 => m_Wrapper.m_Player3_Btn2;
+        public InputActionMap Get() { return m_Wrapper.m_Player3; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerYellowActions set) { return set.Get(); }
-        public void AddCallbacks(IPlayerYellowActions instance)
+        public static implicit operator InputActionMap(Player3Actions set) { return set.Get(); }
+        public void AddCallbacks(IPlayer3Actions instance)
         {
-            if (instance == null || m_Wrapper.m_PlayerYellowActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_PlayerYellowActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_Player3ActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_Player3ActionsCallbackInterfaces.Add(instance);
             @Joystick.started += instance.OnJoystick;
             @Joystick.performed += instance.OnJoystick;
             @Joystick.canceled += instance.OnJoystick;
@@ -977,7 +977,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
             @Btn2.canceled += instance.OnBtn2;
         }
 
-        private void UnregisterCallbacks(IPlayerYellowActions instance)
+        private void UnregisterCallbacks(IPlayer3Actions instance)
         {
             @Joystick.started -= instance.OnJoystick;
             @Joystick.performed -= instance.OnJoystick;
@@ -993,46 +993,46 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
             @Btn2.canceled -= instance.OnBtn2;
         }
 
-        public void RemoveCallbacks(IPlayerYellowActions instance)
+        public void RemoveCallbacks(IPlayer3Actions instance)
         {
-            if (m_Wrapper.m_PlayerYellowActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_Player3ActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IPlayerYellowActions instance)
+        public void SetCallbacks(IPlayer3Actions instance)
         {
-            foreach (var item in m_Wrapper.m_PlayerYellowActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_Player3ActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_PlayerYellowActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_Player3ActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public PlayerYellowActions @PlayerYellow => new PlayerYellowActions(this);
+    public Player3Actions @Player3 => new Player3Actions(this);
 
-    // PlayerGreen
-    private readonly InputActionMap m_PlayerGreen;
-    private List<IPlayerGreenActions> m_PlayerGreenActionsCallbackInterfaces = new List<IPlayerGreenActions>();
-    private readonly InputAction m_PlayerGreen_Joystick;
-    private readonly InputAction m_PlayerGreen_Select;
-    private readonly InputAction m_PlayerGreen_Btn1;
-    private readonly InputAction m_PlayerGreen_Btn2;
-    public struct PlayerGreenActions
+    // Player4
+    private readonly InputActionMap m_Player4;
+    private List<IPlayer4Actions> m_Player4ActionsCallbackInterfaces = new List<IPlayer4Actions>();
+    private readonly InputAction m_Player4_Joystick;
+    private readonly InputAction m_Player4_Select;
+    private readonly InputAction m_Player4_Btn1;
+    private readonly InputAction m_Player4_Btn2;
+    public struct Player4Actions
     {
         private @InputManager m_Wrapper;
-        public PlayerGreenActions(@InputManager wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Joystick => m_Wrapper.m_PlayerGreen_Joystick;
-        public InputAction @Select => m_Wrapper.m_PlayerGreen_Select;
-        public InputAction @Btn1 => m_Wrapper.m_PlayerGreen_Btn1;
-        public InputAction @Btn2 => m_Wrapper.m_PlayerGreen_Btn2;
-        public InputActionMap Get() { return m_Wrapper.m_PlayerGreen; }
+        public Player4Actions(@InputManager wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Joystick => m_Wrapper.m_Player4_Joystick;
+        public InputAction @Select => m_Wrapper.m_Player4_Select;
+        public InputAction @Btn1 => m_Wrapper.m_Player4_Btn1;
+        public InputAction @Btn2 => m_Wrapper.m_Player4_Btn2;
+        public InputActionMap Get() { return m_Wrapper.m_Player4; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerGreenActions set) { return set.Get(); }
-        public void AddCallbacks(IPlayerGreenActions instance)
+        public static implicit operator InputActionMap(Player4Actions set) { return set.Get(); }
+        public void AddCallbacks(IPlayer4Actions instance)
         {
-            if (instance == null || m_Wrapper.m_PlayerGreenActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_PlayerGreenActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_Player4ActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_Player4ActionsCallbackInterfaces.Add(instance);
             @Joystick.started += instance.OnJoystick;
             @Joystick.performed += instance.OnJoystick;
             @Joystick.canceled += instance.OnJoystick;
@@ -1047,7 +1047,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
             @Btn2.canceled += instance.OnBtn2;
         }
 
-        private void UnregisterCallbacks(IPlayerGreenActions instance)
+        private void UnregisterCallbacks(IPlayer4Actions instance)
         {
             @Joystick.started -= instance.OnJoystick;
             @Joystick.performed -= instance.OnJoystick;
@@ -1063,21 +1063,21 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
             @Btn2.canceled -= instance.OnBtn2;
         }
 
-        public void RemoveCallbacks(IPlayerGreenActions instance)
+        public void RemoveCallbacks(IPlayer4Actions instance)
         {
-            if (m_Wrapper.m_PlayerGreenActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_Player4ActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IPlayerGreenActions instance)
+        public void SetCallbacks(IPlayer4Actions instance)
         {
-            foreach (var item in m_Wrapper.m_PlayerGreenActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_Player4ActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_PlayerGreenActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_Player4ActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public PlayerGreenActions @PlayerGreen => new PlayerGreenActions(this);
+    public Player4Actions @Player4 => new Player4Actions(this);
     private int m_MouseKeyboardSchemeIndex = -1;
     public InputControlScheme MouseKeyboardScheme
     {
@@ -1102,28 +1102,28 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
         void OnExit(InputAction.CallbackContext context);
         void OnAny(InputAction.CallbackContext context);
     }
-    public interface IPlayerBlueActions
+    public interface IPlayer1Actions
     {
         void OnJoystick(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
         void OnBtn1(InputAction.CallbackContext context);
         void OnBtn2(InputAction.CallbackContext context);
     }
-    public interface IPlayerPinkActions
+    public interface IPlayer2Actions
     {
         void OnJoystick(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
         void OnBtn1(InputAction.CallbackContext context);
         void OnBtn2(InputAction.CallbackContext context);
     }
-    public interface IPlayerYellowActions
+    public interface IPlayer3Actions
     {
         void OnJoystick(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
         void OnBtn1(InputAction.CallbackContext context);
         void OnBtn2(InputAction.CallbackContext context);
     }
-    public interface IPlayerGreenActions
+    public interface IPlayer4Actions
     {
         void OnJoystick(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);

@@ -101,6 +101,8 @@ public class GameController : MonoBehaviour
 
         Time.timeScale = 0f;
         State = GameState.Completed;
+
+        //TODO Return the highest score here? Maybe when there is a score screen?
     }
 
     public IEnumerator CheckWaveEnd() {

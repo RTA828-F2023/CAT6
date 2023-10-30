@@ -70,7 +70,7 @@
             ]
         },
         {
-            "name": "PlayerBlue",
+            "name": "Player1",
             "id": "dfa8e17e-5725-47b1-9b03-a523ffb77612",
             "actions": [
                 {
@@ -202,7 +202,7 @@
             ]
         },
         {
-            "name": "PlayerPink",
+            "name": "Player2",
             "id": "03fad348-1a54-4f01-b338-66a786e3277c",
             "actions": [
                 {
@@ -334,7 +334,7 @@
             ]
         },
         {
-            "name": "PlayerYellow",
+            "name": "Player3",
             "id": "07868307-652a-4b8d-a28c-42db61e0ef7b",
             "actions": [
                 {
@@ -466,7 +466,7 @@
             ]
         },
         {
-            "name": "PlayerGreen",
+            "name": "Player4",
             "id": "7df3d3d4-4b60-441f-b99c-fd3c353ebc7e",
             "actions": [
                 {

@@ -11,17 +11,14 @@ public class Player : MonoBehaviour
     [Header("Stats")]
     [SerializeField] private int maxHealth;
     public float walkForce;
-    [SerializeField] private float fireForce;
     [SerializeField] private float fireRecoveryTime;
 
     private bool _canFire = true;
-    private int _currentHealth;
+    public int _currentHealth;
 
     [Header("References")]
-    [SerializeField] private Transform arrow;
-    [SerializeField] private Transform firePoint;
     [SerializeField] private Transform healthDisplay;
-    [SerializeField] private Shuriken shurikenPrefab;
+    
     [SerializeField] private ParticleSystem explosionPrefab;
     [SerializeField] private Transform scoreBoard;
     private Image[] _heartIcons;
@@ -29,7 +26,11 @@ public class Player : MonoBehaviour
     private bool _isWalking;
     private Vector2 _currentDirection = Vector2.up;
 
-    private static readonly int WalkAnimationBool = Animator.StringToHash("isWalking");
+    private static readonly int WalkFrontAnimationBool = Animator.StringToHash("isWalkingFront");
+    private static readonly int WalkBackAnimationBool = Animator.StringToHash("isWalkingBack");
+    private static readonly int WalkSideAnimationBool = Animator.StringToHash("isWalkingSide");
+
+    private Weapon _weapon;
 
     private Rigidbody2D _rigidbody;
     private Animator _animator;
@@ -45,28 +46,28 @@ public class Player : MonoBehaviour
         // Handle player input based on player type
         switch (type)
         {
-            case PlayerType.Blue:
-                _inputManager.PlayerBlue.Joystick.performed += WalkOnPerformed;
-                _inputManager.PlayerBlue.Joystick.canceled += WalkOnCanceled;
-                _inputManager.PlayerBlue.Btn1.performed += FireOnPerformed;
+            case PlayerType.One:
+                _inputManager.Player1.Joystick.performed += WalkOnPerformed;
+                _inputManager.Player1.Joystick.canceled += WalkOnCanceled;
+                _inputManager.Player1.Btn1.performed += FireOnPerformed;
                 break;
 
-            case PlayerType.Pink:
-                _inputManager.PlayerPink.Joystick.performed += WalkOnPerformed;
-                _inputManager.PlayerPink.Joystick.canceled += WalkOnCanceled;
-                _inputManager.PlayerPink.Btn1.performed += FireOnPerformed;
+            case PlayerType.Two:
+                _inputManager.Player2.Joystick.performed += WalkOnPerformed;
+                _inputManager.Player2.Joystick.canceled += WalkOnCanceled;
+                _inputManager.Player2.Btn1.performed += FireOnPerformed;
                 break;
 
-            case PlayerType.Yellow:
-                _inputManager.PlayerYellow.Joystick.performed += WalkOnPerformed;
-                _inputManager.PlayerYellow.Joystick.canceled += WalkOnCanceled;
-                _inputManager.PlayerYellow.Btn1.performed += FireOnPerformed;
+            case PlayerType.Three:
+                _inputManager.Player3.Joystick.performed += WalkOnPerformed;
+                _inputManager.Player3.Joystick.canceled += WalkOnCanceled;
+                _inputManager.Player3.Btn1.performed += FireOnPerformed;
                 break;
 
-            case PlayerType.Green:
-                _inputManager.PlayerGreen.Joystick.performed += WalkOnPerformed;
-                _inputManager.PlayerGreen.Joystick.canceled += WalkOnCanceled;
-                _inputManager.PlayerGreen.Btn1.performed += FireOnPerformed;
+            case PlayerType.Four:
+                _inputManager.Player4.Joystick.performed += WalkOnPerformed;
+                _inputManager.Player4.Joystick.canceled += WalkOnCanceled;
+                _inputManager.Player4.Btn1.performed += FireOnPerformed;
                 break;
 
             default:
@@ -87,6 +88,8 @@ public class Player : MonoBehaviour
         _animator = GetComponent<Animator>();
 
         _heartIcons = healthDisplay.GetComponentsInChildren<Image>();
+
+        _weapon = GetComponentInChildren<Weapon>();
     }
 
     private void Start()
@@ -96,7 +99,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        arrow.up = _currentDirection;
+        _weapon.transform.up = _currentDirection;
     }
 
     private void FixedUpdate()
@@ -114,7 +117,6 @@ public class Player : MonoBehaviour
         {
             Walk(context.ReadValue<Vector2>().normalized);
         }
-
     }
 
     private void WalkOnCanceled(InputAction.CallbackContext context)
@@ -123,7 +125,6 @@ public class Player : MonoBehaviour
         {
             Stop();
         }
-
     }
 
     private void FireOnPerformed(InputAction.CallbackContext context)
@@ -132,7 +133,6 @@ public class Player : MonoBehaviour
         {
             Fire();
         }
-
     }
 
     #endregion
@@ -150,9 +150,16 @@ public class Player : MonoBehaviour
         _currentDirection = direction;
         _isWalking = true;
 
-        // Play walk animation
-        _animator.SetBool(WalkAnimationBool, true);
         SetFlip(_currentDirection.x < 0f);
+
+        // Play walk animation
+        _animator.SetBool(WalkFrontAnimationBool, false);
+        _animator.SetBool(WalkBackAnimationBool, false);
+        _animator.SetBool(WalkSideAnimationBool, false);
+
+        if (direction.y > 0f) _animator.SetBool(WalkBackAnimationBool, true);
+        else if (direction.y < 0f) _animator.SetBool(WalkFrontAnimationBool, true);
+        else _animator.SetBool(WalkSideAnimationBool, true);
     }
 
     private void Stop()
@@ -161,7 +168,9 @@ public class Player : MonoBehaviour
         _isWalking = false;
 
         // Stop walk animation
-        _animator.SetBool(WalkAnimationBool, false);
+        _animator.SetBool(WalkFrontAnimationBool, false);
+        _animator.SetBool(WalkBackAnimationBool, false);
+        _animator.SetBool(WalkSideAnimationBool, false);
     }
 
     #endregion
@@ -172,8 +181,7 @@ public class Player : MonoBehaviour
     {
         if (!_canFire) return;
 
-        var shuriken = Instantiate(shurikenPrefab, firePoint.position, Quaternion.identity);
-        shuriken.Init(gameObject,_currentDirection, fireForce);
+        _weapon?.Fire();
 
         // Down time before player can fire again
         _canFire = false;
@@ -213,7 +221,7 @@ public class Player : MonoBehaviour
     public void UpdateScore(int score)
     {
         var scoreController = scoreBoard.GetComponent<PointSystemController>();
-        scoreController.UpdatePlayerScore(type,score);
+        scoreController.UpdatePlayerScore(type, score);
 
     }
 
