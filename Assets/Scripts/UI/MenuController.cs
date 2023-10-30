@@ -1,3 +1,9 @@
+//Author: Victoria Ouryvski 
+//Project Name: CAT6
+//File Name: MenuController.cs
+//Creation Date: Oct 9, 2023
+//Modified Date: Oct 30, 2023
+//Description: File that manages all UI for the menu 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +21,7 @@ public class MenuController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //let defauly selected button be start button 
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(startBtn);
     }
@@ -28,11 +35,12 @@ public class MenuController : MonoBehaviour
     private void OnEnable()
     {
         _inputManager = new InputManager();
+
          //Check if player one pressed, joystick, or button 1 
         _inputManager.Player1.Joystick.performed += Nav;
         _inputManager.Player1.Btn1.performed += Confirm;
 
-        //Check if player two pressed, select, joystick, or button 1 
+        //Check if player two pressed, joystick, or button 1 
         _inputManager.Player2.Joystick.performed += Nav;
         _inputManager.Player2.Btn1.performed += Confirm;
 
@@ -46,8 +54,6 @@ public class MenuController : MonoBehaviour
 
         _inputManager.Enable();
 
-        Debug.Log("I'm in");
-
     }
 
     private void OnDisable()
@@ -55,6 +61,9 @@ public class MenuController : MonoBehaviour
         _inputManager.Disable();
     }
 
+    //pre: get context from input action
+    //post: none
+    //desc: Let all players navigate the main menu screen
     private void Nav(InputAction.CallbackContext context)
     {
         //if(context.ReadValue<Vector2>().y != 1)
@@ -71,10 +80,11 @@ public class MenuController : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(null);
             EventSystem.current.SetSelectedGameObject(startBtn);
         }
-
-        Debug.Log("I'm in Nav");
     }
 
+    //pre: get context from input action
+    //post: none
+    //desc: when player presses ok button click currently selected button
     private void Confirm(InputAction.CallbackContext context)
     {
         EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
