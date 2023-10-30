@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float fireRecoveryTime;
 
     private bool _canFire = true;
-    private int _currentHealth;
+    public int _currentHealth;
 
     [Header("References")]
     [SerializeField] private Transform arrow;

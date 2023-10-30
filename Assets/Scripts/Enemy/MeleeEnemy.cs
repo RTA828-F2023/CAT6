@@ -3,7 +3,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [Header("Stats")]
-    [SerializeField] private int baseHealth = 1;
+    [SerializeField] public int baseHealth = 2;
     [SerializeField] private int scoreValue = 100;
 
     [Header("Prefabs")]

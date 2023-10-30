@@ -12,11 +12,12 @@ GameObject:
   - component: {fileID: 2529543390443440372}
   - component: {fileID: 4605906410866500275}
   - component: {fileID: 3961553821043227701}
+  - component: {fileID: -7914058024059102191}
   - component: {fileID: 7055886429854436391}
   - component: {fileID: 7405645919431349635}
-  - component: {fileID: 2705102911080815713}
+  - component: {fileID: -1766278460251645115}
   m_Layer: 6
-  m_Name: MeleeEnemy
+  m_Name: Assassin
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3289993064394399149}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -52,7 +53,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 3
+  m_LinearDrag: 4
   m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -132,6 +133,34 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-7914058024059102191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3289993064394399149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
 --- !u!114 &7055886429854436391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,7 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   knockBackForce: 10
---- !u!114 &2705102911080815713
+--- !u!114 &-1766278460251645115
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -170,9 +199,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3289993064394399149}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b322e2d7ca5527448ae6bc49a238976c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0bd71ae409a24db4586b01b6b232d7ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stoppingDistance: 0
+  walkForce: 36
 --- !u!1 &4095155054008371591
 GameObject:
   m_ObjectHideFlags: 0
