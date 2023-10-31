@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform scoreBoard;
     private Image[] _heartIcons;
 
+    [SerializeField] private AudioSource walkAudio;
+
     private bool _isWalking;
     private Vector2 _currentDirection = Vector2.up;
 
@@ -160,6 +162,9 @@ public class Player : MonoBehaviour
         if (direction.y > 0f) _animator.SetBool(WalkBackAnimationBool, true);
         else if (direction.y < 0f) _animator.SetBool(WalkFrontAnimationBool, true);
         else _animator.SetBool(WalkSideAnimationBool, true);
+
+        // Play walk audio
+        walkAudio.Play();
     }
 
     private void Stop()
@@ -171,6 +176,9 @@ public class Player : MonoBehaviour
         _animator.SetBool(WalkFrontAnimationBool, false);
         _animator.SetBool(WalkBackAnimationBool, false);
         _animator.SetBool(WalkSideAnimationBool, false);
+
+        // Stop walk audio
+        walkAudio.Stop();
     }
 
     #endregion

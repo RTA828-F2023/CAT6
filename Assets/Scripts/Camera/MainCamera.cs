@@ -13,6 +13,11 @@ public class MainCamera : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
+    private void Start()
+    {
+        Cursor.visible = false;
+    }
+
     #endregion
 
     public void Intro()

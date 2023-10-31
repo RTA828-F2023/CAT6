@@ -20,9 +20,6 @@ public class Bomb : Projectile
         // If hit an enemy then deal damage to it
         if (other.transform.CompareTag("Enemy"))
         {
-            // var enemy = other.transform.GetComponent<Enemy>();
-            // enemy.TakeDamage(damage);
-
             var enemiesHits = Physics2D.OverlapCircleAll(transform.position, radius, LayerMask.GetMask("Enemies"));
             foreach (var enemyHit in enemiesHits)
             {
