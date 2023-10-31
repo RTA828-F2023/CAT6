@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private GameObject[] enemyPrefabs;
     [SerializeField] private float minimumSpawnTime;
     [SerializeField] private float maximumSpawnTime;
 
@@ -29,7 +29,7 @@ public class EnemySpawner : MonoBehaviour
     {
         for (int i = 0; i < enemyCount; i++)
         {
-            Instantiate(enemyPrefab, transform.position, Quaternion.identity).transform.SetParent(transform);
+            Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], transform.position, Quaternion.identity).transform.SetParent(transform);
         }
     }
 
