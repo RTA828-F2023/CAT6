@@ -305,6 +305,7 @@ public class UIControlller : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(firstPauseButton);
 
         pauseAudio.Play();
+        GameController.Instance.SetDepthOfField(true);
     }
 
     //pre: none
@@ -322,6 +323,7 @@ public class UIControlller : MonoBehaviour
         playerPause = 0;
 
         resumeAudio.Play();
+        GameController.Instance.SetDepthOfField(false);
     }
     
 }
