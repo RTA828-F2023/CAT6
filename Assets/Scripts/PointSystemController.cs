@@ -9,9 +9,11 @@ public class PointSystemController : MonoBehaviour
 {
     [Header("Scoreboard")]
     [SerializeField] private TextMeshProUGUI[] scoreTextObjects;
+    [SerializeField] private GameObject[] CrownDisplayObjects;
     [SerializeField] private VertexGradient newColorGradient;
 
     Dictionary<PlayerType, TextMeshProUGUI> scoreTexts = new Dictionary<PlayerType, TextMeshProUGUI>();
+    Dictionary<PlayerType, GameObject> crownHUDObjects = new Dictionary<PlayerType, GameObject>();
     Dictionary<PlayerType, int> playerScores = new Dictionary<PlayerType, int>();
     Dictionary<PlayerType, GameObject> playerObjects = new Dictionary<PlayerType, GameObject>();
 
@@ -27,9 +29,10 @@ public class PointSystemController : MonoBehaviour
             playerScores[playerType] = 0;
 
             scoreTexts[playerType] = scoreTextObjects[(int)playerType];
+            crownHUDObjects[playerType] = CrownDisplayObjects[(int)playerType];
 
             scoreTexts[playerType].enabled = true;
-            scoreTexts[playerType].text = "Score: " + playerScores[playerType];
+            scoreTexts[playerType].text = "" + playerScores[playerType];
         }
     }
 
@@ -39,7 +42,7 @@ public class PointSystemController : MonoBehaviour
         foreach (KeyValuePair<PlayerType, TextMeshProUGUI> kvp in scoreTexts)
         {
             var newScore = playerScores[kvp.Key];
-            kvp.Value.text = "Score:" + newScore;
+            kvp.Value.text = "" + newScore;
         }
     }
 
@@ -74,7 +77,6 @@ public class PointSystemController : MonoBehaviour
     public int GetHighestScore()
     {
         var bestPlayer = playerScores.Aggregate((x, y) => x.Value > y.Value ? x : y).Key;
-        Debug.Log(playerScores[bestPlayer]);
         return playerScores[bestPlayer];
     }
 
@@ -86,6 +88,7 @@ public class PointSystemController : MonoBehaviour
             if (crownObject != null)
             {
                 crownObject.SetActive(condition);
+                crownHUDObjects[playerType].SetActive(condition);
             }
         }
     }
