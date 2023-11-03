@@ -25,6 +25,7 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private GameObject levelCompleteMenu;
     [SerializeField] private GameObject gameOverMenu;
+    [SerializeField] private GameObject inGameInterface;
 
     private VolumeProfile _volumeProfile;
     private DepthOfField _depthOfField;
@@ -89,6 +90,7 @@ public class GameController : MonoBehaviour
     {
         SetDepthOfField(true);
         gameOverMenu.SetActive(true);
+        inGameInterface.SetActive(false);
 
         Time.timeScale = 0f;
         State = GameState.GameOver;
@@ -98,6 +100,7 @@ public class GameController : MonoBehaviour
     {
         SetDepthOfField(true);
         levelCompleteMenu.SetActive(true);
+        inGameInterface.SetActive(false);
 
         Time.timeScale = 0f;
         State = GameState.Completed;
