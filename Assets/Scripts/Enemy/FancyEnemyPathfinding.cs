@@ -127,7 +127,7 @@ public class FancyEnemyPathfinding : MonoBehaviour
 
     private void TrackNearestPlayer()
     {
-        Track(NearestPlayer().transform);
+        Track(NearestPlayer()?.transform);
     }
 
     private Player NearestPlayer()

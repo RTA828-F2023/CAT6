@@ -42,6 +42,7 @@ public class SceneLoader : MonoBehaviour
 
     public void Load(string sceneName)
     {
+        Time.timeScale = 1f;
         StartCoroutine(LoadCoroutine(sceneName));
     }
 

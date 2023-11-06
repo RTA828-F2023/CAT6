@@ -16,6 +16,9 @@ using TMPro;
 
 public class UIControlller : MonoBehaviour
 {
+    public AudioSource pauseAudio;
+    public AudioSource resumeAudio;
+
     //store object variable for pauseMenu panel 
     public GameObject pauseMenu;
 
@@ -300,6 +303,9 @@ public class UIControlller : MonoBehaviour
         //make the chosen button be the pre-set selectable option
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(firstPauseButton);
+
+        pauseAudio.Play();
+        GameController.Instance.SetDepthOfField(true);
     }
 
     //pre: none
@@ -315,6 +321,9 @@ public class UIControlller : MonoBehaviour
 
         //set player pause back to 0
         playerPause = 0;
+
+        resumeAudio.Play();
+        GameController.Instance.SetDepthOfField(false);
     }
     
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private GameObject[] enemyPrefabs;
     [SerializeField] private float minimumSpawnTime;
     [SerializeField] private float maximumSpawnTime;
     [SerializeField] private bool isSpawning;
@@ -22,7 +22,7 @@ public class EnemySpawner : MonoBehaviour
         if (isSpawning) {
             if (currentEnemyCount < maxEnemyCount) {
                 if (_timeUntilSpawn <= 0) {
-                    Instantiate(enemyPrefab, transform.position, Quaternion.identity).transform.SetParent(transform);
+                    Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], transform.position, Quaternion.identity).transform.SetParent(transform);
                     currentEnemyCount++;
                     SetTimeUntilSpawn();
                 }
@@ -38,13 +38,6 @@ public class EnemySpawner : MonoBehaviour
         isSpawning = true;
         currentEnemyCount = 0;
         maxEnemyCount = enemyCount;
-/*         for (int i = 0; i < enemyCount; i++)
-        {
-            if (_timeUntilSpawn <= 0) {
-                Instantiate(enemyPrefab, transform.position, Quaternion.identity).transform.SetParent(transform);
-                SetTimeUntilSpawn();
-            }
-        } */
     }
 
     private void SetTimeUntilSpawn()

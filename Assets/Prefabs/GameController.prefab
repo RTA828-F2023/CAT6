@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3902374687852804585}
   - component: {fileID: 5206075825277849432}
   - component: {fileID: 3302995540428967182}
+  - component: {fileID: 5065266844117879902}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -45,6 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60eadbe98fb7fb64b8bae90808219c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelCompleteMenu: {fileID: 0}
+  gameOverMenu: {fileID: 0}
 --- !u!114 &3302995540428967182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,8 +60,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 703ccd0229fafbb4a9eb1cf8ffaab04b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseAudio: {fileID: 0}
+  resumeAudio: {fileID: 0}
   pauseMenu: {fileID: 0}
   resumeBtn: {fileID: 0}
   menuBtn: {fileID: 0}
   firstPauseButton: {fileID: 0}
   ptext: {fileID: 0}
+--- !u!114 &5065266844117879902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3434278522869532636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ac1f9b1e25b26542b6b0917f1430024, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1: {fileID: 0}
+  p2: {fileID: 0}
+  p3: {fileID: 0}
+  p4: {fileID: 0}
+  lelloAnimator: {fileID: 22100000, guid: 5b377556cdf2a834ca441978ffeafd01, type: 2}
+  machoAnimator: {fileID: 22100000, guid: c1d2bfb1361db7a44ae4b45f80bc16b0, type: 2}
+  eepyAnimator: {fileID: 22100000, guid: edb00f25d5cfdb54e87afea6439febb5, type: 2}
+  ruukiAnimator: {fileID: 22100000, guid: aba50d1185498af41b018c54d694c066, type: 2}
+  billiAnimator: {fileID: 22100000, guid: 0621e2665fc603c4da7db8138e83ae11, type: 2}

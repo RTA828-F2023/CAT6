@@ -15,6 +15,7 @@ using TMPro;
 
 public class SelectController : MonoBehaviour
 {
+    public AudioSource confirmAudio;
 
     private InputManager _inputManager;
 
@@ -88,6 +89,8 @@ public class SelectController : MonoBehaviour
         //call is ready to check if all players are ready to start game
         if(IsReady())
         {
+            if (!confirmAudio.isPlaying) confirmAudio.Play();
+
             //make countdown text appear on screen
             ready.text = "Ready in... " + (int)timer;
             timer -= Time.deltaTime;
@@ -102,7 +105,7 @@ public class SelectController : MonoBehaviour
                 PlayerPrefs.SetInt("p4", players[3]);
                 
                 //load test level
-                SceneManager.LoadScene("TestLevel");
+                SceneLoader.Instance.Load("TestLevel");
             }
         }
         else 

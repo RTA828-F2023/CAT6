@@ -87,7 +87,7 @@ public class GameController : MonoBehaviour
 
     private void GameOver()
     {
-        _depthOfField.active = true;
+        SetDepthOfField(true);
         gameOverMenu.SetActive(true);
 
         Time.timeScale = 0f;
@@ -96,7 +96,7 @@ public class GameController : MonoBehaviour
 
     private void LevelCompleted()
     {
-        _depthOfField.active = true;
+        SetDepthOfField(true);
         levelCompleteMenu.SetActive(true);
 
         Time.timeScale = 0f;

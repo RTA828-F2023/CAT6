@@ -17,6 +17,7 @@ public class Projectile : MonoBehaviour
 
     public virtual void Init(Player player, Vector2 direction, float force)
     {
+        transform.right = -direction;
         playerOwner = player;
         _rigidbody.AddForce(direction * force, ForceMode2D.Impulse);
     }

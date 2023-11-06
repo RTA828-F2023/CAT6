@@ -11,9 +11,6 @@ public class Player : MonoBehaviour
     [Header("Stats")]
     [SerializeField] private int maxHealth;
     public float walkForce;
-    [SerializeField] private float fireRecoveryTime;
-
-    private bool _canFire = true;
     public int _currentHealth;
 
     [Header("References")]
@@ -22,6 +19,8 @@ public class Player : MonoBehaviour
     [SerializeField] private ParticleSystem explosionPrefab;
     [SerializeField] private Transform scoreBoard;
     private Image[] _heartIcons;
+
+    [SerializeField] private AudioSource walkAudio;
 
     private bool _isWalking;
     private Vector2 _currentDirection = Vector2.up;
@@ -160,6 +159,9 @@ public class Player : MonoBehaviour
         if (direction.y > 0f) _animator.SetBool(WalkBackAnimationBool, true);
         else if (direction.y < 0f) _animator.SetBool(WalkFrontAnimationBool, true);
         else _animator.SetBool(WalkSideAnimationBool, true);
+
+        // Play walk audio
+        walkAudio.Play();
     }
 
     private void Stop()
@@ -171,6 +173,9 @@ public class Player : MonoBehaviour
         _animator.SetBool(WalkFrontAnimationBool, false);
         _animator.SetBool(WalkBackAnimationBool, false);
         _animator.SetBool(WalkSideAnimationBool, false);
+
+        // Stop walk audio
+        walkAudio.Stop();
     }
 
     #endregion
@@ -179,19 +184,7 @@ public class Player : MonoBehaviour
 
     private void Fire()
     {
-        if (!_canFire) return;
-
         _weapon?.Fire();
-
-        // Down time before player can fire again
-        _canFire = false;
-        StartCoroutine(RecoverFire(fireRecoveryTime));
-    }
-
-    private IEnumerator RecoverFire(float time)
-    {
-        yield return new WaitForSeconds(time);
-        _canFire = true;
     }
 
     #endregion
