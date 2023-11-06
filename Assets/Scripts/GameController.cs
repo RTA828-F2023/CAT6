@@ -97,7 +97,6 @@ public class GameController : MonoBehaviour
 
     private void LevelCompleted()
     {
-        Debug.Log(SceneManager.GetActiveScene().name);
         Scene currentScene = SceneManager.GetActiveScene();
         if (currentScene.name == "TestLevel")
         {
