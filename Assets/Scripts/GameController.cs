@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -96,13 +97,22 @@ public class GameController : MonoBehaviour
 
     private void LevelCompleted()
     {
-        SetDepthOfField(true);
-        levelCompleteMenu.SetActive(true);
+        Debug.Log(SceneManager.GetActiveScene().name);
+        Scene currentScene = SceneManager.GetActiveScene();
+        if (currentScene.name == "TestLevel")
+        {
+            SceneManager.LoadScene("Level 2");
+        }
+        else
+        {
+            SetDepthOfField(true);
+            levelCompleteMenu.SetActive(true);
 
-        Time.timeScale = 0f;
-        State = GameState.Completed;
+            Time.timeScale = 0f;
+            State = GameState.Completed;
 
-        //TODO Return the highest score here? Maybe when there is a score screen?
+            //TODO Return the highest score here? Maybe when there is a score screen?
+        }
     }
 
     public IEnumerator CheckLoseCondition()
