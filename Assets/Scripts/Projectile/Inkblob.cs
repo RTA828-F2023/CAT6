@@ -1,13 +1,32 @@
 using UnityEngine;
 
-public class Bomb : Projectile
+public class Inkblob : Projectile
 {
+    [Header("Stats")]
     public int damage;
-    public float radius;
     public float blastForce;
+    public float range;
+    public int pierce;
 
     [Header("References")]
     [SerializeField] private ParticleSystem explosionPrefab;
+
+    private Vector2 _initPosition;
+    private int _pierceCount;
+
+    #region Unity Events
+
+    private void Start()
+    {
+        _initPosition = transform.position;
+    }
+
+    private void Update()
+    {
+        if (Vector2.Distance(transform.position, _initPosition) >= range) Explode();
+    }
+
+    #endregion
 
     public override void Explode()
     {

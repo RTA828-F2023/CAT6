@@ -11,9 +11,6 @@ public class Player : MonoBehaviour
     [Header("Stats")]
     [SerializeField] private int maxHealth;
     public float walkForce;
-    [SerializeField] private float fireRecoveryTime;
-
-    private bool _canFire = true;
     public int _currentHealth;
 
     [Header("References")]
@@ -187,19 +184,7 @@ public class Player : MonoBehaviour
 
     private void Fire()
     {
-        if (!_canFire) return;
-
         _weapon?.Fire();
-
-        // Down time before player can fire again
-        _canFire = false;
-        StartCoroutine(RecoverFire(fireRecoveryTime));
-    }
-
-    private IEnumerator RecoverFire(float time)
-    {
-        yield return new WaitForSeconds(time);
-        _canFire = true;
     }
 
     #endregion

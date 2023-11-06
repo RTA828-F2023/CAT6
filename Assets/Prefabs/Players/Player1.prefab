@@ -128,7 +128,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1001 &7076560197945709212
+--- !u!1001 &1530150243686065276
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -176,31 +176,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5949540442656846797, guid: 67bf83bf3e608f84d970a45f339fd1e7, type: 3}
-      propertyPath: m_Color.b
-      value: 0.8901961
-      objectReference: {fileID: 0}
-    - target: {fileID: 5949540442656846797, guid: 67bf83bf3e608f84d970a45f339fd1e7, type: 3}
-      propertyPath: m_Color.g
-      value: 0.7411765
-      objectReference: {fileID: 0}
-    - target: {fileID: 5949540442656846797, guid: 67bf83bf3e608f84d970a45f339fd1e7, type: 3}
-      propertyPath: m_Color.r
-      value: 0.039215688
-      objectReference: {fileID: 0}
     - target: {fileID: 7572827064660799773, guid: 67bf83bf3e608f84d970a45f339fd1e7, type: 3}
       propertyPath: m_Name
-      value: Bomber
+      value: InkLauncher
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67bf83bf3e608f84d970a45f339fd1e7, type: 3}
---- !u!4 &2401716340772430584 stripped
+--- !u!4 &6222934284482090008 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4854988462916710500, guid: 67bf83bf3e608f84d970a45f339fd1e7, type: 3}
-  m_PrefabInstance: {fileID: 7076560197945709212}
+  m_PrefabInstance: {fileID: 1530150243686065276}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7351433526426857921
 PrefabInstance:
@@ -278,7 +266,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 193502535026093494, guid: 70ae737caac5f124db4a38e7805a23c9, type: 3}
       propertyPath: m_InstanceId
-      value: -98910
+      value: -90410
       objectReference: {fileID: 0}
     - target: {fileID: 887281472516566361, guid: 70ae737caac5f124db4a38e7805a23c9, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -362,11 +350,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4528181248855086054, guid: 70ae737caac5f124db4a38e7805a23c9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 4528181248855086054, guid: 70ae737caac5f124db4a38e7805a23c9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4528181248855086054, guid: 70ae737caac5f124db4a38e7805a23c9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -469,13 +457,13 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4528181248855086054, guid: 70ae737caac5f124db4a38e7805a23c9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2401716340772430584}
-    - targetCorrespondingSourceObject: {fileID: 4528181248855086054, guid: 70ae737caac5f124db4a38e7805a23c9, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 7828922654940872954}
     - targetCorrespondingSourceObject: {fileID: 4528181248855086054, guid: 70ae737caac5f124db4a38e7805a23c9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7222004445017966090}
+    - targetCorrespondingSourceObject: {fileID: 4528181248855086054, guid: 70ae737caac5f124db4a38e7805a23c9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6222934284482090008}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70ae737caac5f124db4a38e7805a23c9, type: 3}
 --- !u!4 &4868263324479987432 stripped
