@@ -61,8 +61,13 @@ public class Inkblob : Projectile
 
             //PointSystemController.UpdatePlayerScore(player.type, enemy.GetScore());
             CameraShaker.Instance.Shake(CameraShakeMode.Light);
-        }
 
-        Explode();
+            _pierceCount++;
+            if (_pierceCount >= pierce) Explode();
+        }
+        else
+        {
+            Explode();
+        }
     }
 }

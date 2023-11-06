@@ -196,5 +196,5 @@ MonoBehaviour:
   damage: 3
   blastForce: 5
   range: Infinity
-  pierce: 1
+  pierce: 3
   explosionPrefab: {fileID: 2487755348245098086, guid: 04b305e7f0f35824da1c5e7e8af85c6f, type: 3}
