@@ -40,7 +40,7 @@ public class WeaponSelect : MonoBehaviour
         weaponSelectMenu.SetActive(true);
 
         P1W1.text = "";
-        P1W1.text = "";
+        P2W1.text = "";
         P3W1.text = "";
         P4W1.text = "";
 
