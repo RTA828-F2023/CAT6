@@ -37,7 +37,7 @@ public class WeaponSelect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        weaponSelectMenu.SetActive(true);
+        weaponSelectMenu.SetActive(false);
 
         P1W1.text = "";
         P2W1.text = "";
