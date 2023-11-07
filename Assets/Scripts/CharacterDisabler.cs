@@ -23,6 +23,13 @@ public class CharacterDisabler : MonoBehaviour
     public AnimatorOverrideController ruukiAnimator;
     public AnimatorOverrideController billiAnimator;
 
+    //Assign Correct Player HUD display image
+    [SerializeField] InGameInterfaceController p1Hud;
+    [SerializeField] InGameInterfaceController p2Hud;
+    [SerializeField] InGameInterfaceController p3Hud;
+    [SerializeField] InGameInterfaceController p4Hud;
+
+
     //make constants for all characters
     private const int LELLO = 1;
     private const int MACHO = 2;
@@ -43,6 +50,8 @@ public class CharacterDisabler : MonoBehaviour
         SetChar(P2, PlayerPrefs.GetInt("p2"));
         SetChar(P3, PlayerPrefs.GetInt("p3"));
         SetChar(P4, PlayerPrefs.GetInt("p4"));
+
+        StartCoroutine(setPlayerPortraits());
     }
 
     //pre: get player, and get players character
@@ -210,5 +219,15 @@ public class CharacterDisabler : MonoBehaviour
                     break;
             }
         }
+    }
+
+    private IEnumerator setPlayerPortraits() 
+    {
+        yield return new WaitForSeconds(0.1f);
+        p1Hud.SetDisplay();
+        p2Hud.SetDisplay();
+        p3Hud.SetDisplay();
+        p4Hud.SetDisplay();
+
     }
 }
