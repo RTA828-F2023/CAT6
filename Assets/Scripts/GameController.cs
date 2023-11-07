@@ -10,6 +10,8 @@ public class GameController : MonoBehaviour
 
     private static GameController _gameControllerInstance;
 
+    public GameObject weaponSelectMenu;
+
     public static GameController Instance
     {
         get
