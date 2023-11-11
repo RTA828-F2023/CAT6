@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 using System.Collections;
-using System.Diagnostics;
+using System.Collections.Specialized;
 
 public class WavesController : MonoBehaviour
 {
@@ -17,6 +17,16 @@ public class WavesController : MonoBehaviour
     [SerializeField] private TMP_Text wavesCountText;
     [SerializeField] private TMP_Text timerText;
 
+    [Header("UI Wave Banner")]
+    [SerializeField] private GameObject bannerObject;
+    [SerializeField] private TextMeshProUGUI bannerText;
+    [SerializeField] private float timeToMiddle;
+    [SerializeField] private float timeToEnd;
+    private AudioSource startSoundEffect;
+    private Vector2 startPosition;
+    private RectTransform bannerRectTransform;
+
+    [Header("Spawners")]
     public EnemySpawner enemySpawner_topleft;
     public EnemySpawner enemySpawner_topright; 
     public EnemySpawner enemySpawner_bottomleft; 
@@ -36,6 +46,12 @@ public class WavesController : MonoBehaviour
     private IEnumerator Start()
     {
         yield return new WaitForSeconds(initialWait);
+        if (bannerObject != null ) 
+        {
+            bannerRectTransform = bannerObject.GetComponent<RectTransform>();
+            startSoundEffect = bannerObject.GetComponent<AudioSource>();
+            startPosition = bannerRectTransform.anchoredPosition;
+        }
         StartWave();
     }
 
@@ -64,13 +80,13 @@ public class WavesController : MonoBehaviour
     public void StartWave()
     {
         _timerOn = true;
-
         enemySpawner_topleft.Spawn(enemyCountPerWave);
         enemySpawner_topright.Spawn(enemyCountPerWave);
         enemySpawner_bottomleft.Spawn(enemyCountPerWave);
         enemySpawner_bottomright.Spawn(enemyCountPerWave);
 
         _currentWave++;
+        DisplayWave();
     }
 
     private void StopWave()
@@ -94,5 +110,44 @@ public class WavesController : MonoBehaviour
     public bool ReachedMaxWaveCount()
     {
         return _currentWave >= waveCount;
+    }
+
+    public void DisplayWave() 
+    {
+        bannerText.text = "WAVE " + _currentWave + "!!!";
+        StartCoroutine(MoveBanner());
+    }
+
+    private IEnumerator MoveBanner()
+    {
+        Vector2 Start = bannerRectTransform.anchoredPosition;
+        Vector2 Middle = new Vector2(0, 0);
+        Vector2 End = new Vector2(1400, 0);
+
+        float timeElapsedMiddle = 0;
+        float timeElapsedEnd = 0;
+
+        startSoundEffect.Play();
+        //Move to middle
+        while (timeElapsedMiddle < timeToMiddle)
+        {
+            Vector2 newPosition = Vector2.Lerp(Start, Middle, (timeElapsedMiddle / timeToMiddle));
+            bannerRectTransform.anchoredPosition = newPosition;
+            timeElapsedMiddle += Time.deltaTime;
+            yield return new WaitForSeconds(0.0f);
+        }
+        //Wait in middle
+        bannerRectTransform.anchoredPosition = Middle;
+        yield return new WaitForSeconds(1.0f);
+
+        //Move off screen
+        while (timeElapsedEnd < timeToEnd)
+        {
+            Vector2 newPosition = Vector2.Lerp(Middle, End, (timeElapsedEnd / timeToEnd));
+            bannerRectTransform.anchoredPosition = newPosition;
+            timeElapsedEnd += Time.deltaTime;
+            yield return new WaitForSeconds(0.0f);
+        }
+        bannerRectTransform.anchoredPosition = startPosition;
     }
 }
