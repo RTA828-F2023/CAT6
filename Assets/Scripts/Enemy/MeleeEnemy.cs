@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     [Header("Prefabs")]
     [SerializeField] private ParticleSystem explosionPrefab;
 
-    private int _currentHealth;
+    public int _currentHealth;
 
     #region Unity Events
 
