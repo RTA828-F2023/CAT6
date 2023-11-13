@@ -14,10 +14,10 @@ GameObject:
   - component: {fileID: 3961553821043227701}
   - component: {fileID: -7914058024059102191}
   - component: {fileID: 7055886429854436391}
-  - component: {fileID: 7405645919431349635}
-  - component: {fileID: -1766278460251645115}
+  - component: {fileID: 51444381702940471}
+  - component: {fileID: 3561782064973286574}
   m_Layer: 6
-  m_Name: Assassin
+  m_Name: Gunner
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -172,10 +172,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2b3c767642faf942b0bef34182f970f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseHealth: 1
+  baseHealth: 2
   scoreValue: 100
   explosionPrefab: {fileID: 2487755348245098086, guid: 1f41fdcb62c84c6479c6ba5034d709ef, type: 3}
---- !u!114 &7405645919431349635
+--- !u!114 &51444381702940471
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -184,12 +184,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 3289993064394399149}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d711a72b35aca09488ec33e0dbd26a56, type: 3}
+  m_Script: {fileID: 11500000, guid: 96710c0c9ba265f46aac82c597f73252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  knockBackForce: 10
---- !u!114 &-1766278460251645115
+  seeThroughWalls: 0
+  terrainLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  fireRate: 1
+  fireDelayBetweenBullet: 0.5
+  fireRecoveryTime: 1
+  fireForce: 6
+  projectilePrefab: {fileID: 156314086139690434, guid: 36efe02e67ff3654a895da3fc2b9e604, type: 3}
+--- !u!114 &3561782064973286574
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,11 +205,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3289993064394399149}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bd71ae409a24db4586b01b6b232d7ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 834a5ac2b5d6a4543b94587f6ea2087d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   stoppingDistance: 0.1
-  walkForce: 18
+  walkForce: 20
 --- !u!1 &4095155054008371591
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,7 +283,7 @@ SpriteRenderer:
   m_SortingLayerID: -384838627
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 93d029a348c580840bf6215e51a3f58c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b3feb98fb885cc8469f253705e5cb28e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
