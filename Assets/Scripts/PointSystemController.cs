@@ -80,6 +80,16 @@ public class PointSystemController : MonoBehaviour
         return playerScores[bestPlayer];
     }
 
+    public int GetPlayerScore(PlayerType playerType) 
+    {
+        var score = playerScores[playerType];
+        if (score != null) 
+        {
+            return score;
+        }
+        return 0;
+    }
+
     private void UpdateCrown(PlayerType playerType, bool condition)
     {
         if (playerObjects[playerType] != null)
