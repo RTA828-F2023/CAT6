@@ -82,8 +82,8 @@ public class WavesController : MonoBehaviour
         _timerOn = true;
         enemySpawner_topleft.Spawn(enemyCountPerWave);
         enemySpawner_topright.Spawn(enemyCountPerWave);
-        enemySpawner_bottomleft.Spawn(enemyCountPerWave);
-        enemySpawner_bottomright.Spawn(enemyCountPerWave);
+        // enemySpawner_bottomleft.Spawn(enemyCountPerWave);
+        // enemySpawner_bottomright.Spawn(enemyCountPerWave);
 
         _currentWave++;
         DisplayWave();

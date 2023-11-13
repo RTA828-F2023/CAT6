@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 3961553821043227701}
   - component: {fileID: -7914058024059102191}
   - component: {fileID: 7055886429854436391}
-  - component: {fileID: 3561782064973286574}
   - component: {fileID: 51444381702940471}
+  - component: {fileID: 3561782064973286574}
   m_Layer: 6
   m_Name: BasicRangedEnemy
   m_TagString: Enemy
@@ -175,20 +175,6 @@ MonoBehaviour:
   baseHealth: 1
   scoreValue: 100
   explosionPrefab: {fileID: 2487755348245098086, guid: 1f41fdcb62c84c6479c6ba5034d709ef, type: 3}
---- !u!114 &3561782064973286574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3289993064394399149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 834a5ac2b5d6a4543b94587f6ea2087d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stoppingDistance: 0.1
-  walkForce: 14
 --- !u!114 &51444381702940471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,6 +196,20 @@ MonoBehaviour:
   fireRecoveryTime: 1
   fireForce: 6
   projectilePrefab: {fileID: 156314086139690434, guid: 36efe02e67ff3654a895da3fc2b9e604, type: 3}
+--- !u!114 &3561782064973286574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3289993064394399149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 834a5ac2b5d6a4543b94587f6ea2087d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stoppingDistance: 0.1
+  walkForce: 14
 --- !u!1 &4095155054008371591
 GameObject:
   m_ObjectHideFlags: 0

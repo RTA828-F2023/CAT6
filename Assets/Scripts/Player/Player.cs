@@ -157,7 +157,6 @@ public class Player : MonoBehaviour
         _animator.SetBool(WalkFrontAnimationBool, false);
         _animator.SetBool(WalkBackAnimationBool, false);
         _animator.SetBool(WalkSideAnimationBool, false);
-
         if (direction.y > 0f) _animator.SetBool(WalkBackAnimationBool, true);
         else if (direction.y < 0f) _animator.SetBool(WalkFrontAnimationBool, true);
         else _animator.SetBool(WalkSideAnimationBool, true);

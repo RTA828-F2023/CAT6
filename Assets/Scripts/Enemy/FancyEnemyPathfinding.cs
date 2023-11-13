@@ -20,6 +20,11 @@ public class FancyEnemyPathfinding : MonoBehaviour
 
     private Rigidbody2D _rigidbody;
 
+    private Animator _animator;
+    private static readonly int WalkFrontAnimationBool = Animator.StringToHash("isWalkingFront");
+    private static readonly int WalkBackAnimationBool = Animator.StringToHash("isWalkingBack");
+    private static readonly int WalkSideAnimationBool = Animator.StringToHash("isWalkingSide");
+
     private Player _target;
 
     #region Unity Events
@@ -28,6 +33,7 @@ public class FancyEnemyPathfinding : MonoBehaviour
     {
         _seeker = GetComponent<Seeker>();
         _rigidbody = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
     }
 
     private void Start()
@@ -116,11 +122,24 @@ public class FancyEnemyPathfinding : MonoBehaviour
     {
         _currentDirection = direction;
         _isWalking = true;
+
+        // Play walk animation
+        _animator.SetBool(WalkFrontAnimationBool, false);
+        _animator.SetBool(WalkBackAnimationBool, false);
+        _animator.SetBool(WalkSideAnimationBool, false);
+        if (direction.y > 0f) _animator.SetBool(WalkBackAnimationBool, true);
+        else if (direction.y < 0f) _animator.SetBool(WalkFrontAnimationBool, true);
+        else _animator.SetBool(WalkSideAnimationBool, true);
     }
 
     private void StopMoving()
     {
         _isWalking = false;
+
+        // Stop walk animation
+        _animator.SetBool(WalkFrontAnimationBool, false);
+        _animator.SetBool(WalkBackAnimationBool, false);
+        _animator.SetBool(WalkSideAnimationBool, false);
     }
 
     #endregion
