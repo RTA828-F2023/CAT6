@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5206075825277849432}
   - component: {fileID: 3302995540428967182}
   - component: {fileID: 5065266844117879902}
+  - component: {fileID: 3128491258888900346}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -46,8 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60eadbe98fb7fb64b8bae90808219c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponSelectMenu: {fileID: 0}
   levelCompleteMenu: {fileID: 0}
   gameOverMenu: {fileID: 0}
+  inGameInterface: {fileID: 0}
 --- !u!114 &3302995540428967182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,6 +65,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseAudio: {fileID: 0}
   resumeAudio: {fileID: 0}
+  menuScrollAudio: {fileID: 0}
+  menuSelectAudio: {fileID: 0}
   pauseMenu: {fileID: 0}
   resumeBtn: {fileID: 0}
   menuBtn: {fileID: 0}
@@ -88,3 +93,33 @@ MonoBehaviour:
   eepyAnimator: {fileID: 22100000, guid: edb00f25d5cfdb54e87afea6439febb5, type: 2}
   ruukiAnimator: {fileID: 22100000, guid: aba50d1185498af41b018c54d694c066, type: 2}
   billiAnimator: {fileID: 22100000, guid: 0621e2665fc603c4da7db8138e83ae11, type: 2}
+  p1Hud: {fileID: 0}
+  p2Hud: {fileID: 0}
+  p3Hud: {fileID: 0}
+  p4Hud: {fileID: 0}
+--- !u!114 &3128491258888900346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3434278522869532636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adb2565af5499a04cabf1a685456e6c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  next: {fileID: 0}
+  P1W1: {fileID: 0}
+  P2W1: {fileID: 0}
+  P3W1: {fileID: 0}
+  P4W1: {fileID: 0}
+  P1W2: {fileID: 0}
+  P2W2: {fileID: 0}
+  P3W2: {fileID: 0}
+  P4W2: {fileID: 0}
+  P1W3: {fileID: 0}
+  P2W3: {fileID: 0}
+  P3W3: {fileID: 0}
+  P4W3: {fileID: 0}
+  weaponSelectMenu: {fileID: 0}
