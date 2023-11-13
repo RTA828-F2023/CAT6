@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -1751396005836755065}
   - component: {fileID: 483718311641832322}
   - component: {fileID: 5642437761651966600}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,6 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4781bae14d8cfe4409a02a2144317a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  redLight: {fileID: 0}
 --- !u!1 &7891242171167518946
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,7 +247,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1831330304198857233}
   - component: {fileID: 6782736275354839479}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Light2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}

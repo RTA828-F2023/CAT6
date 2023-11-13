@@ -16,6 +16,8 @@ using TMPro;
 public class SelectController : MonoBehaviour
 {
     public AudioSource confirmAudio;
+    public AudioSource menuScrollAudio;
+    public AudioSource menuSelectAudio;
 
     private InputManager _inputManager;
 
@@ -38,10 +40,10 @@ public class SelectController : MonoBehaviour
     public TextMeshProUGUI ready;
 
     //array will keep track of what player is playing, and players choosen character
-    private int[] players = {0,0,0,0};
+    private int[] players = { 0, 0, 0, 0 };
 
     //array keeping track what characters are selected order: lello, macho, eepy, ruuki, billi
-    private bool[] isCharSelected = {false, false, false, false, false};
+    private bool[] isCharSelected = { false, false, false, false, false };
 
     //constants of all playable character names
     private const int LELLO = 1;
@@ -51,7 +53,7 @@ public class SelectController : MonoBehaviour
     private const int BILLI = 5;
 
     //variable to keep track of players taken action
-    private int[] pActions = {0,0,0,0};
+    private int[] pActions = { 0, 0, 0, 0 };
 
     //constants saying what number means what action taken by player
     private const int NO_ACTIONS = 0;
@@ -63,7 +65,7 @@ public class SelectController : MonoBehaviour
 
     //timer to say how many seconds left
     private float timer = 5.0f;
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -87,7 +89,7 @@ public class SelectController : MonoBehaviour
     void Update()
     {
         //call is ready to check if all players are ready to start game
-        if(IsReady())
+        if (IsReady())
         {
             if (!confirmAudio.isPlaying) confirmAudio.Play();
 
@@ -96,25 +98,25 @@ public class SelectController : MonoBehaviour
             timer -= Time.deltaTime;
 
             //when countdown reaches zero 
-            if(timer <= 1.95f)
+            if (timer <= 1.95f)
             {
                 // save all player and character details in PlayerPrefs
                 PlayerPrefs.SetInt("p1", players[0]);
                 PlayerPrefs.SetInt("p2", players[1]);
                 PlayerPrefs.SetInt("p3", players[2]);
                 PlayerPrefs.SetInt("p4", players[3]);
-                
+
                 //load test level
                 SceneLoader.Instance.Load("TestLevel");
             }
         }
-        else 
+        else
         {
             //restart text and reset timer to 5 seconds 
             ready.text = "";
             timer = 5.0f;
         }
-        
+
     }
 
     private void OnEnable()
@@ -157,7 +159,7 @@ public class SelectController : MonoBehaviour
     private void P1Nav(InputAction.CallbackContext context)
     {
         //only do this code if player is locked in
-        if( pActions[0] == LOCKED_IN)
+        if (pActions[0] == LOCKED_IN)
         {
             //call navigate subprogram to let player navigate
             nav(context, 0);
@@ -170,7 +172,7 @@ public class SelectController : MonoBehaviour
     private void P2Nav(InputAction.CallbackContext context)
     {
         //only do this code if player is locked in
-        if( pActions[1] == LOCKED_IN)
+        if (pActions[1] == LOCKED_IN)
         {
             //call navigate subprogram to let player navigate
             nav(context, 1);
@@ -183,7 +185,7 @@ public class SelectController : MonoBehaviour
     private void P3Nav(InputAction.CallbackContext context)
     {
         //only do this code if player is locked in
-        if( pActions[2] == LOCKED_IN)
+        if (pActions[2] == LOCKED_IN)
         {
             //call navigate subprogram to let player navigate
             nav(context, 2);
@@ -196,7 +198,7 @@ public class SelectController : MonoBehaviour
     private void P4Nav(InputAction.CallbackContext context)
     {
         //only do this code if player is locked in
-        if( pActions[3] == LOCKED_IN)
+        if (pActions[3] == LOCKED_IN)
         {
             //call navigate subprogram to let player navigate
             nav(context, 3);
@@ -209,7 +211,7 @@ public class SelectController : MonoBehaviour
     private void P1Lock(InputAction.CallbackContext context)
     {
         //if player currently had no actions do code 
-        if( pActions[0] == NO_ACTIONS)
+        if (pActions[0] == NO_ACTIONS)
         {
             //change ui text
             Debug.Log("P1 locked in");
@@ -219,15 +221,17 @@ public class SelectController : MonoBehaviour
             PLock_NoAction(context, 0);
         }
         //if player is currently locked in do code
-        else if( pActions[0] == LOCKED_IN)
+        else if (pActions[0] == LOCKED_IN)
         {
             //change ui text
             Debug.Log("P1 selected char");
-            p1textOK.text = "ok";   
+            p1textOK.text = "ok";
 
             //call subprogram that deals with locking character when player already locked in
             PLock_LockedIn(context, 0);
         }
+
+        menuSelectAudio.Play();
     }
 
     //pre: get context from input action
@@ -236,7 +240,7 @@ public class SelectController : MonoBehaviour
     private void P2Lock(InputAction.CallbackContext context)
     {
         //if player currently had no actions do code
-        if( pActions[1] == NO_ACTIONS)
+        if (pActions[1] == NO_ACTIONS)
         {
             //change ui text 
             Debug.Log("P2 locked in");
@@ -246,7 +250,7 @@ public class SelectController : MonoBehaviour
             PLock_NoAction(context, 1);
         }
         //if player is currently locked in do code
-        else if( pActions[1] == LOCKED_IN)
+        else if (pActions[1] == LOCKED_IN)
         {
             //change ui text 
             Debug.Log("P2 selected char");
@@ -255,6 +259,8 @@ public class SelectController : MonoBehaviour
             //call subprogram that deals with locking character when player already locked in
             PLock_LockedIn(context, 1);
         }
+
+        menuSelectAudio.Play();
     }
 
     //pre: get context from input action
@@ -263,7 +269,7 @@ public class SelectController : MonoBehaviour
     private void P3Lock(InputAction.CallbackContext context)
     {
         //if player currently had no actions do code 
-        if( pActions[2] == NO_ACTIONS)
+        if (pActions[2] == NO_ACTIONS)
         {
             //change ui text
             Debug.Log("P3 locked in");
@@ -273,7 +279,7 @@ public class SelectController : MonoBehaviour
             PLock_NoAction(context, 2);
         }
         //if player is currently locked in do code 
-        else if( pActions[2] == LOCKED_IN)
+        else if (pActions[2] == LOCKED_IN)
         {
             //change ui text 
             Debug.Log("P3 selected char");
@@ -282,6 +288,8 @@ public class SelectController : MonoBehaviour
             //call subprogram that deals with locking character when player already locked in 
             PLock_LockedIn(context, 2);
         }
+
+        menuSelectAudio.Play();
     }
 
     //pre: get context from input action
@@ -290,7 +298,7 @@ public class SelectController : MonoBehaviour
     private void P4Lock(InputAction.CallbackContext context)
     {
         //if player currently had no actions do code
-        if( pActions[3] == NO_ACTIONS)
+        if (pActions[3] == NO_ACTIONS)
         {
             //change ui text 
             Debug.Log("P4 locked in");
@@ -309,6 +317,8 @@ public class SelectController : MonoBehaviour
             //call subprogram that deals with locking character when player already locked in
             PLock_LockedIn(context, 3);
         }
+
+        menuSelectAudio.Play();
     }
 
     //pre: get context from input action
@@ -317,7 +327,7 @@ public class SelectController : MonoBehaviour
     private void P1UnLock(InputAction.CallbackContext context)
     {
         //if player currently locked in 
-        if( pActions[0] == LOCKED_IN)
+        if (pActions[0] == LOCKED_IN)
         {
             //change ui text 
             Debug.Log("P1 UNlocked in");
@@ -327,7 +337,7 @@ public class SelectController : MonoBehaviour
             PUnLock_LockedIn(context, 0);
         }
         //if player already selected character
-        else if( pActions[0] == CHAR_SELECTED)
+        else if (pActions[0] == CHAR_SELECTED)
         {
             //change ui text
             Debug.Log("P1 UN - selected char");
@@ -336,6 +346,8 @@ public class SelectController : MonoBehaviour
             //call subprogram that deals with deselecting character when player already selected a character
             PUnLock_CharSelect(context, 0);
         }
+
+        menuSelectAudio.Play();
     }
 
     //pre: get context from input action
@@ -344,7 +356,7 @@ public class SelectController : MonoBehaviour
     private void P2UnLock(InputAction.CallbackContext context)
     {
         //if player currently locked in
-        if( pActions[1] == LOCKED_IN)
+        if (pActions[1] == LOCKED_IN)
         {
             //change ui text
             Debug.Log("P2 UN - locked in");
@@ -354,15 +366,17 @@ public class SelectController : MonoBehaviour
             PUnLock_LockedIn(context, 1);
         }
         //if player already selected character 
-        else if(pActions[1] == CHAR_SELECTED)
+        else if (pActions[1] == CHAR_SELECTED)
         {
             //change ui text
             Debug.Log("P2 UN - selected char");
-            p2textOK.text = "";   
+            p2textOK.text = "";
 
             //call subprogram that deals with deselecting character when player already selected a character 
             PUnLock_CharSelect(context, 1);
         }
+
+        menuSelectAudio.Play();
     }
 
     //pre: get context from input action
@@ -371,7 +385,7 @@ public class SelectController : MonoBehaviour
     private void P3UnLock(InputAction.CallbackContext context)
     {
         //if player currently locked in
-        if( pActions[2] == LOCKED_IN)
+        if (pActions[2] == LOCKED_IN)
         {
             //change ui text
             Debug.Log("P3 UN - locked in");
@@ -381,15 +395,17 @@ public class SelectController : MonoBehaviour
             PUnLock_LockedIn(context, 2);
         }
         //if player currently selected character
-        else if(pActions[2] == CHAR_SELECTED)
+        else if (pActions[2] == CHAR_SELECTED)
         {
             //change ui text
             Debug.Log("P3 UN - selected char");
-            p3textOK.text = "";   
+            p3textOK.text = "";
 
             //call subprogram that deals with desselecting character when player already selected character
             PUnLock_CharSelect(context, 2);
         }
+
+        menuSelectAudio.Play();
     }
 
     //pre: get context from input action
@@ -398,7 +414,7 @@ public class SelectController : MonoBehaviour
     private void P4UnLock(InputAction.CallbackContext context)
     {
         //if player currently locked in 
-        if( pActions[3] == LOCKED_IN)
+        if (pActions[3] == LOCKED_IN)
         {
             //change ui text
             Debug.Log("P4 UN - locked in");
@@ -408,15 +424,17 @@ public class SelectController : MonoBehaviour
             PUnLock_LockedIn(context, 3);
         }
         //if player currently selected character
-        else if(pActions[3] == CHAR_SELECTED)
+        else if (pActions[3] == CHAR_SELECTED)
         {
             //change ui text
             Debug.Log("P4 UN - selected char");
-            p4textOK.text = "";   
+            p4textOK.text = "";
 
             //call subprogram that deals with deselecting character when player already selected character
             PUnLock_CharSelect(context, 3);
         }
+
+        menuSelectAudio.Play();
     }
 
     //pre: get context from input action, get player that is navigating
@@ -425,7 +443,7 @@ public class SelectController : MonoBehaviour
     private void nav(InputAction.CallbackContext context, int p)
     {
         //go left or right depending on player joystick move
-        if(context.ReadValue<Vector2>().x < 0)
+        if (context.ReadValue<Vector2>().x < 0)
         {
             //navigate left and get next character
             PlayerNav(p, "left");
@@ -437,6 +455,8 @@ public class SelectController : MonoBehaviour
             PlayerNav(p, "right");
             GetNextChar(p);
         }
+
+        menuScrollAudio.Play();
     }
 
     //pre: get context from input action, get player that is locking in
@@ -449,7 +469,7 @@ public class SelectController : MonoBehaviour
         pActions[p] = LOCKED_IN;
 
         //get next available character to set as default option for player
-        players[p] = StartAt(1,p);
+        players[p] = StartAt(1, p);
 
         //get next character for player
         GetNextChar(p);
@@ -498,10 +518,10 @@ public class SelectController : MonoBehaviour
     {
         //create string variable to hold character string
         string charTxt = "";
-            
+
         //depending on what character player is currently on, save that string name
         switch (players[p])
-            {
+        {
             case LELLO:
                 charTxt = "lello";
                 break;
@@ -520,25 +540,25 @@ public class SelectController : MonoBehaviour
             default:
                 charTxt = "default";
                 break;
-            }
+        }
 
         //depending on what player is currently accesing subprogram grant them the saved string
-        if( p == 0)
+        if (p == 0)
         {
             //set text to current character text 
             p1CurrChoice.text = charTxt;
         }
-        if( p == 1)
+        if (p == 1)
         {
             //set text to current character text
             p2CurrChoice.text = charTxt;
         }
-        if( p == 2)
+        if (p == 2)
         {
             //set text to current character text
             p3CurrChoice.text = charTxt;
         }
-        if( p == 3)
+        if (p == 3)
         {
             //set text to current character text
             p4CurrChoice.text = charTxt;
@@ -554,7 +574,7 @@ public class SelectController : MonoBehaviour
         if (nav == "left")
         {
             //check if current player is not set to character 1 
-            if(players[p] != 1)
+            if (players[p] != 1)
             {
                 //set player character to next choice
                 players[p] -= 1;
@@ -565,10 +585,10 @@ public class SelectController : MonoBehaviour
                 players[p] = 5;
             }
         }
-        else 
+        else
         {
             //check if current player is not set to character 5
-            if(players[p] != 5)
+            if (players[p] != 5)
             {
                 //set player character to next choice
                 players[p] += 1;
@@ -612,7 +632,7 @@ public class SelectController : MonoBehaviour
     private int StartAt(int start, int p)
     {
         //check if character can be selected
-        if(isCharSelected[start - 1])
+        if (isCharSelected[start - 1])
         {
             //call subprorgam again and check next player
             return StartAt(start + 1, p);
@@ -635,19 +655,19 @@ public class SelectController : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             //count how many players are playing
-            if(pActions[i] != NO_ACTIONS)
+            if (pActions[i] != NO_ACTIONS)
             {
                 countLockIn += 1;
             }
             //count how many players are ready to play
-            if(pActions[i] == CHAR_SELECTED)
+            if (pActions[i] == CHAR_SELECTED)
             {
                 countCharSelected += 1;
             }
         }
 
         //if players playing is equal to those that are ready 
-        if(countLockIn == countCharSelected && countLockIn >= 1)
+        if (countLockIn == countCharSelected && countLockIn >= 1)
         {
             //return true
             return true;

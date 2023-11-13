@@ -18,6 +18,8 @@ public class UIControlller : MonoBehaviour
 {
     public AudioSource pauseAudio;
     public AudioSource resumeAudio;
+    public AudioSource menuScrollAudio;
+    public AudioSource menuSelectAudio;
 
     //store object variable for pauseMenu panel 
     public GameObject pauseMenu;
@@ -33,7 +35,7 @@ public class UIControlller : MonoBehaviour
     private int playerPause = 0;
 
     // get button that will be default selected
-    public GameObject firstPauseButton; 
+    public GameObject firstPauseButton;
 
     //get text that will say what player paused
     public TextMeshProUGUI ptext;
@@ -70,7 +72,7 @@ public class UIControlller : MonoBehaviour
         _inputManager.Player3.Btn1.performed += P3Confirm;
 
         //Check if player four pressed, select, joystick, or button 1 
-        _inputManager.Player4.Select.performed += P4PauseOnPerformed; 
+        _inputManager.Player4.Select.performed += P4PauseOnPerformed;
         _inputManager.Player4.Joystick.performed += P4Nav;
         _inputManager.Player4.Btn1.performed += P4Confirm;
 
@@ -90,7 +92,7 @@ public class UIControlller : MonoBehaviour
     private void P1PauseOnPerformed(InputAction.CallbackContext context)
     {
         //if a player currently did not press pause
-        if(playerPause == 0)
+        if (playerPause == 0)
         {
             //call pause game
             PauseGame();
@@ -99,7 +101,7 @@ public class UIControlller : MonoBehaviour
             ptext.text = "P1 Paused Game";
             playerPause = 1;
         }
-        
+
 
     }
     //pre: get context from input action
@@ -108,7 +110,7 @@ public class UIControlller : MonoBehaviour
     private void P2PauseOnPerformed(InputAction.CallbackContext context)
     {
         //if a player currently did not press pause
-        if(playerPause == 0)
+        if (playerPause == 0)
         {
             //call pause game
             PauseGame();
@@ -117,7 +119,7 @@ public class UIControlller : MonoBehaviour
             ptext.text = "P2 Paused Game";
             playerPause = 2;
         }
-        
+
     }
 
     //pre: get context from input action 
@@ -126,7 +128,7 @@ public class UIControlller : MonoBehaviour
     private void P3PauseOnPerformed(InputAction.CallbackContext context)
     {
         //if a player currently did not press pause
-        if(playerPause == 0)
+        if (playerPause == 0)
         {
             //call pause game
             PauseGame();
@@ -143,7 +145,7 @@ public class UIControlller : MonoBehaviour
     private void P4PauseOnPerformed(InputAction.CallbackContext context)
     {
         //if a player currently did not press pause
-        if(playerPause == 0)
+        if (playerPause == 0)
         {
             //call pause game
             PauseGame();
@@ -152,7 +154,7 @@ public class UIControlller : MonoBehaviour
             ptext.text = "P4 Paused Game";
             playerPause = 4;
         }
-        
+
     }
 
     //pre: get context from input action
@@ -166,7 +168,7 @@ public class UIControlller : MonoBehaviour
             //call navigation
             Navigation(context);
         }
-        
+
     }
     //pre: get context from input action
     //post: none
@@ -179,7 +181,7 @@ public class UIControlller : MonoBehaviour
             //call navigation
             Navigation(context);
         }
-        
+
     }
 
     //pre: get context from input action
@@ -193,7 +195,7 @@ public class UIControlller : MonoBehaviour
             //call navigation
             Navigation(context);
         }
-        
+
     }
 
     //pre: get context from input action
@@ -207,7 +209,7 @@ public class UIControlller : MonoBehaviour
             //call navigtaion
             Navigation(context);
         }
-        
+
     }
 
     //pre: get context from input action
@@ -217,12 +219,12 @@ public class UIControlller : MonoBehaviour
     {
         //figure out if player is moving joystick up or down
         //if(context.ReadValue<Vector2>().y != 1)
-        if(context.ReadValue<Vector2>().y < 0)
+        if (context.ReadValue<Vector2>().y < 0)
         {
             //select menu button
             EventSystem.current.SetSelectedGameObject(null);
             EventSystem.current.SetSelectedGameObject(menuBtn);
-        } 
+        }
         //else 
         else if (context.ReadValue<Vector2>().y > 0)
         {
@@ -230,7 +232,8 @@ public class UIControlller : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(null);
             EventSystem.current.SetSelectedGameObject(resumeBtn);
         }
-        
+
+        menuScrollAudio.Play();
     }
 
     //pre: get conext from input action
@@ -239,12 +242,13 @@ public class UIControlller : MonoBehaviour
     private void P1Confirm(InputAction.CallbackContext context)
     {
         //make sure player one paused game
-        if(playerPause == 1)
+        if (playerPause == 1)
         {
             //click the current selected button
             EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
         }
-           
+
+        menuSelectAudio.Play();
     }
 
     //pre: get conext from input action
@@ -253,12 +257,13 @@ public class UIControlller : MonoBehaviour
     private void P2Confirm(InputAction.CallbackContext context)
     {
         //make sure player two paused game
-        if(playerPause == 2)
+        if (playerPause == 2)
         {
             //click the current selected button
             EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
         }
-           
+
+        menuSelectAudio.Play();
     }
 
     //pre: get conext from input action
@@ -267,12 +272,13 @@ public class UIControlller : MonoBehaviour
     private void P3Confirm(InputAction.CallbackContext context)
     {
         //make sure player three paused game
-        if(playerPause == 3)
+        if (playerPause == 3)
         {
             //click the current selected button
             EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
         }
-           
+
+        menuSelectAudio.Play();
     }
 
     //pre: get conext from input action
@@ -281,12 +287,13 @@ public class UIControlller : MonoBehaviour
     private void P4Confirm(InputAction.CallbackContext context)
     {
         //make sure player four paused game
-        if(playerPause == 4)
+        if (playerPause == 4)
         {
             //click the current selected button
             EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
         }
-           
+
+        menuSelectAudio.Play();
     }
 
     //pre: none
@@ -298,7 +305,7 @@ public class UIControlller : MonoBehaviour
         pauseMenu.SetActive(true);
 
         //stop ingame time
-        Time.timeScale = 0f; 
+        Time.timeScale = 0f;
 
         //make the chosen button be the pre-set selectable option
         EventSystem.current.SetSelectedGameObject(null);
@@ -317,7 +324,7 @@ public class UIControlller : MonoBehaviour
         pauseMenu.SetActive(false);
 
         //resume ingame time 
-        Time.timeScale = 1f; 
+        Time.timeScale = 1f;
 
         //set player pause back to 0
         playerPause = 0;
@@ -325,5 +332,5 @@ public class UIControlller : MonoBehaviour
         resumeAudio.Play();
         GameController.Instance.SetDepthOfField(false);
     }
-    
+
 }
