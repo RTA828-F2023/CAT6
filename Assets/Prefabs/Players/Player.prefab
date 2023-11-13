@@ -148,7 +148,7 @@ MonoBehaviour:
   - {x: 0.25, y: -0.5, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 70092
+  m_InstanceId: 58144
   m_LocalBounds:
     m_Center: {x: 0, y: -0.125, z: 0}
     m_Extent: {x: 0.25, y: 0.375, z: 0}
@@ -172,8 +172,9 @@ MonoBehaviour:
   explosionPrefab: {fileID: 0}
   scoreBoard: {fileID: 0}
   weaponPrefabs:
-  - {fileID: 7650849850580053950, guid: 67bf83bf3e608f84d970a45f339fd1e7, type: 3}
   - {fileID: 7650849850580053950, guid: 568a4f6de67c93646ac657ef5cbad91f, type: 3}
+  - {fileID: 7650849850580053950, guid: 67bf83bf3e608f84d970a45f339fd1e7, type: 3}
+  - {fileID: 7650849850580053950, guid: d8a819e52c72f624ea52206fbc4ea20c, type: 3}
   - {fileID: 7650849850580053950, guid: 4d3c447a69f7a8f46ae4f962e2f472b8, type: 3}
   - {fileID: 7650849850580053950, guid: f1fbd980c7d4e4e4badabe257d34435a, type: 3}
   walkAudio: {fileID: 0}
