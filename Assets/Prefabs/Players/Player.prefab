@@ -171,6 +171,11 @@ MonoBehaviour:
   healthDisplay: {fileID: 0}
   explosionPrefab: {fileID: 0}
   scoreBoard: {fileID: 0}
+  weaponPrefabs:
+  - {fileID: 7650849850580053950, guid: 67bf83bf3e608f84d970a45f339fd1e7, type: 3}
+  - {fileID: 7650849850580053950, guid: 568a4f6de67c93646ac657ef5cbad91f, type: 3}
+  - {fileID: 7650849850580053950, guid: 4d3c447a69f7a8f46ae4f962e2f472b8, type: 3}
+  - {fileID: 7650849850580053950, guid: f1fbd980c7d4e4e4badabe257d34435a, type: 3}
   walkAudio: {fileID: 0}
 --- !u!1 &2641234955885343838
 GameObject:

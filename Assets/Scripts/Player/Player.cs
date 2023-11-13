@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform scoreBoard;
     private Image[] _heartIcons;
 
+    [SerializeField] private Weapon[] weaponPrefabs;
+
     [SerializeField] private AudioSource walkAudio;
 
     private bool _isWalking;
@@ -87,13 +89,13 @@ public class Player : MonoBehaviour
         _animator = GetComponent<Animator>();
 
         _heartIcons = healthDisplay.GetComponentsInChildren<Image>();
-
-        _weapon = GetComponentInChildren<Weapon>();
     }
 
     private void Start()
     {
         _currentHealth = maxHealth;
+        _weapon = Instantiate(weaponPrefabs[Random.Range(0, weaponPrefabs.Length)], transform.position, Quaternion.identity);
+        _weapon.transform.SetParent(transform);
     }
 
     private void Update()

@@ -13,7 +13,7 @@ public class Weapon : MonoBehaviour
 
     public virtual void Awake()
     {
-        player = GetComponentInParent<Player>();
+        
     }
 
     #endregion
@@ -21,6 +21,7 @@ public class Weapon : MonoBehaviour
     public virtual bool Fire()
     {
         if (!_canFire) return false;
+        player = GetComponentInParent<Player>();
 
         // Down time before weapon can be fired again
         _canFire = false;
