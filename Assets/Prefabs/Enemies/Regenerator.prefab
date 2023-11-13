@@ -175,7 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseHealth: 3
   scoreValue: 100
-  explosionPrefab: {fileID: 0}
+  explosionPrefab: {fileID: 2487755348245098086, guid: 04b305e7f0f35824da1c5e7e8af85c6f, type: 3}
 --- !u!114 &7405645919431349635
 MonoBehaviour:
   m_ObjectHideFlags: 0

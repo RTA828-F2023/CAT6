@@ -1,24 +1,11 @@
 using UnityEngine;
 
-public class RegenScript : MonoBehaviour
+public class RegenScript : Enemy
 {
-    [Header("Stats")]
-    [SerializeField] public int baseHealth = 3;
-    [SerializeField] private int scoreValue = 100;
-
-    [Header("Prefabs")]
-    [SerializeField] private ParticleSystem explosionPrefab;
-
-    private int _currentHealth;
     private float _healRate = 2.0f;
     private float _nextHeal = 0.0f;
 
     #region Unity Events
-
-    private void Start()
-    {
-        _currentHealth = baseHealth;
-    }
 
     private void Update()
     {
@@ -34,26 +21,4 @@ public class RegenScript : MonoBehaviour
     }
 
     #endregion
-
-    public void TakeDamage(int damage)
-    {
-        _currentHealth -= damage;
-        if (_currentHealth <= 0) Die();
-    }
-
-    public int GetScore() 
-    {
-        return scoreValue;
-    }
-
-    private void Die()
-    {
-        // Check win condition on enemy death
-        GameController.Instance.StartCoroutine(GameController.Instance.CheckWinCondition());
-        // Check wave end condition on enemy death
-        GameController.Instance.StartCoroutine(GameController.Instance.CheckWaveEnd());
-
-        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-        Destroy(gameObject);
-    }
 }
