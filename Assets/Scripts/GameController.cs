@@ -28,10 +28,13 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject levelCompleteMenu;
     [SerializeField] private GameObject gameOverMenu;
     [SerializeField] private GameObject inGameInterface;
+    [SerializeField] private GameObject matchScores;
+
 
     private VolumeProfile _volumeProfile;
     private DepthOfField _depthOfField;
 
+    private bool isDoneViewingScore = false;
     private InputManager _inputManager;
 
     #region Unity Events
@@ -83,7 +86,11 @@ public class GameController : MonoBehaviour
         // Placeholder code
         // TODO: Removed after implementing the level complete and game over menu
         if (State == GameState.Completed || State == GameState.GameOver)
-            SceneLoader.Instance.Load("MainMenu");
+            {
+                if (!isDoneViewingScore)isDoneViewingScore = true;
+                else
+                SceneLoader.Instance.Load("MainMenu");
+            }
     }
 
     #endregion
@@ -91,22 +98,35 @@ public class GameController : MonoBehaviour
     private void GameOver()
     {
         SetDepthOfField(true);
-        gameOverMenu.SetActive(true);
-        inGameInterface.SetActive(false);
-
-        Time.timeScale = 0f;
+        matchScores.SetActive(true);
+        GetComponent<ScoreBoard>().DrawScores();
         State = GameState.GameOver;
+        Time.timeScale = 0f;
+
+        if(isDoneViewingScore == true)
+        {
+            matchScores.SetActive(false);
+            gameOverMenu.SetActive(true);
+            inGameInterface.SetActive(false);
+
+        }
     }
 
     private void LevelCompleted()
     {
         SetDepthOfField(true);
-        levelCompleteMenu.SetActive(true);
-        inGameInterface.SetActive(false);
-
-        Time.timeScale = 0f;
+        matchScores.SetActive(true);
+        GetComponent<ScoreBoard>().DrawScores();
         State = GameState.Completed;
+        Time.timeScale = 0f;
 
+        if(isDoneViewingScore == true)
+        {
+            matchScores.SetActive(false);
+            levelCompleteMenu.SetActive(true);
+            inGameInterface.SetActive(false);
+
+        }
         //TODO Return the highest score here? Maybe when there is a score screen?
     }
 
