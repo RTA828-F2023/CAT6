@@ -53,6 +53,15 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Skip"",
+                    ""type"": ""Button"",
+                    ""id"": ""df6b56ae-4456-418c-9d95-380d9660bf53"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -86,6 +95,17 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Any"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d14f59e3-9c9d-4607-a977-fc320554bfad"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": ""MultiTap"",
+                    ""processors"": """",
+                    ""groups"": ""MouseKeyboard"",
+                    ""action"": ""Skip"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -655,6 +675,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
         m_Game_Select = m_Game.FindAction("Select", throwIfNotFound: true);
         m_Game_Exit = m_Game.FindAction("Exit", throwIfNotFound: true);
         m_Game_Any = m_Game.FindAction("Any", throwIfNotFound: true);
+        m_Game_Skip = m_Game.FindAction("Skip", throwIfNotFound: true);
         // Player1
         m_Player1 = asset.FindActionMap("Player1", throwIfNotFound: true);
         m_Player1_Joystick = m_Player1.FindAction("Joystick", throwIfNotFound: true);
@@ -743,6 +764,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
     private readonly InputAction m_Game_Select;
     private readonly InputAction m_Game_Exit;
     private readonly InputAction m_Game_Any;
+    private readonly InputAction m_Game_Skip;
     public struct GameActions
     {
         private @InputManager m_Wrapper;
@@ -750,6 +772,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
         public InputAction @Select => m_Wrapper.m_Game_Select;
         public InputAction @Exit => m_Wrapper.m_Game_Exit;
         public InputAction @Any => m_Wrapper.m_Game_Any;
+        public InputAction @Skip => m_Wrapper.m_Game_Skip;
         public InputActionMap Get() { return m_Wrapper.m_Game; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -768,6 +791,9 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
             @Any.started += instance.OnAny;
             @Any.performed += instance.OnAny;
             @Any.canceled += instance.OnAny;
+            @Skip.started += instance.OnSkip;
+            @Skip.performed += instance.OnSkip;
+            @Skip.canceled += instance.OnSkip;
         }
 
         private void UnregisterCallbacks(IGameActions instance)
@@ -781,6 +807,9 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
             @Any.started -= instance.OnAny;
             @Any.performed -= instance.OnAny;
             @Any.canceled -= instance.OnAny;
+            @Skip.started -= instance.OnSkip;
+            @Skip.performed -= instance.OnSkip;
+            @Skip.canceled -= instance.OnSkip;
         }
 
         public void RemoveCallbacks(IGameActions instance)
@@ -1101,6 +1130,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
         void OnSelect(InputAction.CallbackContext context);
         void OnExit(InputAction.CallbackContext context);
         void OnAny(InputAction.CallbackContext context);
+        void OnSkip(InputAction.CallbackContext context);
     }
     public interface IPlayer1Actions
     {
