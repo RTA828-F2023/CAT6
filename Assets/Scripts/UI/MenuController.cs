@@ -14,8 +14,8 @@ using TMPro;
 
 public class MenuController : MonoBehaviour
 {
-    public GameObject exitBtn;
-    public GameObject startBtn;
+    public GameObject[] btns;
+    private int _btnIndex;
 
     public AudioSource menuScrollAudio;
     public AudioSource menuSelectAudio;
@@ -26,8 +26,7 @@ public class MenuController : MonoBehaviour
     void Start()
     {
         //let defauly selected button be start button 
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(startBtn);
+        SelectBtn(0);
     }
 
     // Update is called once per frame
@@ -73,16 +72,12 @@ public class MenuController : MonoBehaviour
         //if(context.ReadValue<Vector2>().y != 1)
         if (context.ReadValue<Vector2>().y < 0)
         {
-            //select menu button
-            EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(exitBtn);
+            SelectBtn((_btnIndex + 1 > btns.Length - 1) ? 0 : _btnIndex + 1);
         }
         //else 
         else if (context.ReadValue<Vector2>().y > 0)
         {
-            //select resume button
-            EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(startBtn);
+            SelectBtn((_btnIndex - 1 < 0) ? btns.Length - 1 : _btnIndex - 1);
         }
         menuScrollAudio.Play();
     }
@@ -94,5 +89,12 @@ public class MenuController : MonoBehaviour
     {
         EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
         menuSelectAudio.Play();
+    }
+
+    private void SelectBtn(int index)
+    {
+        _btnIndex = index;
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(btns[_btnIndex]);
     }
 }
