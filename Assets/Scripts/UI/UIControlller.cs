@@ -40,6 +40,8 @@ public class UIControlller : MonoBehaviour
     //get text that will say what player paused
     public TextMeshProUGUI ptext;
 
+    //In-Game Menu GameObject
+    [SerializeField] private GameObject inGameUI;
 
     //when scene starts
     void Start()
@@ -311,6 +313,8 @@ public class UIControlller : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(firstPauseButton);
 
+        inGameUI.SetActive(false);
+
         pauseAudio.Play();
         GameController.Instance.SetDepthOfField(true);
     }
@@ -328,6 +332,9 @@ public class UIControlller : MonoBehaviour
 
         //set player pause back to 0
         playerPause = 0;
+
+        inGameUI.SetActive(true);
+
 
         resumeAudio.Play();
         GameController.Instance.SetDepthOfField(false);

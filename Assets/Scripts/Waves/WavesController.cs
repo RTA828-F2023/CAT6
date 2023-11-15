@@ -80,19 +80,15 @@ public class WavesController : MonoBehaviour
     public void StartWave()
     {
         _timerOn = true;
-        enemySpawner_topleft.Spawn(enemyCountPerWave);
-        enemySpawner_topright.Spawn(enemyCountPerWave);
-        enemySpawner_bottomleft.Spawn(enemyCountPerWave);
-        enemySpawner_bottomright.Spawn(enemyCountPerWave);
-
+        
         _currentWave++;
 
         if (_currentWave >= 2)
         {
             pointSystem.DisplayBestPlayer();
         }
-
         DisplayWave();
+        StartCoroutine(SpawnEnemies());
     }  
 
     private void StopWave()
@@ -107,6 +103,15 @@ public class WavesController : MonoBehaviour
         //StopWave();
         yield return new WaitForSeconds(waveDelay);
         StartWave();
+    }
+
+    private IEnumerator SpawnEnemies() 
+    {
+        yield return new WaitForSeconds(2.5f);
+        enemySpawner_topleft.Spawn(enemyCountPerWave);
+        enemySpawner_topright.Spawn(enemyCountPerWave);
+        enemySpawner_bottomleft.Spawn(enemyCountPerWave);
+        enemySpawner_bottomright.Spawn(enemyCountPerWave);
     }
 
     public bool ReachedMaxWaveCount()
