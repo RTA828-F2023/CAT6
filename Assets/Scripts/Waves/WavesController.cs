@@ -10,7 +10,7 @@ public class WavesController : MonoBehaviour
     [SerializeField] private float waveCount; // Maximum number of waves
     [SerializeField] private float waveDuration; // How long a wave lasts
     [SerializeField] private float waveDelay; // Duration between each wave
-    [SerializeField] private int enemyCountPerWave; // How many enemies to spawn per wave
+    [SerializeField] private int enemiesPerSpawner; // How many enemies spawn per spawner
 
     [Header("UI References")]
     [SerializeField] private TMP_Text enemyCountText;
@@ -113,10 +113,10 @@ public class WavesController : MonoBehaviour
     private IEnumerator SpawnEnemies() 
     {
         yield return new WaitForSeconds(2.5f);
-        enemySpawner_topleft.Spawn(enemyCountPerWave);
-        enemySpawner_topright.Spawn(enemyCountPerWave);
-        enemySpawner_bottomleft.Spawn(enemyCountPerWave);
-        enemySpawner_bottomright.Spawn(enemyCountPerWave);
+        enemySpawner_topleft.Spawn(enemiesPerSpawner + _currentWave);
+        enemySpawner_topright.Spawn(enemiesPerSpawner + _currentWave);
+        enemySpawner_bottomleft.Spawn(enemiesPerSpawner + _currentWave);
+        enemySpawner_bottomright.Spawn(enemiesPerSpawner + _currentWave);
     }
 
     public bool ReachedMaxWaveCount()
