@@ -86,11 +86,11 @@ public class GameController : MonoBehaviour
         // Placeholder code
         // TODO: Removed after implementing the level complete and game over menu
         if (State == GameState.Completed || State == GameState.GameOver)
-            {
-                if (!isDoneViewingScore)isDoneViewingScore = true;
-                else
+        {
+            if (!isDoneViewingScore) isDoneViewingScore = true;
+            else
                 SceneLoader.Instance.Load("MainMenu");
-            }
+        }
     }
 
     #endregion
@@ -103,7 +103,7 @@ public class GameController : MonoBehaviour
         State = GameState.GameOver;
         Time.timeScale = 0f;
 
-        if(isDoneViewingScore == true)
+        if (isDoneViewingScore == true)
         {
             matchScores.SetActive(false);
             gameOverMenu.SetActive(true);
@@ -120,7 +120,7 @@ public class GameController : MonoBehaviour
         State = GameState.Completed;
         Time.timeScale = 0f;
 
-        if(isDoneViewingScore == true)
+        if (isDoneViewingScore == true)
         {
             matchScores.SetActive(false);
             levelCompleteMenu.SetActive(true);
@@ -130,9 +130,11 @@ public class GameController : MonoBehaviour
         //TODO Return the highest score here? Maybe when there is a score screen?
     }
 
-    public IEnumerator CheckWaveEnd() {
+    public IEnumerator CheckWaveEnd()
+    {
         yield return new WaitForEndOfFrame();
-        if (FindObjectsOfType<Enemy>().Length == 0 && FindObjectOfType<WavesController>().GetTimer()) {
+        if (FindObjectsOfType<Enemy>().Length == 0 && FindObjectOfType<WavesController>().GetTimer())
+        {
             yield return new WaitForSeconds(FindObjectOfType<WavesController>().GetWaveDelay());
             FindObjectOfType<WavesController>().StartWave();
         }
