@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private Transform healthDisplay;
-    
+
     [SerializeField] private ParticleSystem explosionPrefab;
     [SerializeField] private Transform scoreBoard;
     private Image[] _heartIcons;
@@ -94,8 +94,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         _currentHealth = maxHealth;
-        _weapon = Instantiate(weaponPrefabs[Random.Range(0, weaponPrefabs.Length)], transform.position, Quaternion.identity);
-        _weapon.transform.SetParent(transform);
+        ShuffleWeapon();
     }
 
     private void Update()
@@ -227,5 +226,13 @@ public class Player : MonoBehaviour
         // Check if all players are dead -> game over
         GameController.Instance.StartCoroutine(GameController.Instance.CheckLoseCondition());
         Destroy(gameObject);
+    }
+
+    public void ShuffleWeapon()
+    {
+        if (_weapon) Destroy(_weapon.gameObject);
+
+        _weapon = Instantiate(weaponPrefabs[Random.Range(0, weaponPrefabs.Length)], transform.position, Quaternion.identity);
+        _weapon.transform.SetParent(transform);
     }
 }

@@ -89,6 +89,11 @@ public class WavesController : MonoBehaviour
         }
         DisplayWave();
         StartCoroutine(SpawnEnemies());
+
+        foreach (var player in FindObjectsOfType<Player>())
+        {
+            player.ShuffleWeapon();
+        }
     }  
 
     private void StopWave()
