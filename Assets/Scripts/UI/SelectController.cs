@@ -39,6 +39,57 @@ public class SelectController : MonoBehaviour
 
     public TextMeshProUGUI ready;
 
+
+    //image holders for where backdrop will be displayed
+    public Image P1Image;
+    public Image P2Image;
+    public Image P3Image;
+    public Image P4Image;
+
+    public Image P1OKImage;
+    public Image P2OKImage;
+    public Image P3OKImage;
+    public Image P4OKImage;
+
+    //sprites for all locked characters 
+    public Sprite leloLocked;
+    public Sprite machoLocked;
+    public Sprite eepyLocked;
+    public Sprite ruukiLocked;
+    public Sprite billiLocked;
+    //sprites for all unlocked characters 
+    public Sprite lelo;
+    public Sprite macho;
+    public Sprite eepy;
+    public Sprite ruuki;
+    public Sprite billi;
+
+    public Sprite P1BgLelo;
+    public Sprite P1BgMacho;
+    public Sprite P1BgEepy;
+    public Sprite P1BgRuuki;
+    public Sprite P1BgBilli;
+
+    public Sprite P2BgLelo;
+    public Sprite P2BgMacho;
+    public Sprite P2BgEepy;
+    public Sprite P2BgRuuki;
+    public Sprite P2BgBilli;
+
+    public Sprite P3BgLelo;
+    public Sprite P3BgMacho;
+    public Sprite P3BgEepy;
+    public Sprite P3BgRuuki;
+    public Sprite P3BgBilli;
+
+    public Sprite P4BgLelo;
+    public Sprite P4BgMacho;
+    public Sprite P4BgEepy;
+    public Sprite P4BgRuuki;
+    public Sprite P4BgBilli;
+    //sprite for ok
+    public Sprite ok; 
+
     //array will keep track of what player is playing, and players choosen character
     private int[] players = { 0, 0, 0, 0 };
 
@@ -94,7 +145,7 @@ public class SelectController : MonoBehaviour
             if (!confirmAudio.isPlaying) confirmAudio.Play();
 
             //make countdown text appear on screen
-            ready.text = "Ready in... " + (int)timer;
+            ready.text = ": " + (int)timer;
             timer -= Time.deltaTime;
 
             //when countdown reaches zero 
