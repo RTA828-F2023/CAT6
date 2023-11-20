@@ -390,6 +390,7 @@ public class SelectController : MonoBehaviour
             p1text.text = "";
             p1CurrChoice.text = "";
 
+
             P1Char.sprite = leloLocked;
             P1Image.sprite = P1BgLelo;
 
@@ -569,6 +570,7 @@ public class SelectController : MonoBehaviour
     {
         //set player to doing no actions
         pActions[p] = NO_ACTIONS;
+        players[p] = 0;
     }
 
     //pre: get context from input action, get player who is unlocking

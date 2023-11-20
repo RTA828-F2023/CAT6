@@ -2985,10 +2985,6 @@ MonoBehaviour:
   p2CurrChoice: {fileID: 1455353107}
   p3CurrChoice: {fileID: 1746177622}
   p4CurrChoice: {fileID: 56357268}
-  p1textOK: {fileID: 215356419}
-  p2textOK: {fileID: 1496576028}
-  p3textOK: {fileID: 712586821}
-  p4textOK: {fileID: 1254342809}
   ready: {fileID: 1514616541}
   P1Image: {fileID: 30151125}
   P2Image: {fileID: 55731445}
@@ -3099,8 +3095,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4284141052
+  m_fontColor: {r: 0.9882353, g: 0.8039216, b: 0.3529412, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3726,8 +3722,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4284141052
+  m_fontColor: {r: 0.9882353, g: 0.8039216, b: 0.3529412, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
