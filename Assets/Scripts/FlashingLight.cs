@@ -14,7 +14,7 @@ public class FlashingLight : MonoBehaviour
     private WavesController wavesController;
 
     private float timer = 0f;
-    private float duration = 2f;
+    private float duration = 1f;
     private Boolean flashing = false;
     void Start()
     {
@@ -38,11 +38,12 @@ public class FlashingLight : MonoBehaviour
                 redLight.intensity = Mathf.Lerp(0, 10, (Mathf.Sin(timer/duration * 2 * Mathf.PI) + 1) / 2);
             }
         }
+        //turn lights off when wave banner is finished
         else {
             redLight.intensity = 0;
         }
-        
     }
+
     public void toggleFlash() {
         flashing = !flashing;
     }

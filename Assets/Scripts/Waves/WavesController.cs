@@ -140,11 +140,11 @@ public class WavesController : MonoBehaviour
 
     private IEnumerator MoveBanner()
     {
-
-
+        //toggle flashing lights on
         foreach (FlashingLight light in flashingLights) {
             light.toggleFlash();
         }
+
         Vector2 Start = bannerRectTransform.anchoredPosition;
         Vector2 Middle = new Vector2(0, 0);
         Vector2 End = new Vector2(1400, 0);
@@ -174,6 +174,8 @@ public class WavesController : MonoBehaviour
             yield return new WaitForSeconds(0.0f);
         }
         bannerRectTransform.anchoredPosition = startPosition;
+
+        //toggle flashing lights off
         foreach (FlashingLight light in flashingLights) {
             light.toggleFlash();
         }
