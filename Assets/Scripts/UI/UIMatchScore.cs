@@ -30,7 +30,7 @@ public class ScoreBoard : MonoBehaviour
     private const int BILLI = 5;
 
     public TextMeshProUGUI[] scoresText;
-
+    public TextMeshProUGUI totalScores; 
     private Dictionary<string, int> playerScores = new Dictionary<string, int>();
 
     public PointSystemController pointSystem;
@@ -44,6 +44,11 @@ public class ScoreBoard : MonoBehaviour
         Image2nd.color = Color.white;
         Image3rd.color = Color.white;
         Image4th.color = Color.white;
+
+        Image1st.enabled = false;
+        Image2nd.enabled = false;
+        Image3rd.enabled = false;
+        Image4th.enabled = false;
 
         scoresText[0].text = "";
         scoresText[1].text = "";
@@ -89,15 +94,19 @@ public class ScoreBoard : MonoBehaviour
         getAllScores();
 
         int i = 0;
+        int score = 0;
 
         //for each player listed in order from high score to low score
         foreach ( KeyValuePair<string, int> player in playerScores)
         {
             //update string
             scoresText[i].text = player.Value.ToString();
+            score = score + player.Value;
 
             //draw player and thier character
             DrawCharacters(i, player.Key);
+
+            totalScores.text = "" + score;
             i++;
         }
     }
@@ -108,26 +117,31 @@ public class ScoreBoard : MonoBehaviour
         {
             if(PlayerPrefs.GetInt(player) == LELLO)
             {
+                Image1st.enabled = true;
                 Image1st.color = Color.white;
                 Image1st.sprite = lello;
             }
             if(PlayerPrefs.GetInt(player) == MACHO)
             {
+                Image1st.enabled = true;
                 Image1st.color = Color.white;
                 Image1st.sprite = macho;   
             }
             if(PlayerPrefs.GetInt(player) == EEPY)
             {
+                Image1st.enabled = true;
                 Image1st.color = Color.white;
                 Image1st.sprite = eepy;
             }
             if(PlayerPrefs.GetInt(player) == RUUKI)
             {
+                Image1st.enabled = true;
                 Image1st.color = Color.white;
                 Image1st.sprite = ruuki;
             }
             if(PlayerPrefs.GetInt(player) == BILLI)
             {
+                Image1st.enabled = true;
                 Image1st.color = Color.white;
                 Image1st.sprite = billi;
             }
@@ -136,26 +150,31 @@ public class ScoreBoard : MonoBehaviour
         {
             if(PlayerPrefs.GetInt(player) == LELLO)
             {
+                Image2nd.enabled = true;
                 Image2nd.color = Color.white;
                 Image2nd.sprite = lello;
             }
             if(PlayerPrefs.GetInt(player) == MACHO)
             {
+                Image2nd.enabled = true;
                 Image2nd.color = Color.white;
                 Image2nd.sprite = macho;   
             }
             if(PlayerPrefs.GetInt(player) == EEPY)
             {
+                Image2nd.enabled = true;
                 Image2nd.color = Color.white;
                 Image2nd.sprite = eepy;
             }
             if(PlayerPrefs.GetInt(player) == RUUKI)
             {
+                Image2nd.enabled = true;
                 Image2nd.color = Color.white;
                 Image2nd.sprite = ruuki;
             }
             if(PlayerPrefs.GetInt(player) == BILLI)
             {
+                Image2nd.enabled = true;
                 Image2nd.color = Color.white;
                 Image2nd.sprite = billi;
             }
@@ -164,26 +183,31 @@ public class ScoreBoard : MonoBehaviour
         {
             if(PlayerPrefs.GetInt(player) == LELLO)
             {
+                Image3rd.enabled = true;
                 Image3rd.color = Color.white;
                 Image3rd.sprite = lello;
             }
             if(PlayerPrefs.GetInt(player) == MACHO)
             {
+                Image3rd.enabled = true;
                 Image3rd.color = Color.white;
                 Image3rd.sprite = macho;   
             }
             if(PlayerPrefs.GetInt(player) == EEPY)
             {
+                Image3rd.enabled = true;
                 Image3rd.color = Color.white;
                 Image3rd.sprite = eepy;
             }
             if(PlayerPrefs.GetInt(player) == RUUKI)
             {
+                Image3rd.enabled = true;
                 Image3rd.color = Color.white;
                 Image3rd.sprite = ruuki;
             }
             if(PlayerPrefs.GetInt(player) == BILLI)
             {
+                Image3rd.enabled = true;
                 Image3rd.color = Color.white;
                 Image3rd.sprite = billi;
             }
@@ -192,26 +216,31 @@ public class ScoreBoard : MonoBehaviour
         {
             if(PlayerPrefs.GetInt(player) == LELLO)
             {
+                Image4th.enabled = true;
                 Image4th.color = Color.white;
                 Image4th.sprite = lello;
             }
             if(PlayerPrefs.GetInt(player) == MACHO)
             {
+                Image4th.enabled = true;
                 Image4th.color = Color.white;
                 Image4th.sprite = macho;   
             }
             if(PlayerPrefs.GetInt(player) == EEPY)
             {
+                Image4th.enabled = true;
                 Image4th.color = Color.white;
                 Image4th.sprite = eepy;
             }
             if(PlayerPrefs.GetInt(player) == RUUKI)
             {
+                Image4th.enabled = true;
                 Image4th.color = Color.white;
                 Image4th.sprite = ruuki;
             }
             if(PlayerPrefs.GetInt(player) == BILLI)
             {
+                Image4th.enabled = true;
                 Image4th.color = Color.white;
                 Image4th.sprite = billi;
             }
