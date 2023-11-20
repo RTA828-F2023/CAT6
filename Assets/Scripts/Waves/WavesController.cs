@@ -26,6 +26,9 @@ public class WavesController : MonoBehaviour
     private Vector2 startPosition;
     private RectTransform bannerRectTransform;
 
+    [Header("Flashing Lights")]
+    [SerializeField] public FlashingLight[] flashingLights;
+
     [Header("Spawners")]
     public EnemySpawner enemySpawner_topleft;
     public EnemySpawner enemySpawner_topright; 
@@ -46,6 +49,11 @@ public class WavesController : MonoBehaviour
     private IEnumerator Start()
     {
         yield return new WaitForSeconds(initialWait);
+
+        //Find all flashing light objects at initial start
+        flashingLights = FindObjectsOfType<FlashingLight>();
+
+        
         if (bannerObject != null ) 
         {
             bannerRectTransform = bannerObject.GetComponent<RectTransform>();
@@ -132,6 +140,11 @@ public class WavesController : MonoBehaviour
 
     private IEnumerator MoveBanner()
     {
+
+
+        foreach (FlashingLight light in flashingLights) {
+            light.toggleFlash();
+        }
         Vector2 Start = bannerRectTransform.anchoredPosition;
         Vector2 Middle = new Vector2(0, 0);
         Vector2 End = new Vector2(1400, 0);
@@ -161,5 +174,8 @@ public class WavesController : MonoBehaviour
             yield return new WaitForSeconds(0.0f);
         }
         bannerRectTransform.anchoredPosition = startPosition;
+        foreach (FlashingLight light in flashingLights) {
+            light.toggleFlash();
+        }
     }
 }

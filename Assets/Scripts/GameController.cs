@@ -133,7 +133,7 @@ public class GameController : MonoBehaviour
     public IEnumerator CheckWaveEnd()
     {
         yield return new WaitForEndOfFrame();
-        if (FindObjectsOfType<Enemy>().Length == 0 && FindObjectOfType<WavesController>().GetTimer())
+        if (FindObjectsOfType<Enemy>().Length == 0 && FindObjectOfType<WavesController>().GetTimer() && !FindObjectOfType<WavesController>().ReachedMaxWaveCount())
         {
             yield return new WaitForSeconds(FindObjectOfType<WavesController>().GetWaveDelay());
             FindObjectOfType<WavesController>().StartWave();
