@@ -32,11 +32,6 @@ public class SelectController : MonoBehaviour
     public TextMeshProUGUI p3CurrChoice;
     public TextMeshProUGUI p4CurrChoice;
 
-    public TextMeshProUGUI p1textOK;
-    public TextMeshProUGUI p2textOK;
-    public TextMeshProUGUI p3textOK;
-    public TextMeshProUGUI p4textOK;
-
     public TextMeshProUGUI ready;
 
 
@@ -131,11 +126,6 @@ public class SelectController : MonoBehaviour
         p2text.text = "";
         p3text.text = "";
         p4text.text = "";
-
-        p1textOK.text = "";
-        p2textOK.text = "";
-        p3textOK.text = "";
-        p4textOK.text = "";
 
         p1CurrChoice.text = "";
         p2CurrChoice.text = "";
@@ -291,8 +281,6 @@ public class SelectController : MonoBehaviour
         {
             //change ui text
             Debug.Log("P1 selected char");
-
-            p1textOK.text = "ok";
             P1OKImage.enabled = true;
 
             //call subprogram that deals with locking character when player already locked in
@@ -322,8 +310,6 @@ public class SelectController : MonoBehaviour
         {
             //change ui text 
             Debug.Log("P2 selected char");
-
-            p2textOK.text = "ok";
             P2OKImage.enabled = true;
 
             //call subprogram that deals with locking character when player already locked in
@@ -353,8 +339,6 @@ public class SelectController : MonoBehaviour
         {
             //change ui text 
             Debug.Log("P3 selected char");
-            p3textOK.text = "ok";
-
             P3OKImage.enabled = true;
 
             //call subprogram that deals with locking character when player already locked in 
@@ -384,8 +368,6 @@ public class SelectController : MonoBehaviour
         {
             //change ui text
             Debug.Log("P4 selected char");
-
-            p4textOK.text = "ok";
             P4OKImage.enabled = true;
 
             //call subprogram that deals with locking character when player already locked in
@@ -419,7 +401,6 @@ public class SelectController : MonoBehaviour
         {
             //change ui text
             Debug.Log("P1 UN - selected char");
-            p1textOK.text = "";
             P1OKImage.enabled = false;
 
             //call subprogram that deals with deselecting character when player already selected a character
@@ -453,7 +434,6 @@ public class SelectController : MonoBehaviour
         {
             //change ui text
             Debug.Log("P2 UN - selected char");
-            p2textOK.text = "";
             P2OKImage.enabled = false;
 
             //call subprogram that deals with deselecting character when player already selected a character 
@@ -487,7 +467,6 @@ public class SelectController : MonoBehaviour
         {
             //change ui text
             Debug.Log("P3 UN - selected char");
-            p3textOK.text = "";
             P3OKImage.enabled = false;
 
             //call subprogram that deals with desselecting character when player already selected character
@@ -521,7 +500,6 @@ public class SelectController : MonoBehaviour
         {
             //change ui text
             Debug.Log("P4 UN - selected char");
-            p4textOK.text = "";
             P4OKImage.enabled = false;
 
             //call subprogram that deals with deselecting character when player already selected character
