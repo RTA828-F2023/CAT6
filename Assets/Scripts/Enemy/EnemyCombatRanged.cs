@@ -20,6 +20,7 @@ public class EnemyCombatRanged : MonoBehaviour
 
     private void Start()
     {
+        _players = GameObject.FindGameObjectsWithTag("Player");
     }
 
     private void Update()
@@ -76,7 +77,6 @@ public class EnemyCombatRanged : MonoBehaviour
 
     private void FindClosestPlayerWithTag()
     {
-        _players = GameObject.FindGameObjectsWithTag("Player");
 
         float closestDistance = Mathf.Infinity;
         Vector3 currentPosition = transform.position;
