@@ -46,6 +46,11 @@ public class SelectController : MonoBehaviour
     public Image P3Image;
     public Image P4Image;
 
+    public Image P1Char;
+    public Image P2Char;
+    public Image P3Char;
+    public Image P4Char;
+
     public Image P1OKImage;
     public Image P2OKImage;
     public Image P3OKImage;
@@ -58,7 +63,7 @@ public class SelectController : MonoBehaviour
     public Sprite ruukiLocked;
     public Sprite billiLocked;
     //sprites for all unlocked characters 
-    public Sprite lelo;
+    public Sprite lello;
     public Sprite macho;
     public Sprite eepy;
     public Sprite ruuki;
@@ -132,7 +137,12 @@ public class SelectController : MonoBehaviour
         p3textOK.text = "";
         p4textOK.text = "";
 
-        ready.text = "";
+        p1CurrChoice.text = "";
+        p2CurrChoice.text = "";
+        p3CurrChoice.text = "";
+        p4CurrChoice.text = "";
+
+        ready.text = ":";
 
     }
 
@@ -266,7 +276,7 @@ public class SelectController : MonoBehaviour
         {
             //change ui text
             Debug.Log("P1 locked in");
-            p1text.text = "P1";
+            p1text.text = "Player 1";
 
             //call subprogram that deals with locking when player has no actions
             PLock_NoAction(context, 0);
@@ -276,7 +286,9 @@ public class SelectController : MonoBehaviour
         {
             //change ui text
             Debug.Log("P1 selected char");
+
             p1textOK.text = "ok";
+            P1OKImage.sprite = ok;
 
             //call subprogram that deals with locking character when player already locked in
             PLock_LockedIn(context, 0);
@@ -295,7 +307,7 @@ public class SelectController : MonoBehaviour
         {
             //change ui text 
             Debug.Log("P2 locked in");
-            p2text.text = "P2";
+            p2text.text = "Player 2";
 
             //call subprogram that deals with locking when player has no actions 
             PLock_NoAction(context, 1);
@@ -324,7 +336,7 @@ public class SelectController : MonoBehaviour
         {
             //change ui text
             Debug.Log("P3 locked in");
-            p3text.text = "P3";
+            p3text.text = "Player 3";
 
             //call subporgram that deals with locking when player has no actions
             PLock_NoAction(context, 2);
@@ -353,7 +365,7 @@ public class SelectController : MonoBehaviour
         {
             //change ui text 
             Debug.Log("P4 locked in");
-            p4text.text = "P4";
+            p4text.text = "Player 4";
 
             //call subprogram that deals with locking when player has no actions
             PLock_NoAction(context, 3);
@@ -383,6 +395,10 @@ public class SelectController : MonoBehaviour
             //change ui text 
             Debug.Log("P1 UNlocked in");
             p1text.text = "";
+            p1CurrChoice.text = "";
+
+            P1Char.sprite = leloLocked;
+            P1Image.sprite = P1BgLelo;
 
             //call subprogram that deals with unlocking when player is locked in
             PUnLock_LockedIn(context, 0);
@@ -393,6 +409,7 @@ public class SelectController : MonoBehaviour
             //change ui text
             Debug.Log("P1 UN - selected char");
             p1textOK.text = "";
+
 
             //call subprogram that deals with deselecting character when player already selected a character
             PUnLock_CharSelect(context, 0);
@@ -412,6 +429,10 @@ public class SelectController : MonoBehaviour
             //change ui text
             Debug.Log("P2 UN - locked in");
             p2text.text = "";
+            p2CurrChoice.text = "";
+
+            P2Char.sprite = leloLocked;
+            P2Image.sprite = P2BgLelo;
 
             //call subprogram that deals with unlocking when player is locked in 
             PUnLock_LockedIn(context, 1);
@@ -441,6 +462,10 @@ public class SelectController : MonoBehaviour
             //change ui text
             Debug.Log("P3 UN - locked in");
             p3text.text = "";
+            p3CurrChoice.text = "";
+
+            P3Char.sprite = leloLocked;
+            P3Image.sprite = P3BgLelo;
 
             //call subprogram that deals with unlocking when player is locked 
             PUnLock_LockedIn(context, 2);
@@ -470,6 +495,10 @@ public class SelectController : MonoBehaviour
             //change ui text
             Debug.Log("P4 UN - locked in");
             p4text.text = "";
+            p4CurrChoice.text = "";
+
+            P4Char.sprite = leloLocked;
+            P4Image.sprite = P4BgLelo;
 
             //call subprogram that deals with unlocking when player is locked
             PUnLock_LockedIn(context, 3);
@@ -598,21 +627,127 @@ public class SelectController : MonoBehaviour
         {
             //set text to current character text 
             p1CurrChoice.text = charTxt;
+
+            if(charTxt == "lello" )
+            {
+                P1Char.sprite = lello;
+                P1Image.sprite = P1BgLelo;
+            }
+            if(charTxt == "macho" )
+            {
+                P1Char.sprite = macho;
+                P1Image.sprite = P1BgMacho;
+            }
+            if(charTxt == "eepy" )
+            {
+                P1Char.sprite = eepy;
+                P1Image.sprite = P1BgEepy;
+            }
+            if(charTxt == "ruuki" )
+            {
+                P1Char.sprite = ruuki;
+                P1Image.sprite = P1BgRuuki;
+            }
+            if(charTxt == "billi" )
+            {
+                P1Char.sprite = billi;
+                P1Image.sprite = P1BgBilli;
+            }
+            
+
         }
         if (p == 1)
         {
             //set text to current character text
             p2CurrChoice.text = charTxt;
+
+            if(charTxt == "lello" )
+            {
+                P2Char.sprite = lello;
+                P2Image.sprite = P2BgLelo;
+            }
+            if(charTxt == "macho" )
+            {
+                P2Char.sprite = macho;
+                P2Image.sprite = P2BgMacho;
+            }
+            if(charTxt == "eepy" )
+            {
+                P2Char.sprite = eepy;
+                P2Image.sprite = P2BgEepy;
+            }
+            if(charTxt == "ruuki" )
+            {
+                P2Char.sprite = ruuki;
+                P2Image.sprite = P2BgRuuki;
+            }
+            if(charTxt == "billi" )
+            {
+                P2Char.sprite = billi;
+                P2Image.sprite = P2BgBilli;
+            }
         }
         if (p == 2)
         {
             //set text to current character text
             p3CurrChoice.text = charTxt;
+
+            if(charTxt == "lello" )
+            {
+                P3Char.sprite = lello;
+                P3Image.sprite = P3BgLelo;
+            }
+            if(charTxt == "macho" )
+            {
+                P3Char.sprite = macho;
+                P3Image.sprite = P3BgMacho;
+            }
+            if(charTxt == "eepy" )
+            {
+                P3Char.sprite = eepy;
+                P3Image.sprite = P3BgEepy;
+            }
+            if(charTxt == "ruuki" )
+            {
+                P3Char.sprite = ruuki;
+                P3Image.sprite = P3BgRuuki;
+            }
+            if(charTxt == "billi" )
+            {
+                P3Char.sprite = billi;
+                P3Image.sprite = P3BgBilli;
+            }
         }
         if (p == 3)
         {
             //set text to current character text
             p4CurrChoice.text = charTxt;
+
+            if(charTxt == "lello" )
+            {
+                P4Char.sprite = lello;
+                P4Image.sprite = P4BgLelo;
+            }
+            if(charTxt == "macho" )
+            {
+                P4Char.sprite = macho;
+                P4Image.sprite = P4BgMacho;
+            }
+            if(charTxt == "eepy" )
+            {
+                P4Char.sprite = eepy;
+                P4Image.sprite = P4BgEepy;
+            }
+            if(charTxt == "ruuki" )
+            {
+                P4Char.sprite = ruuki;
+                P4Image.sprite = P4BgRuuki;
+            }
+            if(charTxt == "billi" )
+            {
+                P4Char.sprite = billi;
+                P4Image.sprite = P4BgBilli;
+            }
         }
     }
 

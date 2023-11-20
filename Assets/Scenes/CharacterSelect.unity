@@ -263,7 +263,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9c8d1e4835a751d47bf6c24378068df5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f629a686d5cf503419cd143092f6195a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -338,7 +338,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8f23ee54d8479714d914048184ebb721, type: 3}
+  m_Sprite: {fileID: -1443511699, guid: 65cd24e1af5edf948882ac0084271691, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -539,7 +539,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1365329995, guid: 1edbd5beca37e874ba3fcb6e4e1c87b3, type: 3}
+  m_Sprite: {fileID: -581497532, guid: aed644be206095949aad4a1ff0d0fdfd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -805,7 +805,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1365329995, guid: 1edbd5beca37e874ba3fcb6e4e1c87b3, type: 3}
+  m_Sprite: {fileID: -581497532, guid: aed644be206095949aad4a1ff0d0fdfd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1405,7 +1405,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e3a03f8845ac8cd47811282149eaddc5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0ee7a76fa185e884a8e1d8105213c6a0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1783,7 +1783,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f0207e146209ef74c900bb445807149a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c16eaebc4ee18d9409f8acde866164a6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2992,18 +2992,46 @@ MonoBehaviour:
   ready: {fileID: 1514616541}
   P1Image: {fileID: 30151125}
   P2Image: {fileID: 55731445}
-  P3Image: {fileID: 0}
+  P3Image: {fileID: 1162233986}
   P4Image: {fileID: 977993743}
+  P1Char: {fileID: 1904497763}
+  P2Char: {fileID: 160522677}
+  P3Char: {fileID: 1516475950}
+  P4Char: {fileID: 244796471}
+  P1OKImage: {fileID: 1558479147}
+  P2OKImage: {fileID: 1045282208}
+  P3OKImage: {fileID: 1073572770}
+  P4OKImage: {fileID: 5918585}
   leloLocked: {fileID: -581497532, guid: aed644be206095949aad4a1ff0d0fdfd, type: 3}
   machoLocked: {fileID: 1365329995, guid: 1edbd5beca37e874ba3fcb6e4e1c87b3, type: 3}
   eepyLocked: {fileID: 849377460, guid: 9d0481ee9886442428a76aa6d5598fd0, type: 3}
   ruukiLocked: {fileID: 1165018017, guid: 7e56ce59018ddbf4da8a9b0b2ea5dc13, type: 3}
   billiLocked: {fileID: -1318805632, guid: fa8e21a2d476a8749b70225bc9bb9b7e, type: 3}
-  lelo: {fileID: -69614683, guid: 2a6d04261dbae4e4086d18215655e192, type: 3}
+  lello: {fileID: -69614683, guid: 2a6d04261dbae4e4086d18215655e192, type: 3}
   macho: {fileID: -6121467, guid: 5b3b0def2c1f081408bf018250f22892, type: 3}
   eepy: {fileID: 860664935, guid: aa826161073e4a040ab2cae7f432dc45, type: 3}
   ruuki: {fileID: -1218903844, guid: c17de47f4da3b8149a3bb6f2ce5d13fd, type: 3}
   billi: {fileID: 1656876728, guid: 711ab06d3c5a7704fb6418edd91c2888, type: 3}
+  P1BgLelo: {fileID: 21300000, guid: f629a686d5cf503419cd143092f6195a, type: 3}
+  P1BgMacho: {fileID: 21300000, guid: 9c8d1e4835a751d47bf6c24378068df5, type: 3}
+  P1BgEepy: {fileID: 21300000, guid: 0a16d57b7b7c7c14ea13d0802a4a0b50, type: 3}
+  P1BgRuuki: {fileID: 21300000, guid: c685455a7f45b304aa74b3d0f114d8ef, type: 3}
+  P1BgBilli: {fileID: 21300000, guid: eead6be44c567cf4899f69d6fad99868, type: 3}
+  P2BgLelo: {fileID: -1443511699, guid: 65cd24e1af5edf948882ac0084271691, type: 3}
+  P2BgMacho: {fileID: 21300000, guid: 8f23ee54d8479714d914048184ebb721, type: 3}
+  P2BgEepy: {fileID: 21300000, guid: 20dfd7c8f45adcf439b268b40bd3cdeb, type: 3}
+  P2BgRuuki: {fileID: -885363294, guid: 328f7c91e7cd86c40ac50475aed2cb0e, type: 3}
+  P2BgBilli: {fileID: 21300000, guid: 467db19dd6411db4e9f31fe5193edd4c, type: 3}
+  P3BgLelo: {fileID: 21300000, guid: c16eaebc4ee18d9409f8acde866164a6, type: 3}
+  P3BgMacho: {fileID: 21300000, guid: f0207e146209ef74c900bb445807149a, type: 3}
+  P3BgEepy: {fileID: 21300000, guid: 3a4e12550bcf6f84ba03a62abb65901a, type: 3}
+  P3BgRuuki: {fileID: 21300000, guid: ba462dc66fcde8244b712e9fbe701d71, type: 3}
+  P3BgBilli: {fileID: 21300000, guid: 7f99de6bb4c7a3f4db79f930ba114495, type: 3}
+  P4BgLelo: {fileID: 21300000, guid: 0ee7a76fa185e884a8e1d8105213c6a0, type: 3}
+  P4BgMacho: {fileID: 21300000, guid: e3a03f8845ac8cd47811282149eaddc5, type: 3}
+  P4BgEepy: {fileID: 21300000, guid: 146f568e8371bd64aa113a6db587ec7e, type: 3}
+  P4BgRuuki: {fileID: 21300000, guid: 73a965877f6a0444c8e9d7133fff17c0, type: 3}
+  P4BgBilli: {fileID: 21300000, guid: f46ad26ae2ea3664f94b347a4611a1ca, type: 3}
   ok: {fileID: 21300000, guid: 24455aadfc33c6444809f871c22f374d, type: 3}
 --- !u!1 &1514616539
 GameObject:
@@ -3196,7 +3224,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1365329995, guid: 1edbd5beca37e874ba3fcb6e4e1c87b3, type: 3}
+  m_Sprite: {fileID: -581497532, guid: aed644be206095949aad4a1ff0d0fdfd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3823,7 +3851,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1365329995, guid: 1edbd5beca37e874ba3fcb6e4e1c87b3, type: 3}
+  m_Sprite: {fileID: -581497532, guid: aed644be206095949aad4a1ff0d0fdfd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
