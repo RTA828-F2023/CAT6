@@ -78,7 +78,8 @@ public class EnemyCombatRanged : MonoBehaviour
 
     private void FindClosestPlayerWithTag()
     {
-
+        // Update player list
+        _players = GameObject.FindGameObjectsWithTag("Player");
         float closestDistance = Mathf.Infinity;
         Vector3 currentPosition = transform.position;
 
