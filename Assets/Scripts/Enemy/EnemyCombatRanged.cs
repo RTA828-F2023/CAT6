@@ -36,6 +36,7 @@ public class EnemyCombatRanged : MonoBehaviour
     private void Fire()
     {
         if (!_canFire) return;
+        if (FindObjectsOfType<Player>().Length == 0) return;
 
         StartCoroutine(SequentialFireWithDelay(fireDelayBetweenBullet));
 
