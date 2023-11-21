@@ -1,3 +1,9 @@
+//Author: Victoria Ouryvski 
+//Project Name: CAT6
+//File Name: UIMatchScore.cs
+//Creation Date: Oct 13, 2023
+//Modified Date: Nov 20, 2023
+//Description: File that manages all UI and code that has to do with displaying match scores
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,8 +44,9 @@ public class ScoreBoard : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+         //make everything dissapear from screen when game starts
         matchScoresUI.SetActive(false);
-        //matchScoresUI.SetActive(false);
+       
         Image1st.color = Color.white;
         Image2nd.color = Color.white;
         Image3rd.color = Color.white;
@@ -54,8 +61,6 @@ public class ScoreBoard : MonoBehaviour
         scoresText[1].text = "";
         scoresText[2].text = "";
         scoresText[3].text = "";
-
-        //Image1st.sprite = lello;
     }
 
     // Update is called once per frame
@@ -63,11 +68,13 @@ public class ScoreBoard : MonoBehaviour
     {
 
     }
-    //get scores of players
+    
+    //pre: none
+    //post: none
+    //desc: obtains all player scores and stores them
     void getAllScores()
     {
-        //add each player to dictionary and say score
-
+        //add each player to dictionary and save score
         if(PlayerPrefs.GetInt("p1") != 0 )
         {
             playerScores.Add("p1", pointSystem.GetPlayerScore(PlayerType.One));
@@ -89,32 +96,47 @@ public class ScoreBoard : MonoBehaviour
         playerScores.OrderByDescending(key => key.Value);
     }
 
+    //pre: none
+    //post: none
+    //desc: draws out all player score texts
     public void DrawScores()
     {
+        //call get all scores to get all player scores
         getAllScores();
 
+        //set variables
         int i = 0;
-        int score = 0;
+        int tScore = 0;
 
-        //for each player listed in order from high score to low score
+        //for each player listed in order from high score to low score loop
         foreach ( KeyValuePair<string, int> player in playerScores)
         {
             //update string
             scoresText[i].text = player.Value.ToString();
-            score = score + player.Value;
+
+            //add player score to total score
+            tScore = tScore + player.Value;
 
             //draw player and thier character
             DrawCharacters(i, player.Key);
-
-            totalScores.text = "" + score;
+            
+            //incremenet next place
             i++;
         }
+
+        //draw total scores
+        totalScores.text = "" + tScore;
     }
 
+    //pre: needs place and current player
+    //post: none
+    //desc: draws each character in thier relevant place slot
     public void DrawCharacters(int place, string player)
     {
+        //depedning on place do relevant code 
         if(place == 0)
         {
+            //depending on players choosen character draw them
             if(PlayerPrefs.GetInt(player) == LELLO)
             {
                 Image1st.enabled = true;
@@ -148,6 +170,7 @@ public class ScoreBoard : MonoBehaviour
         }
         if(place == 1)
         {
+            //depending on players choosen character draw them
             if(PlayerPrefs.GetInt(player) == LELLO)
             {
                 Image2nd.enabled = true;
@@ -181,6 +204,7 @@ public class ScoreBoard : MonoBehaviour
         }
         if(place == 2)
         {
+            //depending on players choosen character draw them
             if(PlayerPrefs.GetInt(player) == LELLO)
             {
                 Image3rd.enabled = true;
@@ -214,6 +238,7 @@ public class ScoreBoard : MonoBehaviour
         }
         if(place == 3)
         {
+            //depending on players choosen character draw them
             if(PlayerPrefs.GetInt(player) == LELLO)
             {
                 Image4th.enabled = true;
