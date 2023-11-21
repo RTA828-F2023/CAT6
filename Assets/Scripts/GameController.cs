@@ -37,13 +37,14 @@ public class GameController : MonoBehaviour
     private bool isDoneViewingScore = false;
     private InputManager _inputManager;
 
+     private float controlLocktimer = 1.0f;
+
     #region Unity Events
 
     private void OnEnable()
     {
         _inputManager = new InputManager();
 
-        // Handle game select input
         _inputManager.Game.Select.performed += SelectOnPerformed;
         _inputManager.Game.Exit.performed += ExitOnPerformed;
         _inputManager.Game.Any.performed += AnyOnPerformed;
@@ -67,6 +68,22 @@ public class GameController : MonoBehaviour
         Time.timeScale = 1f;
         levelCompleteMenu.SetActive(false);
         gameOverMenu.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if(State == GameState.GameOver || State == GameState.Completed )
+        {
+            _inputManager.Disable();
+
+            controlLocktimer -= Time.unscaledDeltaTime;
+
+            if (controlLocktimer < 0)
+            {
+                _inputManager.Enable();
+            }
+            Debug.Log(controlLocktimer);
+        }
     }
 
     #endregion
@@ -102,6 +119,8 @@ public class GameController : MonoBehaviour
         GetComponent<ScoreBoard>().DrawScores();
         State = GameState.GameOver;
         Time.timeScale = 0f;
+
+
 
         if (isDoneViewingScore == true)
         {
