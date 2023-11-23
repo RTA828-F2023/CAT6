@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: TMU
+  companyName: CAT828
   productName: Inkway Galaxy - Takoyu Rescue
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
