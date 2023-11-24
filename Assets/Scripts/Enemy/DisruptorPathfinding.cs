@@ -14,18 +14,7 @@ public class DisruptorPathfinding : MonoBehaviour
     {
         speed = 4f;
         //Enemy spawns outside game area, so should first enter game area
-        if (this.transform.position.x < -9.5f)
-        {
-            target = new Vector2(UnityEngine.Random.Range(-9.5f, 9.5f), this.transform.position.y);
-        }
-        if (this.transform.position.x > 9.5f)
-        {
-            target = new Vector2(UnityEngine.Random.Range(-9.5f, 9.5f), this.transform.position.y);
-        }
-        if (this.transform.position.y > 2.3f)
-        {
-            target = new Vector2(this.transform.position.x, UnityEngine.Random.Range(-5.3f, 2.3f));
-        }
+        target = new Vector2(this.transform.position.x, 2.5f);
     }
 
     private void Update()

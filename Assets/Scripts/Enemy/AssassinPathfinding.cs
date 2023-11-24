@@ -38,18 +38,7 @@ public class AssassinPathfinding : MonoBehaviour
         // Follow lowest health player
         InvokeRepeating(nameof(TrackWeakestPlayer), 0f, 0.5f);
         //Enemy spawns outside game area, so should first enter game area
-        if (this.transform.position.x < -9.5f)
-        {
-            startTarget = new Vector2(UnityEngine.Random.Range(-9.5f, 9.5f), this.transform.position.y);
-        }
-        if (this.transform.position.x > 9.5f)
-        {
-            startTarget = new Vector2(UnityEngine.Random.Range(-9.5f, 9.5f), this.transform.position.y);
-        }
-        if (this.transform.position.y > 2.3f)
-        {
-            startTarget = new Vector2(this.transform.position.x, UnityEngine.Random.Range(-5.3f, 2.3f));
-        }
+        startTarget = new Vector2(this.transform.position.x, 2.5f);
     }
 
     private void Update()
@@ -74,8 +63,7 @@ public class AssassinPathfinding : MonoBehaviour
         }
         else
         {
-            float distance = Vector2.Distance(transform.position, startTarget);
-            if (distance <= 1f)
+            if ((this.transform.position.y) > 3)
             {
                 transform.position = Vector2.MoveTowards(this.transform.position, startTarget, 2 * Time.deltaTime);
             }

@@ -43,20 +43,8 @@ public class FancyEnemyPathfinding : MonoBehaviour
 
     private void Start()
     {
-
         inRoom = false;
-        if (this.transform.position.x < -9.5f)
-        {
-            startTarget = new Vector2(UnityEngine.Random.Range(-9.5f, 9.5f), this.transform.position.y);
-        }
-        else if (this.transform.position.x > 9.5f)
-        {
-            startTarget = new Vector2(UnityEngine.Random.Range(-9.5f, 9.5f), this.transform.position.y);
-        }
-        else if (this.transform.position.y > 2.3f)
-        {
-            startTarget = new Vector2(this.transform.position.x, UnityEngine.Random.Range(-5.3f, 2.3f));
-        }
+        startTarget = new Vector2(this.transform.position.x, 2.5f);
     }
 
     private void Update()
@@ -82,7 +70,14 @@ public class FancyEnemyPathfinding : MonoBehaviour
         }
         else
         {
+            //For the simple level arrangement where enemies all spawn above the door
             Move((startTarget - (Vector2)transform.position).normalized);
+            if ((this.transform.position.y) <= 3){
+                InvokeRepeating(nameof(TrackNearestPlayer), 0f, 0.5f);
+                inRoom = true;
+            }
+
+            /*Use this if we use more dynamic levels
             distance = Vector2.Distance(transform.position, startTarget);
             if (distance <= 0.5f)
             {
@@ -90,6 +85,7 @@ public class FancyEnemyPathfinding : MonoBehaviour
                 InvokeRepeating(nameof(TrackNearestPlayer), 0f, 0.5f);
                 inRoom = true;
             }
+            */
 
         }
 
