@@ -163,7 +163,7 @@ public class SelectController : MonoBehaviour
                 PlayerPrefs.SetInt("p4", players[3]);
 
                 //load test level
-                SceneLoader.Instance.Load("TestLevel");
+                SceneLoader.Instance.Load("TestLevel2");
             }
         }
         else
