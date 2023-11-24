@@ -193,8 +193,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   fireRate: 1
-  fireDelayBetweenBullet: 0.5
-  fireRecoveryTime: 0.5
+  fireDelayBetweenBullet: 2
+  fireRecoveryTime: 2
   fireForce: 6
   projectilePrefab: {fileID: 156314086139690434, guid: 36efe02e67ff3654a895da3fc2b9e604, type: 3}
 --- !u!114 &3561782064973286574
