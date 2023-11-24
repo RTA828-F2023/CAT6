@@ -1,9 +1,14 @@
 using UnityEngine;
 using Pathfinding;
+using UnityEngine.Rendering;
+using static UnityEngine.GraphicsBuffer;
 
 public class FancyEnemyPathfinding : MonoBehaviour
 {
     [Header("Pathfinding Stats")]
+    public bool inRoom;
+    private float distance;
+    private Vector2 startTarget; //go down the hallway, enter the room
     public float stoppingDistance;
     private Vector2 _targetPosition;
     private bool _isTracking;
@@ -38,28 +43,56 @@ public class FancyEnemyPathfinding : MonoBehaviour
 
     private void Start()
     {
-        // Follow nearest player
-        InvokeRepeating(nameof(TrackNearestPlayer), 0f, 0.5f);
+
+        inRoom = false;
+        if (this.transform.position.x < -9.5f)
+        {
+            startTarget = new Vector2(UnityEngine.Random.Range(-9.5f, 9.5f), this.transform.position.y);
+        }
+        else if (this.transform.position.x > 9.5f)
+        {
+            startTarget = new Vector2(UnityEngine.Random.Range(-9.5f, 9.5f), this.transform.position.y);
+        }
+        else if (this.transform.position.y > 2.3f)
+        {
+            startTarget = new Vector2(this.transform.position.x, UnityEngine.Random.Range(-5.3f, 2.3f));
+        }
     }
 
     private void Update()
     {
-        if (_path != null || _isTracking)
-        {
-            // Reached pathfinding destination, stopping...
-            if (_currentWaypoint >= _path.vectorPath.Count || Vector2.Distance(transform.position, _targetPosition) <= stoppingDistance)
+        //If in the room, normal behaviour. Else, enter the room
+        if (inRoom){
+            if (_path != null || _isTracking)
             {
-                StopTracking();
-                return;
+                // Reached pathfinding destination, stopping...
+                if (_currentWaypoint >= _path.vectorPath.Count || Vector2.Distance(transform.position, _targetPosition) <= stoppingDistance)
+                {
+                    StopTracking();
+                    return;
+                }
+
+                // Travel to current waypoint
+                Direction = (_path.vectorPath[_currentWaypoint] - transform.position).normalized;
+                Move(Direction);
+
+                // If waypoint reached then proceed to the next waypoint
+                if (Vector2.Distance(transform.position, _path.vectorPath[_currentWaypoint]) < NextWaypointDistance) _currentWaypoint++;
+            }
+        }
+        else
+        {
+            Move((startTarget - (Vector2)transform.position).normalized);
+            distance = Vector2.Distance(transform.position, startTarget);
+            if (distance <= 0.5f)
+            {
+                // Follow nearest player
+                InvokeRepeating(nameof(TrackNearestPlayer), 0f, 0.5f);
+                inRoom = true;
             }
 
-            // Travel to current waypoint
-            Direction = (_path.vectorPath[_currentWaypoint] - transform.position).normalized;
-            Move(Direction);
-
-            // If waypoint reached then proceed to the next waypoint
-            if (Vector2.Distance(transform.position, _path.vectorPath[_currentWaypoint]) < NextWaypointDistance) _currentWaypoint++;
         }
+
     }
 
     private void FixedUpdate()

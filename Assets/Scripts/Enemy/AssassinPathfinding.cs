@@ -1,5 +1,7 @@
 using UnityEngine;
 using Pathfinding;
+using System;
+using Unity.VisualScripting;
 
 public class AssassinPathfinding : MonoBehaviour
 {
@@ -17,7 +19,8 @@ public class AssassinPathfinding : MonoBehaviour
     public float walkForce;
     private bool _isWalking;
     private Vector2 _currentDirection = Vector2.up;
-
+    private Vector2 startTarget;
+    private Boolean inRoom = false;
     private Rigidbody2D _rigidbody;
 
     private Player _target;
@@ -34,25 +37,52 @@ public class AssassinPathfinding : MonoBehaviour
     {
         // Follow lowest health player
         InvokeRepeating(nameof(TrackWeakestPlayer), 0f, 0.5f);
+        //Enemy spawns outside game area, so should first enter game area
+        if (this.transform.position.x < -9.5f)
+        {
+            startTarget = new Vector2(UnityEngine.Random.Range(-9.5f, 9.5f), this.transform.position.y);
+        }
+        if (this.transform.position.x > 9.5f)
+        {
+            startTarget = new Vector2(UnityEngine.Random.Range(-9.5f, 9.5f), this.transform.position.y);
+        }
+        if (this.transform.position.y > 2.3f)
+        {
+            startTarget = new Vector2(this.transform.position.x, UnityEngine.Random.Range(-5.3f, 2.3f));
+        }
     }
 
     private void Update()
     {
-        if (_path != null || _isTracking)
-        {
-            // Reached pathfinding destination, stopping...
-            if (_currentWaypoint >= _path.vectorPath.Count || Vector2.Distance(transform.position, _targetPosition) <= stoppingDistance)
+        if (inRoom){
+            if (_path != null || _isTracking)
             {
-                StopTracking();
-                return;
+                // Reached pathfinding destination, stopping...
+                if (_currentWaypoint >= _path.vectorPath.Count || Vector2.Distance(transform.position, _targetPosition) <= stoppingDistance)
+                {
+                    StopTracking();
+                    return;
+                }
+
+                // Travel to current waypoint
+                Direction = (_path.vectorPath[_currentWaypoint] - transform.position).normalized;
+                Move(Direction);
+
+                // If waypoint reached then proceed to the next waypoint
+                if (Vector2.Distance(transform.position, _path.vectorPath[_currentWaypoint]) < NextWaypointDistance) _currentWaypoint++;
             }
-
-            // Travel to current waypoint
-            Direction = (_path.vectorPath[_currentWaypoint] - transform.position).normalized;
-            Move(Direction);
-
-            // If waypoint reached then proceed to the next waypoint
-            if (Vector2.Distance(transform.position, _path.vectorPath[_currentWaypoint]) < NextWaypointDistance) _currentWaypoint++;
+        }
+        else
+        {
+            float distance = Vector2.Distance(transform.position, startTarget);
+            if (distance <= 1f)
+            {
+                transform.position = Vector2.MoveTowards(this.transform.position, startTarget, 2 * Time.deltaTime);
+            }
+            else
+            {
+                inRoom = true;
+            }
         }
     }
 
