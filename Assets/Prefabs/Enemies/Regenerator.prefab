@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1060834318403049511}
   - component: {fileID: 7405645919431349635}
   - component: {fileID: 3561782064973286574}
+  - component: {fileID: -7757205236672219396}
   m_Layer: 6
   m_Name: Regenerator
   m_TagString: Enemy
@@ -202,8 +203,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 834a5ac2b5d6a4543b94587f6ea2087d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inRoom: 0
   stoppingDistance: 0.1
   walkForce: 14
+--- !u!114 &-7757205236672219396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3289993064394399149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b322e2d7ca5527448ae6bc49a238976c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inRoom: 0
 --- !u!1 &4095155054008371591
 GameObject:
   m_ObjectHideFlags: 0

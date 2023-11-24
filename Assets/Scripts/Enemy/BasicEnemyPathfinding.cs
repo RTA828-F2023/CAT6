@@ -17,7 +17,9 @@ public class EnemyPathfinding : MonoBehaviour
     private Boolean onPath = true;
     private int nextPathPoint = 0;
     private GameObject target;
-    
+    private Vector2 startTarget;
+    public Boolean inRoom = false;
+
     private void Start()
     {
         speed = 2f;
@@ -25,17 +27,47 @@ public class EnemyPathfinding : MonoBehaviour
         Players = GameObject.FindGameObjectsWithTag("Player");
         level = GetComponentInParent<Level>();
         PatrolRoute = level.patrolRoute;
+        //Enemy spawns outside game area, so should first enter game area
+        if (this.transform.position.x < -9.5f)
+        {
+            startTarget = new Vector2(UnityEngine.Random.Range(-9.5f, 9.5f), this.transform.position.y);
+        }
+        if (this.transform.position.x > 9.5f)
+        {
+            startTarget = new Vector2(UnityEngine.Random.Range(-9.5f, 9.5f), this.transform.position.y);
+        }
+        if (this.transform.position.y > 2.3f)
+        {
+            startTarget = new Vector2(this.transform.position.x, UnityEngine.Random.Range(-5.3f, 2.3f));
+        }
+
     }
 
     private void Update()
     {
-        Players = GameObject.FindGameObjectsWithTag("Player");
-        if (Players.Length > 0) {
-            target = ClosestPlayer();
-            distance = Vector2.Distance(transform.position, target.transform.position);
-            //Vector2 direction = target.transform.position - transform.position;
-            //transform.position = Vector2.MoveTowards(this.transform.position, target.transform.position, speed * Time.deltaTime);
-            Move();
+        if (inRoom)
+        {
+            Players = GameObject.FindGameObjectsWithTag("Player");
+            if (Players.Length > 0)
+            {
+                target = ClosestPlayer();
+                distance = Vector2.Distance(transform.position, target.transform.position);
+                //Vector2 direction = target.transform.position - transform.position;
+                //transform.position = Vector2.MoveTowards(this.transform.position, target.transform.position, speed * Time.deltaTime);
+                Move();
+            }
+        }
+        else
+        {
+            distance = Vector2.Distance(transform.position, startTarget);
+            if (distance <= 1f)
+            {
+                transform.position = Vector2.MoveTowards(this.transform.position, startTarget, speed * Time.deltaTime);
+            }
+            else
+            {
+                inRoom = true;
+            }
         }
     }
 
