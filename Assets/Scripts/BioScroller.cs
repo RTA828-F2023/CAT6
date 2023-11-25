@@ -18,13 +18,13 @@ public class BioScroller : MonoBehaviour
         // Handle scrolling input
         _inputManager.Player1.Joystick.performed += ScrollOnPerformed;
         _inputManager.Player2.Joystick.performed += ScrollOnPerformed;
-        _inputManager.Player2.Joystick.performed += ScrollOnPerformed;
-        _inputManager.Player2.Joystick.performed += ScrollOnPerformed;
+        _inputManager.Player3.Joystick.performed += ScrollOnPerformed;
+        _inputManager.Player4.Joystick.performed += ScrollOnPerformed;
 
         _inputManager.Player1.Joystick.canceled += ScrollOnCanceled;
         _inputManager.Player2.Joystick.canceled += ScrollOnCanceled;
-        _inputManager.Player2.Joystick.canceled += ScrollOnCanceled;
-        _inputManager.Player2.Joystick.canceled += ScrollOnCanceled;
+        _inputManager.Player3.Joystick.canceled += ScrollOnCanceled;
+        _inputManager.Player4.Joystick.canceled += ScrollOnCanceled;
 
         _inputManager.Game.Select.performed += SelectOnPerformed;
 
