@@ -37,7 +37,7 @@ public class GameController : MonoBehaviour
     private bool isDoneViewingScore = false;
     private InputManager _inputManager;
 
-     private float controlLocktimer = 1.0f;
+    private float controlLocktimer = 1.0f;
 
     #region Unity Events
 
@@ -72,7 +72,7 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        if(State == GameState.GameOver || State == GameState.Completed )
+        if (State == GameState.GameOver || State == GameState.Completed)
         {
             _inputManager.Disable();
 
@@ -82,7 +82,6 @@ public class GameController : MonoBehaviour
             {
                 _inputManager.Enable();
             }
-            Debug.Log(controlLocktimer);
         }
     }
 
