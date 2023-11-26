@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     private Image[] _heartIcons;
 
     [SerializeField] private Weapon[] weaponPrefabs;
+    [SerializeField] private TMP_Text weaponNameText;
 
     [SerializeField] private AudioSource walkAudio;
 
@@ -234,5 +235,6 @@ public class Player : MonoBehaviour
 
         _weapon = Instantiate(weaponPrefabs[Random.Range(0, weaponPrefabs.Length)], transform.position, Quaternion.identity);
         _weapon.transform.SetParent(transform);
+        weaponNameText.SetText(_weapon.name);
     }
 }

@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310b0f9524c51f24093168ae7d72a64d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Smuggler
   firePoint: {fileID: 7730123725021386371}
   fireRecoveryTime: 0.25
   inkblobPrefab: {fileID: 2839642025101349446, guid: e54b7569704217d45b0a38ffb8dee430, type: 3}

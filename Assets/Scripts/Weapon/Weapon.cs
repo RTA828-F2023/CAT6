@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    public new string name;
+
     public Transform firePoint;
     protected Player player;
 

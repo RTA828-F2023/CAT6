@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310b0f9524c51f24093168ae7d72a64d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Negotiator
   firePoint: {fileID: 7730123725021386371}
   fireRecoveryTime: 0.3333333
   inkblobPrefab: {fileID: 2839642025101349446, guid: 6aed97d5c88ab1c4888f92185b12efbc, type: 3}

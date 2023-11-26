@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310b0f9524c51f24093168ae7d72a64d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Mediator
   firePoint: {fileID: 7730123725021386371}
   fireRecoveryTime: 0.3
   inkblobPrefab: {fileID: 2839642025101349446, guid: 202e113d74344ec4b9fcc999acea2b16, type: 3}
