@@ -32,6 +32,12 @@ public class SelectController : MonoBehaviour
     public TextMeshProUGUI p3CurrChoice;
     public TextMeshProUGUI p4CurrChoice;
 
+    public TextMeshProUGUI p1ControlText;
+    public TextMeshProUGUI p2ControlText;
+    public TextMeshProUGUI p3ControlText;
+    public TextMeshProUGUI p4ControlText;
+
+
     public TextMeshProUGUI ready;
 
 
@@ -163,7 +169,7 @@ public class SelectController : MonoBehaviour
                 PlayerPrefs.SetInt("p4", players[3]);
 
                 //load test level
-                SceneLoader.Instance.Load("TestLevel2");
+                SceneLoader.Instance.Load("InstructionScreen");
             }
         }
         else
@@ -272,6 +278,7 @@ public class SelectController : MonoBehaviour
             //change ui text
             Debug.Log("P1 locked in");
             p1text.text = "Player 1";
+            p1ControlText.text = "Press 1 to Select!";
 
             //call subprogram that deals with locking when player has no actions
             PLock_NoAction(context, 0);
@@ -282,7 +289,7 @@ public class SelectController : MonoBehaviour
             //change ui text
             Debug.Log("P1 selected char");
             P1OKImage.enabled = true;
-
+            p1ControlText.enabled = false;
             //call subprogram that deals with locking character when player already locked in
             PLock_LockedIn(context, 0);
         }
@@ -301,6 +308,7 @@ public class SelectController : MonoBehaviour
             //change ui text 
             Debug.Log("P2 locked in");
             p2text.text = "Player 2";
+            p2ControlText.text = "Press 1 to Select!";
 
             //call subprogram that deals with locking when player has no actions 
             PLock_NoAction(context, 1);
@@ -311,6 +319,7 @@ public class SelectController : MonoBehaviour
             //change ui text 
             Debug.Log("P2 selected char");
             P2OKImage.enabled = true;
+            p2ControlText.enabled = false;
 
             //call subprogram that deals with locking character when player already locked in
             PLock_LockedIn(context, 1);
@@ -330,6 +339,7 @@ public class SelectController : MonoBehaviour
             //change ui text
             Debug.Log("P3 locked in");
             p3text.text = "Player 3";
+            p3ControlText.text = "Press 1 to Select!";
 
             //call subporgram that deals with locking when player has no actions
             PLock_NoAction(context, 2);
@@ -340,6 +350,7 @@ public class SelectController : MonoBehaviour
             //change ui text 
             Debug.Log("P3 selected char");
             P3OKImage.enabled = true;
+            p3ControlText.enabled = false;
 
             //call subprogram that deals with locking character when player already locked in 
             PLock_LockedIn(context, 2);
@@ -359,7 +370,7 @@ public class SelectController : MonoBehaviour
             //change ui text 
             Debug.Log("P4 locked in");
             p4text.text = "Player 4";
-
+            p4ControlText.text = "Press 1 to Select!";
             //call subprogram that deals with locking when player has no actions
             PLock_NoAction(context, 3);
         }
@@ -369,6 +380,7 @@ public class SelectController : MonoBehaviour
             //change ui text
             Debug.Log("P4 selected char");
             P4OKImage.enabled = true;
+            p4ControlText.enabled = false;
 
             //call subprogram that deals with locking character when player already locked in
             PLock_LockedIn(context, 3);
@@ -389,6 +401,7 @@ public class SelectController : MonoBehaviour
             Debug.Log("P1 UNlocked in");
             p1text.text = "";
             p1CurrChoice.text = "";
+            p1ControlText.text = "Press 1 to Join!";
 
 
             P1Char.sprite = leloLocked;
@@ -403,6 +416,7 @@ public class SelectController : MonoBehaviour
             //change ui text
             Debug.Log("P1 UN - selected char");
             P1OKImage.enabled = false;
+            p1ControlText.enabled = true;
 
             //call subprogram that deals with deselecting character when player already selected a character
             PUnLock_CharSelect(context, 0);
@@ -423,6 +437,7 @@ public class SelectController : MonoBehaviour
             Debug.Log("P2 UN - locked in");
             p2text.text = "";
             p2CurrChoice.text = "";
+            p2ControlText.text = "Press 1 to Join!";
 
             P2Char.sprite = leloLocked;
             P2Image.sprite = P2BgLelo;
@@ -436,6 +451,7 @@ public class SelectController : MonoBehaviour
             //change ui text
             Debug.Log("P2 UN - selected char");
             P2OKImage.enabled = false;
+            p2ControlText.enabled = true;
 
             //call subprogram that deals with deselecting character when player already selected a character 
             PUnLock_CharSelect(context, 1);
@@ -456,6 +472,7 @@ public class SelectController : MonoBehaviour
             Debug.Log("P3 UN - locked in");
             p3text.text = "";
             p3CurrChoice.text = "";
+            p3ControlText.text = "Press 1 to Join!";
 
             P3Char.sprite = leloLocked;
             P3Image.sprite = P3BgLelo;
@@ -469,6 +486,7 @@ public class SelectController : MonoBehaviour
             //change ui text
             Debug.Log("P3 UN - selected char");
             P3OKImage.enabled = false;
+            p3ControlText.enabled = true;
 
             //call subprogram that deals with desselecting character when player already selected character
             PUnLock_CharSelect(context, 2);
@@ -489,6 +507,7 @@ public class SelectController : MonoBehaviour
             Debug.Log("P4 UN - locked in");
             p4text.text = "";
             p4CurrChoice.text = "";
+            p4ControlText.text = "Press 1 to Join!";
 
             P4Char.sprite = leloLocked;
             P4Image.sprite = P4BgLelo;
@@ -502,6 +521,7 @@ public class SelectController : MonoBehaviour
             //change ui text
             Debug.Log("P4 UN - selected char");
             P4OKImage.enabled = false;
+            p4ControlText.enabled = true;
 
             //call subprogram that deals with deselecting character when player already selected character
             PUnLock_CharSelect(context, 3);
