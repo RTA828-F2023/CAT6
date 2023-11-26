@@ -23,13 +23,13 @@ public class InstructionsController : MonoBehaviour
     private IEnumerator Start()
     {
         yield return new WaitForSecondsRealtime(5f);
-        SceneLoader.Instance.Load("TestLevel");
+        SceneLoader.Instance.Load("TestLevel2");
     }
 
     #endregion
 
     private void SkipOnPerformed(InputAction.CallbackContext context)
     {
-        SceneLoader.Instance.Load("TestLevel");
+        SceneLoader.Instance.Load("TestLevel2");
     }
 }
