@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,7 +121,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Enemy_Starfish_OneLeg_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 189.5
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12d31bc19a005e34d8e5306b297a7c2a
+      internalID: -749669897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Starfish_OneLeg_1
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 0
+        width: 189.5
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95b55eef91ab6e040b6e64ea8c1187eb
+      internalID: -1276520220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Starfish_OneLeg_2
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 0
+        width: 189.5
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffead055984a7de4ab8571a190416224
+      internalID: 1526574177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Starfish_OneLeg_3
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 0
+        width: 189.5
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c5164045368da54f90da38a00cbe73e
+      internalID: 2060095278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +216,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Enemy_Starfish_OneLeg_0: -749669897
+      Enemy_Starfish_OneLeg_1: -1276520220
+      Enemy_Starfish_OneLeg_2: 1526574177
+      Enemy_Starfish_OneLeg_3: 2060095278
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

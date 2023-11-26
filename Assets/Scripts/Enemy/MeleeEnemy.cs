@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
 
     #endregion
 
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         _currentHealth -= damage;
         if (_currentHealth <= 0) Die();
