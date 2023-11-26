@@ -194,7 +194,7 @@ MonoBehaviour:
     m_Bits: 0
   fireRate: 1
   fireDelayBetweenBullet: 2
-  fireRecoveryTime: 2
+  fireRecoveryTime: 3
   fireForce: 6
   projectilePrefab: {fileID: 156314086139690434, guid: 36efe02e67ff3654a895da3fc2b9e604, type: 3}
 --- !u!114 &3561782064973286574
@@ -211,7 +211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inRoom: 0
   stoppingDistance: 0.1
-  walkForce: 20
+  walkForce: 10
 --- !u!114 &7684114983756741621
 MonoBehaviour:
   m_ObjectHideFlags: 0

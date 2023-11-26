@@ -205,7 +205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inRoom: 0
   stoppingDistance: 0.1
-  walkForce: 14
+  walkForce: 18
 --- !u!114 &8115643464870281534
 MonoBehaviour:
   m_ObjectHideFlags: 0
