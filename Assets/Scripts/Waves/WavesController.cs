@@ -1,5 +1,7 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Video;
+
 using System.Collections;
 using System.Collections.Specialized;
 
@@ -18,6 +20,10 @@ public class WavesController : MonoBehaviour
     [SerializeField] private TMP_Text timerText;
 
     [Header("UI Wave Banner")]
+    [SerializeField] private VideoClip[] bannerVideos;
+    [SerializeField] private VideoPlayer bannerVideoPlayer;
+    [SerializeField] private GameObject bannerVideoTexture;
+
     [SerializeField] private GameObject bannerObject;
     [SerializeField] private TextMeshProUGUI bannerText;
     [SerializeField] private float timeToMiddle;
@@ -25,6 +31,7 @@ public class WavesController : MonoBehaviour
     private AudioSource startSoundEffect;
     private Vector2 startPosition;
     private RectTransform bannerRectTransform;
+
 
     [Header("Flashing Lights")]
     [SerializeField] public FlashingLight[] flashingLights;
@@ -120,7 +127,8 @@ public class WavesController : MonoBehaviour
 
     private IEnumerator SpawnEnemies() 
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(3f);
+        bannerVideoTexture.SetActive(false);
         enemySpawner_topleft.Spawn(enemiesPerSpawner + _currentWave);
         enemySpawner_topright.Spawn(enemiesPerSpawner + _currentWave);
         enemySpawner_bottomleft.Spawn(enemiesPerSpawner + _currentWave);
@@ -134,8 +142,11 @@ public class WavesController : MonoBehaviour
 
     public void DisplayWave() 
     {
-        bannerText.text = "WAVE " + _currentWave + "!!!";
-        StartCoroutine(MoveBanner());
+        bannerVideoTexture.SetActive(true);
+        bannerVideoPlayer.clip = bannerVideos[_currentWave - 1];
+        bannerVideoPlayer.Play();
+        //bannerText.text = "WAVE " + _currentWave + "!!!";
+        //StartCoroutine(MoveBanner());
     }
 
     private IEnumerator MoveBanner()
