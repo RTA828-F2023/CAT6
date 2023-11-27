@@ -102,7 +102,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""d14f59e3-9c9d-4607-a977-fc320554bfad"",
                     ""path"": ""<Keyboard>/enter"",
-                    ""interactions"": ""MultiTap"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
                     ""action"": ""Skip"",

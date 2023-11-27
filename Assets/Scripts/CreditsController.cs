@@ -4,6 +4,9 @@ using UnityEngine.InputSystem;
 
 public class CreditsController : MonoBehaviour
 {
+    [SerializeField] private GameObject skipText;
+    private bool _canSkip;
+
     private InputManager _inputManager;
 
     #region Unity Events
@@ -22,6 +25,8 @@ public class CreditsController : MonoBehaviour
 
     private IEnumerator Start()
     {
+        skipText.SetActive(false);
+
         yield return new WaitForSecondsRealtime(30f);
         SceneLoader.Instance.Load("MainMenu");
     }
@@ -30,6 +35,18 @@ public class CreditsController : MonoBehaviour
 
     private void SkipOnPerformed(InputAction.CallbackContext context)
     {
-        SceneLoader.Instance.Load("MainMenu");
+        if (_canSkip) SceneLoader.Instance.Load("MainMenu");
+        else StartCoroutine(EnableSkip());
+    }
+
+    private IEnumerator EnableSkip()
+    {
+        _canSkip = true;
+        skipText.SetActive(true);
+
+        yield return new WaitForSeconds(3f);
+
+        _canSkip = false;
+        skipText.SetActive(false);
     }
 }
