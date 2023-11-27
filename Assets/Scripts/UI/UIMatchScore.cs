@@ -330,7 +330,11 @@ public void DrawCharacters(int place, string player)
                 Image4th.sprite = billi;
             }
         }
-        
+    }
+
+    public void DrawRescuedTakoyu()
+    {
+        RescuedImage.color = Color.white;
         //1 -> lello, 2 -> macho, 3 -> eepy,4 -> ruki 5, -> billi
         RescuedImage.sprite = rescuedSprites[PlayerPrefs.GetInt("KidnappedTakoyu", 1) - 1];
     }
