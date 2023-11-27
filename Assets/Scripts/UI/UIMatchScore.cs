@@ -31,6 +31,9 @@ public class ScoreBoard : MonoBehaviour
     public Image Image3rd;
     public Image Image4th;
 
+    public Image RescuedImage;
+    public Sprite[] rescuedSprites;
+
     //make constants for all characters
     private const int LELLO = 1;
     private const int MACHO = 2;
@@ -328,5 +331,7 @@ public void DrawCharacters(int place, string player)
             }
         }
         
+        //1 -> macho, 2 -> lello, 3 -> eepy,4 -> ruki 5, -> billi
+        RescuedImage.sprite = rescuedSprites[PlayerPrefs.GetInt("KidnappedTakoyu", 0) - 1];
     }
 }

@@ -79,5 +79,6 @@ public class CutsceneController : MonoBehaviour
 
         //1 -> macho, 2 -> lello, 3 -> eepy,4 -> ruki 5, -> billi
         cutScenePlayer.clip = cutScenes[_kidnapped - 1];
+        PlayerPrefs.SetInt("KidnappedTakoyu", _kidnapped);
     }
 }
