@@ -14,6 +14,8 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System.IO;
+using System;
+using Pathfinding;
 
 public class ScoreBoard : MonoBehaviour
 {
@@ -127,16 +129,66 @@ public class ScoreBoard : MonoBehaviour
 
         //draw total scores
         totalScores.text = "" + tScore;
-        using (StreamWriter w = File.AppendText("gameFiles/InkywayAllHighscores.txt"))
+
+        //record scores for both the CAT6 system (AllHighscores - triggers OneCard prompt) and leaderboard
+        int newScore = pointSystem.GetHighestScore();
+        //Try to add the score to CAT6's high score system. If no gameFiles folder, it's not on CAT6, so do nothing
+        try
         {
-            w.WriteLine(pointSystem.GetHighestScore());
+            using (StreamWriter w = File.AppendText("gameFiles/InkywayAllHighscores.txt")) //use for CAT6
+            {
+                w.WriteLine(newScore);
+            }
         }
+        catch
+        {
+        }
+
+        //add score to sorted score file for leaderboard
+        UpdateLeaderboard(newScore);
+
+    }
+    public static void UpdateLeaderboard(int newScore)
+    {
+        String LeaderboardFileName = "InkywayLeaderboard.txt";
+        // Check if the file exists, and create it if not
+        if (!File.Exists(LeaderboardFileName))
+        {
+            File.Create(LeaderboardFileName).Close();
+        }
+
+        // Read the contents of the leaderboard file
+        List<string> leaderboardLines = File.ReadAllLines(LeaderboardFileName).ToList();
+
+        // Insert the new score into the leaderboard
+        bool scoreInserted = false;
+        for (int i = 0; i < leaderboardLines.Count; i++)
+        {
+            int existingScore = int.Parse(leaderboardLines[i]);
+
+            if (newScore >= existingScore)
+            {
+                leaderboardLines.Insert(i, newScore.ToString());
+                scoreInserted = true;
+                break;
+            }
+        }
+
+        // If the new score is not inserted yet, add it at the end
+        if (!scoreInserted)
+        {
+            leaderboardLines.Add(newScore.ToString());
+        }
+
+        // Write the updated leaderboard back to the file
+        File.WriteAllLines(LeaderboardFileName, leaderboardLines);
     }
 
-    //pre: needs place and current player
-    //post: none
-    //desc: draws each character in thier relevant place slot
-    public void DrawCharacters(int place, string player)
+
+//pre: needs place and current player
+//post: none
+//desc: draws each character in thier relevant place slot
+public void DrawCharacters(int place, string player)
     {
         //depedning on place do relevant code 
         if(place == 0)

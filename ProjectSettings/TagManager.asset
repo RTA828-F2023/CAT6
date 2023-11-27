@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Augment
   - EnemyProjectile
+  - scoreText
   layers:
   - Default
   - TransparentFX
