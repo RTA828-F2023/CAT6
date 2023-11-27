@@ -213,7 +213,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &271724702
 RectTransform:
   m_ObjectHideFlags: 0
@@ -525,7 +525,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 885576742}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 7949bd6594570d64fa459a9c92d11300, type: 3}
+  m_VideoClip: {fileID: 0}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -547,7 +547,7 @@ VideoPlayer:
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_SkipOnDrop: 1
   m_Looping: 0
   m_WaitForFirstFrame: 1
@@ -867,6 +867,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skipText: {fileID: 103953163}
+  cutSceneTexture: {fileID: 271724701}
+  cutScenePlayer: {fileID: 885576744}
+  cutScenes:
+  - {fileID: 32900000, guid: 93c9b40ca88ac1b46b5e6c72039423e4, type: 3}
+  - {fileID: 32900000, guid: b1a682b02cb6b4a4b898d83b757aefc7, type: 3}
+  - {fileID: 32900000, guid: d2c0be7e3971bc44a99ef8951d0bc7ba, type: 3}
+  - {fileID: 32900000, guid: f001ae34d84dc9849ab248c548b30d88, type: 3}
+  - {fileID: 32900000, guid: 3990eaa979041d44fbf4974ee2a77c0e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
