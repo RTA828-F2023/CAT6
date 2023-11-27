@@ -11,7 +11,10 @@ public class InstructionsController : MonoBehaviour
     private void OnEnable()
     {
         _inputManager = new InputManager();
-        _inputManager.Game.Skip.performed += SkipOnPerformed;
+        _inputManager.Player1.Btn1.performed += SkipOnPerformed;
+        _inputManager.Player2.Btn1.performed += SkipOnPerformed;
+        _inputManager.Player3.Btn1.performed += SkipOnPerformed;
+        _inputManager.Player4.Btn1.performed += SkipOnPerformed;
         _inputManager.Enable();
     }
 
