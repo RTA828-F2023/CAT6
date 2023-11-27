@@ -132,11 +132,18 @@ public class ScoreBoard : MonoBehaviour
 
         //record scores for both the CAT6 system (AllHighscores - triggers OneCard prompt) and leaderboard
         int newScore = pointSystem.GetHighestScore();
-        //using (StreamWriter w = File.AppendText("gameFiles/InkywayAllHighscores.txt")) //use for CAT6
-        using (StreamWriter w = File.AppendText("InkywayAllHighscores.txt")) //use for everything else
+        //Try to add the score to CAT6's high score system. If no gameFiles folder, it's not on CAT6, so do nothing
+        try
         {
-            w.WriteLine(newScore);
+            using (StreamWriter w = File.AppendText("gameFiles/InkywayAllHighscores.txt")) //use for CAT6
+            {
+                w.WriteLine(newScore);
+            }
         }
+        catch
+        {
+        }
+
         //add score to sorted score file for leaderboard
         UpdateLeaderboard(newScore);
 
