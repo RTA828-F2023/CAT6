@@ -26,7 +26,7 @@ public class MenuController : MonoBehaviour
     void Start()
     {
         //let defauly selected button be start button 
-        SelectBtn(0);
+        SelectBtn(1);
     }
 
     // Update is called once per frame
