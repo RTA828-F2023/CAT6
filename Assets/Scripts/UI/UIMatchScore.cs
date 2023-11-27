@@ -331,7 +331,7 @@ public void DrawCharacters(int place, string player)
             }
         }
         
-        //1 -> macho, 2 -> lello, 3 -> eepy,4 -> ruki 5, -> billi
-        RescuedImage.sprite = rescuedSprites[PlayerPrefs.GetInt("KidnappedTakoyu", 0) - 1];
+        //1 -> lello, 2 -> macho, 3 -> eepy,4 -> ruki 5, -> billi
+        RescuedImage.sprite = rescuedSprites[PlayerPrefs.GetInt("KidnappedTakoyu", 1) - 1];
     }
 }

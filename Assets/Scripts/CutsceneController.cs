@@ -77,7 +77,7 @@ public class CutsceneController : MonoBehaviour
         int kidnap = Random.Range(0, _playerChoices.Count);
         _kidnapped = _playerChoices[kidnap];
 
-        //1 -> macho, 2 -> lello, 3 -> eepy,4 -> ruki 5, -> billi
+        //1 -> lello, 2 -> macho, 3 -> eepy,4 -> ruki 5, -> billi
         cutScenePlayer.clip = cutScenes[_kidnapped - 1];
         PlayerPrefs.SetInt("KidnappedTakoyu", _kidnapped);
     }
