@@ -51,11 +51,7 @@ public class CharacterDisabler : MonoBehaviour
         SetChar(P3, PlayerPrefs.GetInt("p3"));
         SetChar(P4, PlayerPrefs.GetInt("p4"));
 
-        // StartCoroutine(setPlayerPortraits());
-        p1Hud.SetDisplay();
-        p2Hud.SetDisplay();
-        p3Hud.SetDisplay();
-        p4Hud.SetDisplay();
+        StartCoroutine(setPlayerPortraits());
 
     }
 
@@ -229,11 +225,13 @@ public class CharacterDisabler : MonoBehaviour
     private IEnumerator setPlayerPortraits() 
     {
         // yield return new WaitForSeconds(0.1f);
+        Time.timeScale = 0f;
         yield return new WaitForEndOfFrame();
         p1Hud.SetDisplay();
         p2Hud.SetDisplay();
         p3Hud.SetDisplay();
         p4Hud.SetDisplay();
+        Time.timeScale = 1f;
 
     }
 }
