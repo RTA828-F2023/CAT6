@@ -8,6 +8,7 @@ TagManager:
   - DeathPit
   - Enemy
   - Augment
+  - EnemyProjectile
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Enemies
   - Terrain
   - Obstacles
-  - 
+  - Players
   - 
   - 
   - 

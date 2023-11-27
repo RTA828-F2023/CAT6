@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5428064538846914430}
   - component: {fileID: 193502535026093494}
   - component: {fileID: 7732265457616006186}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -177,6 +177,7 @@ MonoBehaviour:
   - {fileID: 7650849850580053950, guid: d8a819e52c72f624ea52206fbc4ea20c, type: 3}
   - {fileID: 7650849850580053950, guid: 4d3c447a69f7a8f46ae4f962e2f472b8, type: 3}
   - {fileID: 7650849850580053950, guid: f1fbd980c7d4e4e4badabe257d34435a, type: 3}
+  weaponNameText: {fileID: 0}
   walkAudio: {fileID: 0}
 --- !u!1 &2641234955885343838
 GameObject:
@@ -189,7 +190,7 @@ GameObject:
   - component: {fileID: 7445637171768965771}
   - component: {fileID: 427114170771718132}
   - component: {fileID: 8257508166032771695}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Crown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,7 +324,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8738827278282627669}
   - component: {fileID: 4335541367340027080}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -405,7 +406,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8010298026881643579}
   - component: {fileID: 4926048167082251076}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
