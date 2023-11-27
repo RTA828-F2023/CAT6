@@ -26,7 +26,7 @@ public class Leaderboard : MonoBehaviour
         // Top 10 lines of the leaderboard - or fewer, if there are not yet 10 scores.
         int numLines = 10;
         if (leaderboardLines.Count < numLines) numLines = leaderboardLines.Count;
-        for (int i = 0; i < (numLines - 1); i++)
+        for (int i = 0; i < numLines; i++)
         {
             int existingScore = int.Parse(leaderboardLines[i]);
             scoresText[i].text = existingScore.ToString();
@@ -34,7 +34,7 @@ public class Leaderboard : MonoBehaviour
         //Set the rest of the lines to empty strings
         if (numLines < 10)
         {
-            for (int i = (numLines - 1); i < 10; i++)
+            for (int i = numLines; i < 10; i++)
             {
                 scoresText[i].text = "";
             }
