@@ -223,7 +223,8 @@ public class CharacterDisabler : MonoBehaviour
 
     private IEnumerator setPlayerPortraits() 
     {
-        yield return new WaitForSeconds(0.1f);
+        // yield return new WaitForSeconds(0.1f);
+        yield return new WaitForEndOfFrame();
         p1Hud.SetDisplay();
         p2Hud.SetDisplay();
         p3Hud.SetDisplay();
