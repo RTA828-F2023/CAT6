@@ -135,6 +135,7 @@ public class GameController : MonoBehaviour
         SetDepthOfField(true);
         matchScores.SetActive(true);
         GetComponent<ScoreBoard>().DrawScores();
+        GetComponent<ScoreBoard>().DrawRescuedTakoyu();
         State = GameState.Completed;
         Time.timeScale = 0f;
 
