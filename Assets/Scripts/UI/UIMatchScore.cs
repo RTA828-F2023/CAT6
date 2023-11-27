@@ -13,6 +13,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.IO;
 
 public class ScoreBoard : MonoBehaviour
 {
@@ -126,6 +127,10 @@ public class ScoreBoard : MonoBehaviour
 
         //draw total scores
         totalScores.text = "" + tScore;
+        using (StreamWriter w = File.AppendText("gameFiles/InkywayAllHighscores.txt"))
+        {
+            w.WriteLine(pointSystem.GetHighestScore());
+        }
     }
 
     //pre: needs place and current player
