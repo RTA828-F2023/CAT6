@@ -219,7 +219,7 @@ public class Player : MonoBehaviour
 
     }
 
-    private void Die()
+    public void Die()
     {
         CameraShaker.Instance.Shake(CameraShakeMode.Normal);
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
