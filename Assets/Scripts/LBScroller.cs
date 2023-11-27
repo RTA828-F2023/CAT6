@@ -26,8 +26,10 @@ public class LBScroller : MonoBehaviour
         _inputManager.Player3.Joystick.canceled += ScrollOnCanceled;
         _inputManager.Player4.Joystick.canceled += ScrollOnCanceled;
 
-        _inputManager.Game.Select.performed += SelectOnPerformed;
-
+        _inputManager.Player1.Btn1.performed += SkipOnPerformed;
+        _inputManager.Player2.Btn1.performed += SkipOnPerformed;
+        _inputManager.Player3.Btn1.performed += SkipOnPerformed;
+        _inputManager.Player4.Btn1.performed += SkipOnPerformed;
         _inputManager.Enable();
     }
 
@@ -63,7 +65,7 @@ public class LBScroller : MonoBehaviour
         _scrollValue = 0f;
     }
 
-    private void SelectOnPerformed(InputAction.CallbackContext context)
+    private void SkipOnPerformed(InputAction.CallbackContext context)
     {
         SceneLoader.Instance.Load("MainMenu");
     }
