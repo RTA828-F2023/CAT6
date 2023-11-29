@@ -71,7 +71,7 @@
                     "path": "<Keyboard>/anyKey",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "MouseKeyboard",
                     "action": "Any",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -189,10 +189,10 @@
                 {
                     "name": "",
                     "id": "2b73820e-60f3-42b8-939e-7917d4997cff",
-                    "path": "<Keyboard>/minus",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "MouseKeyboard",
                     "action": "Select",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -200,7 +200,7 @@
                 {
                     "name": "",
                     "id": "e39f6cdf-a771-4ae6-9b7e-f5d086632252",
-                    "path": "<Keyboard>/5",
+                    "path": "<Keyboard>/rightCtrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "MouseKeyboard",
@@ -211,7 +211,7 @@
                 {
                     "name": "",
                     "id": "e8f18757-d333-42e5-aac2-606952dd0f0d",
-                    "path": "<Keyboard>/4",
+                    "path": "<Keyboard>/rightShift",
                     "interactions": "",
                     "processors": "",
                     "groups": "MouseKeyboard",
@@ -321,10 +321,10 @@
                 {
                     "name": "",
                     "id": "f029f007-20dd-46d1-b65f-236dc1b3a9cc",
-                    "path": "<Keyboard>/rightBracket",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "MouseKeyboard",
                     "action": "Select",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -332,7 +332,7 @@
                 {
                     "name": "",
                     "id": "47a32739-c4e5-41a6-bf5f-e7ec593f8315",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "MouseKeyboard",
@@ -343,7 +343,7 @@
                 {
                     "name": "",
                     "id": "521c0734-cc72-4b2c-9044-969bd909b159",
-                    "path": "<Keyboard>/0",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "MouseKeyboard",
@@ -453,10 +453,10 @@
                 {
                     "name": "",
                     "id": "0a45f206-752e-4411-be37-02ad4c99397c",
-                    "path": "<Keyboard>/quote",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "MouseKeyboard",
                     "action": "Select",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -464,7 +464,7 @@
                 {
                     "name": "",
                     "id": "cb6f9394-eddd-4afa-8b50-e698785830db",
-                    "path": "<Keyboard>/x",
+                    "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": "MouseKeyboard",
@@ -475,7 +475,7 @@
                 {
                     "name": "",
                     "id": "4fa01021-ea7b-409c-92f0-dde34f4924a4",
-                    "path": "<Keyboard>/z",
+                    "path": "<Keyboard>/y",
                     "interactions": "",
                     "processors": "",
                     "groups": "MouseKeyboard",
@@ -585,10 +585,10 @@
                 {
                     "name": "",
                     "id": "baf983c3-a04b-4e06-a22d-35029e6b327c",
-                    "path": "<Keyboard>/backspace",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "MouseKeyboard",
                     "action": "Select",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -596,7 +596,7 @@
                 {
                     "name": "",
                     "id": "ef52370d-adf7-4317-bdbb-9c24279753f5",
-                    "path": "<Keyboard>/period",
+                    "path": "<Keyboard>/u",
                     "interactions": "",
                     "processors": "",
                     "groups": "MouseKeyboard",
@@ -607,7 +607,7 @@
                 {
                     "name": "",
                     "id": "09247d44-463d-4bf2-b151-4476db97266d",
-                    "path": "<Keyboard>/m",
+                    "path": "<Keyboard>/o",
                     "interactions": "",
                     "processors": "",
                     "groups": "MouseKeyboard",
