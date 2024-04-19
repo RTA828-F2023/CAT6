@@ -42,7 +42,7 @@ public class CutsceneController : MonoBehaviour
         cutSceneTexture.SetActive(true);
 
 
-        yield return new WaitForSecondsRealtime(70f);
+        yield return new WaitForSecondsRealtime(34f);
         cutSceneTexture.SetActive(false);
         SceneLoader.Instance.Load("InstructionScreen");
     }
