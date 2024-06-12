@@ -13,6 +13,8 @@ using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
+using UnityEngine.InputSystem.XInput;
 
 public class UIControlller : MonoBehaviour
 {
@@ -43,9 +45,12 @@ public class UIControlller : MonoBehaviour
     //In-Game Menu GameObject
     [SerializeField] private GameObject inGameUI;
 
+    private List<int> _inputDeviceIds;
+
     //when scene starts
     void Start()
     {
+        _inputDeviceIds = InputSystem.devices.OfType<XInputController>().Select(controller => controller.deviceId).ToList();
         //set pause menu to not being active
         pauseMenu.SetActive(false);
 
@@ -93,6 +98,9 @@ public class UIControlller : MonoBehaviour
     //desc: Let player one pause game
     private void P1PauseOnPerformed(InputAction.CallbackContext context)
     {
+        if (_inputDeviceIds.Count <= 0) return;
+        if (context.control.device.deviceId != _inputDeviceIds[0]) return;
+
         //if a player currently did not press pause
         if (playerPause == 0)
         {
@@ -111,6 +119,9 @@ public class UIControlller : MonoBehaviour
     //desc: Let player two pause game
     private void P2PauseOnPerformed(InputAction.CallbackContext context)
     {
+        if (_inputDeviceIds.Count <= 1) return;
+        if (context.control.device.deviceId != _inputDeviceIds[1]) return;
+
         //if a player currently did not press pause
         if (playerPause == 0)
         {
@@ -129,6 +140,9 @@ public class UIControlller : MonoBehaviour
     //desc: Let player three pause game
     private void P3PauseOnPerformed(InputAction.CallbackContext context)
     {
+        if (_inputDeviceIds.Count <= 2) return;
+        if (context.control.device.deviceId != _inputDeviceIds[2]) return;
+
         //if a player currently did not press pause
         if (playerPause == 0)
         {
@@ -146,6 +160,9 @@ public class UIControlller : MonoBehaviour
     //desc: Let player four pause the game
     private void P4PauseOnPerformed(InputAction.CallbackContext context)
     {
+        if (_inputDeviceIds.Count <= 3) return;
+        if (context.control.device.deviceId != _inputDeviceIds[3]) return;
+
         //if a player currently did not press pause
         if (playerPause == 0)
         {
@@ -164,6 +181,9 @@ public class UIControlller : MonoBehaviour
     //desc: let player one navigate the pause menu
     private void P1Nav(InputAction.CallbackContext context)
     {
+        if (_inputDeviceIds.Count <= 0) return;
+        if (context.control.device.deviceId != _inputDeviceIds[0]) return;
+
         //make sure player one paused game
         if (playerPause == 1)
         {
@@ -177,6 +197,9 @@ public class UIControlller : MonoBehaviour
     //desc: let player two navigate the pause menu
     private void P2Nav(InputAction.CallbackContext context)
     {
+        if (_inputDeviceIds.Count <= 1) return;
+        if (context.control.device.deviceId != _inputDeviceIds[1]) return;
+
         //make sure player two paused game
         if (playerPause == 2)
         {
@@ -191,6 +214,9 @@ public class UIControlller : MonoBehaviour
     //desc: let player three navigate the pause menu
     private void P3Nav(InputAction.CallbackContext context)
     {
+        if (_inputDeviceIds.Count <= 2) return;
+        if (context.control.device.deviceId != _inputDeviceIds[2]) return;
+
         //make sure player three paused game
         if (playerPause == 3)
         {
@@ -205,6 +231,9 @@ public class UIControlller : MonoBehaviour
     //desc: let player four navigate the pause menu
     private void P4Nav(InputAction.CallbackContext context)
     {
+        if (_inputDeviceIds.Count <= 3) return;
+        if (context.control.device.deviceId != _inputDeviceIds[3]) return;
+
         //make sure player four paused game
         if (playerPause == 4)
         {
@@ -243,6 +272,9 @@ public class UIControlller : MonoBehaviour
     //desc: Let player one confirm their selection
     private void P1Confirm(InputAction.CallbackContext context)
     {
+        if (_inputDeviceIds.Count <= 0) return;
+        if (context.control.device.deviceId != _inputDeviceIds[0]) return;
+
         //make sure player one paused game
         if (playerPause == 1)
         {
@@ -258,6 +290,9 @@ public class UIControlller : MonoBehaviour
     //desc: Let player two confirm their selection
     private void P2Confirm(InputAction.CallbackContext context)
     {
+        if (_inputDeviceIds.Count <= 1) return;
+        if (context.control.device.deviceId != _inputDeviceIds[1]) return;
+
         //make sure player two paused game
         if (playerPause == 2)
         {
@@ -273,6 +308,9 @@ public class UIControlller : MonoBehaviour
     //desc: Let player three confirm their selection
     private void P3Confirm(InputAction.CallbackContext context)
     {
+        if (_inputDeviceIds.Count <= 2) return;
+        if (context.control.device.deviceId != _inputDeviceIds[2]) return;
+
         //make sure player three paused game
         if (playerPause == 3)
         {
@@ -288,6 +326,9 @@ public class UIControlller : MonoBehaviour
     //desc: Let player four confirm their selection
     private void P4Confirm(InputAction.CallbackContext context)
     {
+        if (_inputDeviceIds.Count <= 3) return;
+        if (context.control.device.deviceId != _inputDeviceIds[3]) return;
+
         //make sure player four paused game
         if (playerPause == 4)
         {

@@ -70,12 +70,12 @@ public class MenuController : MonoBehaviour
     private void Nav(InputAction.CallbackContext context)
     {
         //if(context.ReadValue<Vector2>().y != 1)
-        if (context.ReadValue<Vector2>().y < 0)
+        if (context.ReadValue<Vector2>().y > 0)
         {
             SelectBtn((_btnIndex + 1 > btns.Length - 1) ? 0 : _btnIndex + 1);
         }
         //else 
-        else if (context.ReadValue<Vector2>().y > 0)
+        else if (context.ReadValue<Vector2>().y < 0)
         {
             SelectBtn((_btnIndex - 1 < 0) ? btns.Length - 1 : _btnIndex - 1);
         }

@@ -12,6 +12,8 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Linq;
+using UnityEngine.InputSystem.XInput;
 
 public class SelectController : MonoBehaviour
 {
@@ -94,7 +96,7 @@ public class SelectController : MonoBehaviour
     public Sprite P4BgRuuki;
     public Sprite P4BgBilli;
     //sprite for ok
-    public Sprite ok; 
+    public Sprite ok;
 
     //array will keep track of what player is playing, and players choosen character
     private int[] players = { 0, 0, 0, 0 };
@@ -123,10 +125,14 @@ public class SelectController : MonoBehaviour
     //timer to say how many seconds left
     private float timer = 5.0f;
 
+    private List<int> _inputDeviceIds;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        _inputDeviceIds = InputSystem.devices.OfType<XInputController>().Select(controller => controller.deviceId).ToList();
+
         //set all text to nothing when game starts
         p1text.text = "";
         p2text.text = "";
@@ -220,6 +226,8 @@ public class SelectController : MonoBehaviour
     //desc: Let player one navigate the characters
     private void P1Nav(InputAction.CallbackContext context)
     {
+        if (_inputDeviceIds.Count <= 0) return;
+        if (context.control.device.deviceId != _inputDeviceIds[0]) return;
         //only do this code if player is locked in
         if (pActions[0] == LOCKED_IN)
         {
@@ -233,6 +241,8 @@ public class SelectController : MonoBehaviour
     //desc: Let player two navigate the characters
     private void P2Nav(InputAction.CallbackContext context)
     {
+        if (_inputDeviceIds.Count <= 1) return;
+        if (context.control.device.deviceId != _inputDeviceIds[1]) return;
         //only do this code if player is locked in
         if (pActions[1] == LOCKED_IN)
         {
@@ -246,6 +256,8 @@ public class SelectController : MonoBehaviour
     //desc: Let player three navigate the characters
     private void P3Nav(InputAction.CallbackContext context)
     {
+        if (_inputDeviceIds.Count <= 2) return;
+        if (context.control.device.deviceId != _inputDeviceIds[2]) return;
         //only do this code if player is locked in
         if (pActions[2] == LOCKED_IN)
         {
@@ -259,6 +271,8 @@ public class SelectController : MonoBehaviour
     //desc: Let player four navigate the characters
     private void P4Nav(InputAction.CallbackContext context)
     {
+        if (_inputDeviceIds.Count <= 3) return;
+        if (context.control.device.deviceId != _inputDeviceIds[3]) return;
         //only do this code if player is locked in
         if (pActions[3] == LOCKED_IN)
         {
@@ -272,8 +286,10 @@ public class SelectController : MonoBehaviour
     //desc: Depending on current previously done player one action set next lock
     private void P1Lock(InputAction.CallbackContext context)
     {
+        if (_inputDeviceIds.Count <= 0) return;
+        if (context.control.device.deviceId != _inputDeviceIds[0]) return;
         //if player currently had no actions do code 
-        if (pActions[0] == NO_ACTIONS)
+        if (pActions[0] == NO_ACTIONS && context.control.device.deviceId == _inputDeviceIds[0])
         {
             //change ui text
             Debug.Log("P1 locked in");
@@ -284,7 +300,7 @@ public class SelectController : MonoBehaviour
             PLock_NoAction(context, 0);
         }
         //if player is currently locked in do code
-        else if (pActions[0] == LOCKED_IN)
+        else if (pActions[0] == LOCKED_IN && context.control.device.deviceId == _inputDeviceIds[0])
         {
             //change ui text
             Debug.Log("P1 selected char");
@@ -302,6 +318,8 @@ public class SelectController : MonoBehaviour
     //desc: Depending on current previously done player two action set next lock
     private void P2Lock(InputAction.CallbackContext context)
     {
+        if (_inputDeviceIds.Count <= 1) return;
+        if (context.control.device.deviceId != _inputDeviceIds[1]) return;
         //if player currently had no actions do code
         if (pActions[1] == NO_ACTIONS)
         {
@@ -333,6 +351,8 @@ public class SelectController : MonoBehaviour
     //desc: Depending on current previously done player three action set next lock
     private void P3Lock(InputAction.CallbackContext context)
     {
+        if (_inputDeviceIds.Count <= 2) return;
+        if (context.control.device.deviceId != _inputDeviceIds[2]) return;
         //if player currently had no actions do code 
         if (pActions[2] == NO_ACTIONS)
         {
@@ -364,6 +384,8 @@ public class SelectController : MonoBehaviour
     //desc: Depending on current previously done player four action set next lock
     private void P4Lock(InputAction.CallbackContext context)
     {
+        if (_inputDeviceIds.Count <= 3) return;
+        if (context.control.device.deviceId != _inputDeviceIds[3]) return;
         //if player currently had no actions do code
         if (pActions[3] == NO_ACTIONS)
         {
@@ -394,6 +416,8 @@ public class SelectController : MonoBehaviour
     //desc: Depending on current previously done player one action unlock 
     private void P1UnLock(InputAction.CallbackContext context)
     {
+        if (_inputDeviceIds.Count <= 0) return;
+        if (context.control.device.deviceId != _inputDeviceIds[0]) return;
         //if player currently locked in 
         if (pActions[0] == LOCKED_IN)
         {
@@ -430,6 +454,8 @@ public class SelectController : MonoBehaviour
     //desc: Depending on current previously done player two action unlock 
     private void P2UnLock(InputAction.CallbackContext context)
     {
+        if (_inputDeviceIds.Count <= 1) return;
+        if (context.control.device.deviceId != _inputDeviceIds[1]) return;
         //if player currently locked in
         if (pActions[1] == LOCKED_IN)
         {
@@ -465,6 +491,8 @@ public class SelectController : MonoBehaviour
     //desc: Depending on current previously done player three action unlock 
     private void P3UnLock(InputAction.CallbackContext context)
     {
+        if (_inputDeviceIds.Count <= 2) return;
+        if (context.control.device.deviceId != _inputDeviceIds[2]) return;
         //if player currently locked in
         if (pActions[2] == LOCKED_IN)
         {
@@ -500,6 +528,8 @@ public class SelectController : MonoBehaviour
     //desc: Depending on current previously done player four action unlock 
     private void P4UnLock(InputAction.CallbackContext context)
     {
+        if (_inputDeviceIds.Count <= 3) return;
+        if (context.control.device.deviceId != _inputDeviceIds[3]) return;
         //if player currently locked in 
         if (pActions[3] == LOCKED_IN)
         {
@@ -642,32 +672,32 @@ public class SelectController : MonoBehaviour
             //set text to current character text 
             p1CurrChoice.text = charTxt;
 
-            if(charTxt == "lello" )
+            if (charTxt == "lello")
             {
                 P1Char.sprite = lello;
                 P1Image.sprite = P1BgLelo;
             }
-            if(charTxt == "macho" )
+            if (charTxt == "macho")
             {
                 P1Char.sprite = macho;
                 P1Image.sprite = P1BgMacho;
             }
-            if(charTxt == "eepy" )
+            if (charTxt == "eepy")
             {
                 P1Char.sprite = eepy;
                 P1Image.sprite = P1BgEepy;
             }
-            if(charTxt == "ruuki" )
+            if (charTxt == "ruuki")
             {
                 P1Char.sprite = ruuki;
                 P1Image.sprite = P1BgRuuki;
             }
-            if(charTxt == "billi" )
+            if (charTxt == "billi")
             {
                 P1Char.sprite = billi;
                 P1Image.sprite = P1BgBilli;
             }
-            
+
 
         }
         if (p == 1)
@@ -675,27 +705,27 @@ public class SelectController : MonoBehaviour
             //set text to current character text
             p2CurrChoice.text = charTxt;
 
-            if(charTxt == "lello" )
+            if (charTxt == "lello")
             {
                 P2Char.sprite = lello;
                 P2Image.sprite = P2BgLelo;
             }
-            if(charTxt == "macho" )
+            if (charTxt == "macho")
             {
                 P2Char.sprite = macho;
                 P2Image.sprite = P2BgMacho;
             }
-            if(charTxt == "eepy" )
+            if (charTxt == "eepy")
             {
                 P2Char.sprite = eepy;
                 P2Image.sprite = P2BgEepy;
             }
-            if(charTxt == "ruuki" )
+            if (charTxt == "ruuki")
             {
                 P2Char.sprite = ruuki;
                 P2Image.sprite = P2BgRuuki;
             }
-            if(charTxt == "billi" )
+            if (charTxt == "billi")
             {
                 P2Char.sprite = billi;
                 P2Image.sprite = P2BgBilli;
@@ -706,27 +736,27 @@ public class SelectController : MonoBehaviour
             //set text to current character text
             p3CurrChoice.text = charTxt;
 
-            if(charTxt == "lello" )
+            if (charTxt == "lello")
             {
                 P3Char.sprite = lello;
                 P3Image.sprite = P3BgLelo;
             }
-            if(charTxt == "macho" )
+            if (charTxt == "macho")
             {
                 P3Char.sprite = macho;
                 P3Image.sprite = P3BgMacho;
             }
-            if(charTxt == "eepy" )
+            if (charTxt == "eepy")
             {
                 P3Char.sprite = eepy;
                 P3Image.sprite = P3BgEepy;
             }
-            if(charTxt == "ruuki" )
+            if (charTxt == "ruuki")
             {
                 P3Char.sprite = ruuki;
                 P3Image.sprite = P3BgRuuki;
             }
-            if(charTxt == "billi" )
+            if (charTxt == "billi")
             {
                 P3Char.sprite = billi;
                 P3Image.sprite = P3BgBilli;
@@ -737,27 +767,27 @@ public class SelectController : MonoBehaviour
             //set text to current character text
             p4CurrChoice.text = charTxt;
 
-            if(charTxt == "lello" )
+            if (charTxt == "lello")
             {
                 P4Char.sprite = lello;
                 P4Image.sprite = P4BgLelo;
             }
-            if(charTxt == "macho" )
+            if (charTxt == "macho")
             {
                 P4Char.sprite = macho;
                 P4Image.sprite = P4BgMacho;
             }
-            if(charTxt == "eepy" )
+            if (charTxt == "eepy")
             {
                 P4Char.sprite = eepy;
                 P4Image.sprite = P4BgEepy;
             }
-            if(charTxt == "ruuki" )
+            if (charTxt == "ruuki")
             {
                 P4Char.sprite = ruuki;
                 P4Image.sprite = P4BgRuuki;
             }
-            if(charTxt == "billi" )
+            if (charTxt == "billi")
             {
                 P4Char.sprite = billi;
                 P4Image.sprite = P4BgBilli;

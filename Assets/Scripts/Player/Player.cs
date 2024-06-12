@@ -1,12 +1,17 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
+using UnityEngine.InputSystem.XInput;
 
 public class Player : MonoBehaviour
 {
     public PlayerType type;
+    private int _inputDeviceId;
+    private List<int> _inputDeviceIds;
 
     [Header("Stats")]
     [SerializeField] private int maxHealth;
@@ -94,6 +99,29 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        _inputDeviceIds = InputSystem.devices.OfType<XInputController>().Select(controller => controller.deviceId).ToList();
+        switch (type)
+        {
+            case PlayerType.One:
+                _inputDeviceId = _inputDeviceIds.Count > 0 ? _inputDeviceIds[0] : -1;
+                break;
+
+            case PlayerType.Two:
+                _inputDeviceId = _inputDeviceIds.Count > 1 ? _inputDeviceIds[1] : -1;
+                break;
+
+            case PlayerType.Three:
+                _inputDeviceId = _inputDeviceIds.Count > 2 ? _inputDeviceIds[2] : -1;
+                break;
+
+            case PlayerType.Four:
+                _inputDeviceId = _inputDeviceIds.Count > 3 ? _inputDeviceIds[3] : -1;
+                break;
+
+            default:
+                break;
+        }
+
         _currentHealth = maxHealth;
         ShuffleWeapon();
     }
@@ -114,6 +142,7 @@ public class Player : MonoBehaviour
 
     private void WalkOnPerformed(InputAction.CallbackContext context)
     {
+        if (context.control.device.deviceId != _inputDeviceId) return;
         if (Time.timeScale != 0)
         {
             Walk(context.ReadValue<Vector2>().normalized);
@@ -122,6 +151,7 @@ public class Player : MonoBehaviour
 
     private void WalkOnCanceled(InputAction.CallbackContext context)
     {
+        if (context.control.device.deviceId != _inputDeviceId) return;
         if (Time.timeScale != 0)
         {
             Stop();
@@ -130,6 +160,7 @@ public class Player : MonoBehaviour
 
     private void FireOnPerformed(InputAction.CallbackContext context)
     {
+        if (context.control.device.deviceId != _inputDeviceId) return;
         if (Time.timeScale != 0)
         {
             Fire();
